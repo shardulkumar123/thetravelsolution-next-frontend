@@ -56,7 +56,7 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Full-bleed Hero Section */}
-        <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-start overflow-hidden">
+        <section className="relative w-full min-h-[80vh] md:min-h-[85vh] flex items-center justify-start overflow-hidden">
           {/* Cinematic Background Carousel */}
           <Carousel
             slides={carouselSlides}
@@ -66,9 +66,9 @@ export default function Home() {
           />
 
           {/* Content Layer */}
-          <Container className="relative z-20 pt-24 pb-20 md:pt-32 md:pb-28 flex flex-col justify-between min-h-[90vh] md:min-h-screen">
+          <Container className="relative z-20 pt-24 pb-24 md:pt-32 md:pb-32 flex flex-col justify-center min-h-[80vh] md:min-h-[85vh]">
             {/* Copywriting Block */}
-            <div className="flex-1 flex flex-col justify-center items-start text-left gap-6 max-w-2xl my-auto animate-carousel-fade">
+            <div className="flex flex-col justify-center items-start text-left gap-6 max-w-2xl my-auto animate-carousel-fade">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white shadow-soft">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 <Text
@@ -110,25 +110,29 @@ export default function Home() {
                 </Button>
               </div>
             </div>
+          </Container>
+        </section>
 
-            {/* Glassmorphic Stats Row */}
-            <div
-              className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full mt-12 md:mt-16"
-              id="stats"
-            >
+        {/* Stats Section below the Hero */}
+        <section className="bg-surface py-12 border-b border-border" id="stats">
+          <Container>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
               {stats.map((stat) => (
                 <div
                   key={stat.id}
-                  className="flex items-center gap-4 p-6 rounded-card border border-white/10 bg-slate-950/40 dark:bg-slate-900/40 backdrop-blur-md text-white shadow-medium hover:shadow-hard hover:-translate-y-1 transition-all duration-300"
+                  className="flex items-center gap-4 p-6 rounded-card border border-border bg-card text-text-primary shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300"
                 >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-btn bg-white/10 border border-white/10 shrink-0 shadow-soft">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-btn bg-surface border border-border shrink-0 shadow-soft">
                     {stat.icon}
                   </div>
                   <div>
-                    <Heading variant="h3" className="text-white tracking-tight font-extrabold">
+                    <Heading
+                      variant="h3"
+                      className="text-text-primary tracking-tight font-extrabold"
+                    >
                       {stat.number}
                     </Heading>
-                    <Text variant="body-sm" className="font-medium mt-0.5 text-white/80">
+                    <Text variant="body-sm" className="font-medium mt-0.5 text-text-secondary">
                       {stat.label}
                     </Text>
                   </div>

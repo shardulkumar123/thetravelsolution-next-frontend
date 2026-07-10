@@ -131,7 +131,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       </button>
 
       {/* Timing Indicators */}
-      <div className="absolute bottom-10 left-6 md:left-[var(--spacing-container-padding-val)] z-20 flex gap-2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {slides.map((_, index) => {
           const isActive = index === currentIndex;
           return (
