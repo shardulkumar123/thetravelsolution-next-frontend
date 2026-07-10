@@ -3,26 +3,50 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-// import { useApp } from "@/context/AppContext";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
-// import { Moon, Sun } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 
 import { cn } from "@/lib/utils";
 
+interface SubLink {
+  name: string;
+  href: string;
+}
+
+interface NavLink {
+  name: string;
+  href?: string;
+  subLinks?: SubLink[];
+}
+
 export const Navbar: React.FC = () => {
-  // const { theme, toggleTheme } = useApp();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: "Home", href: "#home" },
-    { name: "Features", href: "#features" },
-    { name: "Showcase", href: "#showcase" },
-    { name: "Stats", href: "#stats" },
-    { name: "Contact", href: "#contact" },
+    { name: "About Us", href: "#about" },
+    {
+      name: "Tour Packages",
+      subLinks: [
+        { name: "Domestic Tours", href: "#domestic-tours" },
+        { name: "Religious Tours", href: "#religious-tours" },
+        { name: "Honeymoon Packages", href: "#honeymoon-packages" },
+      ],
+    },
+    {
+      name: "Booking Services",
+      subLinks: [
+        { name: "Hotel Booking", href: "#hotel-booking" },
+        { name: "Taxi Booking", href: "#taxi-booking" },
+        { name: "Bus Booking", href: "#bus-booking" },
+        { name: "Flight Ticket Assistance", href: "#flight-assistance" },
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -79,29 +103,68 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="relative py-2 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              if (link.subLinks) {
+                return (
+                  <div
+                    key={link.name}
+                    className="relative py-4 group"
+                    onMouseEnter={() => setActiveDropdown(link.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <button
+                      className="flex items-center gap-1 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 py-1 transition-colors duration-200 cursor-pointer"
+                      aria-expanded={activeDropdown === link.name}
+                      aria-haspopup="true"
+                    >
+                      {link.name}
+                      <ChevronDown
+                        size={14}
+                        className={cn(
+                          "transition-transform duration-200 text-text-secondary group-hover:text-primary",
+                          activeDropdown === link.name && "rotate-180"
+                        )}
+                      />
+                    </button>
+
+                    {/* Dropdown Menu */}
+                    <div
+                      className={cn(
+                        "absolute top-full left-1/2 -translate-x-1/2 mt-1 w-56 rounded-md bg-card border border-border shadow-hard py-2 transition-all duration-200 origin-top z-50",
+                        activeDropdown === link.name
+                          ? "opacity-100 translate-y-0 scale-100 visible"
+                          : "opacity-0 translate-y-2 scale-95 invisible"
+                      )}
+                    >
+                      {link.subLinks.map((sub) => (
+                        <a
+                          key={sub.name}
+                          href={sub.href}
+                          className="block px-4 py-2.5 text-body-sm text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
+                        >
+                          {sub.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="relative py-2 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Theme Toggle (Commented for future use)
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-btn hover:bg-surface text-text-secondary hover:text-text-primary outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer transition-colors duration-200"
-              aria-label={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-            */}
             <Button variant="primary" size="sm">
               Get Started
             </Button>
@@ -109,15 +172,6 @@ export const Navbar: React.FC = () => {
 
           {/* Mobile Right Controls */}
           <div className="flex items-center gap-2 md:hidden">
-            {/* Theme Toggle (Commented for future use)
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-btn hover:bg-surface text-text-secondary hover:text-text-primary outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer transition-colors duration-200"
-              aria-label={theme === "light" ? "Switch to Dark Mode" : "Switch to Light Mode"}
-            >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-            */}
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
@@ -173,17 +227,60 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Links */}
-          <nav className="flex flex-col gap-4 mb-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="flex flex-col gap-2 mb-8 overflow-y-auto max-h-[calc(100vh-250px)]">
+            {navLinks.map((link) => {
+              if (link.subLinks) {
+                const isExpanded = mobileDropdown === link.name;
+                return (
+                  <div key={link.name} className="flex flex-col">
+                    <button
+                      onClick={() => setMobileDropdown(isExpanded ? null : link.name)}
+                      className="flex items-center justify-between py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200 cursor-pointer w-full text-left"
+                      aria-expanded={isExpanded}
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown
+                        size={18}
+                        className={cn(
+                          "transition-transform duration-200 text-text-secondary",
+                          isExpanded && "rotate-180"
+                        )}
+                      />
+                    </button>
+
+                    {/* Collapsible Sub-menu */}
+                    <div
+                      className={cn(
+                        "flex flex-col gap-1 pl-4 overflow-hidden transition-all duration-300 ease-in-out",
+                        isExpanded ? "max-h-60 py-2 opacity-100" : "max-h-0 py-0 opacity-0"
+                      )}
+                    >
+                      {link.subLinks.map((sub) => (
+                        <a
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={() => setIsOpen(false)}
+                          className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                        >
+                          {sub.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Footer CTA */}
