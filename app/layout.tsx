@@ -5,7 +5,7 @@ import QueryProvider from "@/providers/QueryProvider";
 
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 
-import { inter, outfit } from "@/styles/fonts";
+import { inter, outfit, poppins } from "@/styles/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${outfit.variable} ${poppins.variable} h-full antialiased`}
+    >
       <body className="min-h-full flex flex-col">
         <ErrorBoundary>
           <QueryProvider>

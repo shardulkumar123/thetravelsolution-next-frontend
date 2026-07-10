@@ -26,7 +26,7 @@ describe("Home Page", () => {
       </QueryClientProvider>
     );
     const heading = screen.getByRole("heading", {
-      name: /Production Ready Boilerplate/i,
+      name: /Design Your Next Perfect Getaway/i,
     });
     expect(heading).toBeInTheDocument();
   });
