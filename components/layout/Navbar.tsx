@@ -28,25 +28,28 @@ export const Navbar: React.FC = () => {
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   const navLinks: NavLink[] = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
     {
       name: "Tour Packages",
       subLinks: [
-        { name: "Domestic Tours", href: "#domestic-tours" },
-        { name: "Religious Tours", href: "#religious-tours" },
-        { name: "Honeymoon Packages", href: "#honeymoon-packages" },
+        { name: "Domestic Tours", href: "/#domestic-tours" },
+        { name: "Religious Tours", href: "/#religious-tours" },
+        { name: "Honeymoon Packages", href: "/#honeymoon-packages" },
       ],
     },
     {
       name: "Booking Services",
       subLinks: [
-        { name: "Hotel Booking", href: "#hotel-booking" },
-        { name: "Taxi Booking", href: "#taxi-booking" },
-        { name: "Bus Booking", href: "#bus-booking" },
-        { name: "Flight Ticket Assistance", href: "#flight-assistance" },
+        { name: "Hotel Booking", href: "/#hotel-booking" },
+        { name: "Taxi Booking", href: "/#taxi-booking" },
+        { name: "Bus Booking", href: "/#bus-booking" },
+        { name: "Flight Ticket Assistance", href: "/#flight-assistance" },
       ],
     },
+    { name: "Blogs", href: "/blog" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -138,13 +141,13 @@ export const Navbar: React.FC = () => {
                       )}
                     >
                       {link.subLinks.map((sub) => (
-                        <a
+                        <Link
                           key={sub.name}
                           href={sub.href}
                           className="block px-4 py-2.5 text-body-sm text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -152,13 +155,13 @@ export const Navbar: React.FC = () => {
               }
 
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  href={link.href || "#"}
                   className="relative py-2 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -256,14 +259,14 @@ export const Navbar: React.FC = () => {
                       )}
                     >
                       {link.subLinks.map((sub) => (
-                        <a
+                        <Link
                           key={sub.name}
                           href={sub.href}
                           onClick={() => setIsOpen(false)}
                           className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -271,14 +274,14 @@ export const Navbar: React.FC = () => {
               }
 
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  href={link.href || "#"}
                   onClick={() => setIsOpen(false)}
                   className="py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
