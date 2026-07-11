@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="bg-surface text-text-primary border-t border-border mt-auto pt-16 pb-8 transition-colors duration-[var(--transition-duration-default-val)]">
+      <footer className="bg-surface text-text-primary  mt-auto pt-16 pb-8 transition-colors duration-[var(--transition-duration-default-val)]">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
             {/* Brand Info */}
