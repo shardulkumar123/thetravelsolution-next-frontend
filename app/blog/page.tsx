@@ -34,6 +34,7 @@ export default function BlogPage() {
               src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
               alt="Travel blogs banner"
               fill
+              priority
               className="object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-slate-950/60" />

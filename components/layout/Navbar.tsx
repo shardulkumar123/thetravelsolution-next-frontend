@@ -33,9 +33,9 @@ export const Navbar: React.FC = () => {
     {
       name: "Tour Packages",
       subLinks: [
-        { name: "Domestic Tours", href: "/#domestic-tours" },
-        { name: "Religious Tours", href: "/#religious-tours" },
-        { name: "Honeymoon Packages", href: "/#honeymoon-packages" },
+        { name: "Domestic Tours", href: "/packages/domestic-tours" },
+        { name: "Religious Tours", href: "/packages/religious-tours" },
+        { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
       ],
     },
     {
