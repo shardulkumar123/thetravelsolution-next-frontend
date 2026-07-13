@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 
 import { Container } from "../ui/Container";
+import { CustomImage } from "../ui/CustomImage";
 import { Heading, Text } from "../ui/Typography";
 
 export const Footer: React.FC = () => {
@@ -105,17 +106,23 @@ export const Footer: React.FC = () => {
     <>
       <footer className="bg-surface text-text-primary  mt-auto pt-16 pb-8 transition-colors duration-[var(--transition-duration-default-val)]">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-12 mb-12">
             {/* Brand Info */}
-            <div className="lg:col-span-2 flex flex-col gap-4">
+            <div className="sm:col-span-2 xl:col-span-2 flex flex-col gap-4">
               <Link
                 href="/"
                 className="inline-block outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn w-fit"
               >
                 <span className="font-heading text-2xl font-bold tracking-tight text-text-primary flex items-center gap-2">
-                  <span className="w-9 h-9 rounded-btn bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white text-base font-extrabold shadow-soft">
-                    T
-                  </span>
+                  <div className="w-9 h-9 shrink-0">
+                    <CustomImage
+                      src="/logo.jpeg"
+                      alt="TravelSolution Logo"
+                      fill
+                      rounded="btn"
+                      shadow="soft"
+                    />
+                  </div>
                   Travel<span className="text-primary font-medium">Solution</span>
                 </span>
               </Link>
@@ -187,7 +194,7 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Contact Details */}
-            <div>
+            <div className="sm:col-span-2 lg:col-span-1">
               <Heading
                 variant="h6"
                 className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs"
@@ -214,7 +221,7 @@ export const Footer: React.FC = () => {
                   <Mail size={16} className="text-primary shrink-0" />
                   <a
                     href="mailto:support@travelsolution.com"
-                    className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
+                    className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md whitespace-nowrap"
                   >
                     support@travelsolution.com
                   </a>

@@ -7,6 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
+import { CustomImage } from "../ui/CustomImage";
 
 import { cn } from "@/lib/utils";
 
@@ -91,22 +92,28 @@ export const Navbar: React.FC = () => {
             : "bg-background border-transparent"
         )}
       >
-        <Container className="flex items-center justify-between h-16 md:h-20">
+        <Container className="flex items-center justify-between h-16 xl:h-20">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn p-1"
           >
             <span className="font-heading text-xl font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <span className="w-8 h-8 rounded-btn bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white text-base font-extrabold shadow-soft">
-                T
-              </span>
+              <div className="w-8 h-8 shrink-0">
+                <CustomImage
+                  src="/logo.jpeg"
+                  alt="TravelSolution Logo"
+                  fill
+                  rounded="btn"
+                  shadow="soft"
+                />
+              </div>
               Travel<span className="text-primary font-medium">Solution</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">
+          <nav className="hidden xl:flex items-center gap-6" aria-label="Main Navigation">
             {navLinks.map((link) => {
               if (link.subLinks) {
                 return (
@@ -167,14 +174,14 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <Button variant="primary" size="sm">
               Get Started
             </Button>
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
@@ -191,7 +198,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none md:hidden",
+          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none xl:hidden",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
         )}
       >
@@ -215,9 +222,15 @@ export const Navbar: React.FC = () => {
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
             <span className="font-heading text-lg font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <span className="w-8 h-8 rounded-btn bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white text-base font-extrabold">
-                T
-              </span>
+              <div className="w-8 h-8 shrink-0">
+                <CustomImage
+                  src="/logo.jpeg"
+                  alt="TravelSolution Logo"
+                  fill
+                  rounded="btn"
+                  shadow="soft"
+                />
+              </div>
               TravelSolution
             </span>
             <button

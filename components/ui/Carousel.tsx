@@ -117,14 +117,14 @@ export const Carousel: React.FC<CarouselProps> = ({
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-white/10 hover:bg-white/25 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full border border-white/20 bg-white/10 hover:bg-white/25 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 focus:opacity-100 transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
