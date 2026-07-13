@@ -18,7 +18,7 @@ export const OtherReligiousTours: React.FC = () => {
             variant="h2"
             className="text-text-primary font-extrabold tracking-tight text-3xl md:text-4xl"
           >
-            Other Sacred Journeys
+            Other Sacred Journey
           </Heading>
           <Text variant="body-md" color="text-secondary" className="leading-relaxed mt-3">
             Explore historical temples, pristine rivers, and architectural heritage across
