@@ -1,33 +1,38 @@
 "use client";
 
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 
+import { ContactFormData, contactSchema } from "@/utils/validation";
+
 export const ContactSection: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: yupResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+  const onSubmit = (data: ContactFormData) => {
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      reset();
     }, 3000);
   };
 
@@ -119,7 +124,7 @@ export const ContactSection: React.FC = () => {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="flex flex-col gap-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
                     <label
@@ -131,13 +136,19 @@ export const ContactSection: React.FC = () => {
                     <input
                       type="text"
                       id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
                       placeholder="John Doe"
-                      className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      {...register("name")}
+                      className={`flex h-10 w-full rounded-lg border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                        errors.name
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : "border-border focus-visible:ring-primary"
+                      }`}
                     />
+                    {errors.name && (
+                      <p className="text-xs text-red-500 font-medium mt-0.5" role="alert">
+                        {errors.name.message}
+                      </p>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label
@@ -149,13 +160,19 @@ export const ContactSection: React.FC = () => {
                     <input
                       type="email"
                       id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
                       placeholder="johndoe@example.com"
-                      className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                      {...register("email")}
+                      className={`flex h-10 w-full rounded-lg border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                        errors.email
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : "border-border focus-visible:ring-primary"
+                      }`}
                     />
+                    {errors.email && (
+                      <p className="text-xs text-red-500 font-medium mt-0.5" role="alert">
+                        {errors.email.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -169,12 +186,19 @@ export const ContactSection: React.FC = () => {
                   <input
                     type="text"
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
                     placeholder="Booking inquiry"
-                    className="flex h-10 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    {...register("subject")}
+                    className={`flex h-10 w-full rounded-lg border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
+                      errors.subject
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : "border-border focus-visible:ring-primary"
+                    }`}
                   />
+                  {errors.subject && (
+                    <p className="text-xs text-red-500 font-medium mt-0.5" role="alert">
+                      {errors.subject.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="flex flex-col gap-1.5">
@@ -186,14 +210,20 @@ export const ContactSection: React.FC = () => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
-                    required
                     rows={4}
-                    value={formData.message}
-                    onChange={handleInputChange}
                     placeholder="Tell us about your next adventure..."
-                    className="flex w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 resize-none"
+                    {...register("message")}
+                    className={`flex w-full rounded-lg border bg-background px-3 py-2 text-sm text-text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 resize-none ${
+                      errors.message
+                        ? "border-red-500 focus-visible:ring-red-500"
+                        : "border-border focus-visible:ring-primary"
+                    }`}
                   />
+                  {errors.message && (
+                    <p className="text-xs text-red-500 font-medium mt-0.5" role="alert">
+                      {errors.message.message}
+                    </p>
+                  )}
                 </div>
 
                 <Button

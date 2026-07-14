@@ -14,13 +14,23 @@ import { GALLERY_FILTERS, GALLERY_ITEMS, GalleryItem } from "@/utils/constants";
 
 export default function GalleryPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
   const filters = GALLERY_FILTERS;
-
   const items: GalleryItem[] = GALLERY_ITEMS;
 
   const filteredItems =
     selectedFilter === "All" ? items : items.filter((item) => item.category === selectedFilter);
+
+  const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedItems = filteredItems.slice(startIndex, startIndex + itemsPerPage);
+
+  const handleFilterChange = (filter: string) => {
+    setSelectedFilter(filter);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-text-primary">
@@ -61,7 +71,7 @@ export default function GalleryPage() {
               {filters.map((filter) => (
                 <button
                   key={filter}
-                  onClick={() => setSelectedFilter(filter)}
+                  onClick={() => handleFilterChange(filter)}
                   className={`px-4 py-2 text-xs font-semibold rounded-full border tracking-wider uppercase transition-all duration-200 cursor-pointer ${
                     selectedFilter === filter
                       ? "bg-primary border-primary text-white shadow-soft"
@@ -75,7 +85,7 @@ export default function GalleryPage() {
 
             {/* Masonry-like dynamic grids */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {filteredItems.map((item) => (
+              {paginatedItems.map((item) => (
                 <div
                   key={item.id}
                   className="group relative h-[300px] rounded-card overflow-hidden border border-border shadow-soft hover:shadow-medium transition-all duration-300 cursor-pointer"
@@ -113,6 +123,39 @@ export default function GalleryPage() {
                 <Text variant="body-lg" color="text-secondary">
                   No photos available in this category.
                 </Text>
+              </div>
+            )}
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-12">
+                <button
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((prev) => prev - 1)}
+                  className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg border border-border bg-card text-text-primary hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:hover:bg-card disabled:hover:text-text-primary disabled:hover:border-border transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`inline-flex items-center justify-center w-9 h-9 text-xs font-semibold rounded-lg border transition-all duration-200 cursor-pointer ${
+                      currentPage === page
+                        ? "bg-primary border-primary text-white shadow-soft"
+                        : "bg-card border-border text-text-secondary hover:border-primary hover:text-primary"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                ))}
+                <button
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage((prev) => prev + 1)}
+                  className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-lg border border-border bg-card text-text-primary hover:bg-primary hover:text-white hover:border-primary disabled:opacity-50 disabled:hover:bg-card disabled:hover:text-text-primary disabled:hover:border-border transition-all duration-200 cursor-pointer disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
               </div>
             )}
           </Container>
