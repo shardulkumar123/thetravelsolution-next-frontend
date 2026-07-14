@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 
 import { Container } from "../ui/Container";
-import { CustomImage } from "../ui/CustomImage";
+import { Logo } from "../ui/Logo";
 import { Heading, Text } from "../ui/Typography";
 
 export const Footer: React.FC = () => {
@@ -113,17 +113,16 @@ export const Footer: React.FC = () => {
                 href="/"
                 className="inline-block outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn w-fit"
               >
-                <span className="font-heading text-2xl font-bold tracking-tight text-text-primary flex items-center gap-2">
-                  <div className="w-9 h-9 shrink-0">
-                    <CustomImage
-                      src="/logo.jpeg"
-                      alt="TravelSolution Logo"
-                      fill
-                      rounded="btn"
-                      shadow="soft"
-                    />
+                <span className="flex items-center gap-3">
+                  <Logo className="w-10 h-10 fill-current text-primary transition-transform duration-300 hover:scale-105" />
+                  <div className="flex flex-col leading-tight select-none">
+                    <span className="font-heading text-lg font-extrabold tracking-tight bg-gradient-to-r from-primary-hover via-primary to-secondary bg-clip-text text-transparent">
+                      The Travel Solution
+                    </span>
+                    <span className="text-[9px] text-text-secondary font-bold tracking-wider uppercase opacity-85 mt-0.5">
+                      Your Travel Partner
+                    </span>
                   </div>
-                  Travel<span className="text-primary font-medium">Solution</span>
                 </span>
               </Link>
               <Text

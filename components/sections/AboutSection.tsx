@@ -53,11 +53,9 @@ export const AboutSection: React.FC = () => {
               create unforgettable memories with our customized tours and packages in India.
             </Text>
 
-            <Link href="/about" passHref legacyBehavior>
-              <Button variant="primary" size="default" className="mt-2 font-semibold">
-                Read More
-              </Button>
-            </Link>
+            <Button variant="primary" size="default" className="mt-2 font-semibold" asChild>
+              <Link href="/about">Read More</Link>
+            </Button>
           </div>
         </div>
       </Container>

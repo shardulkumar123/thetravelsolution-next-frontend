@@ -7,7 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
-import { CustomImage } from "../ui/CustomImage";
+import { Logo } from "../ui/Logo";
 
 import { cn } from "@/lib/utils";
 
@@ -98,17 +98,16 @@ export const Navbar: React.FC = () => {
             href="/"
             className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn p-1"
           >
-            <span className="font-heading text-xl font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <div className="w-8 h-8 shrink-0">
-                <CustomImage
-                  src="/logo.jpeg"
-                  alt="TravelSolution Logo"
-                  fill
-                  rounded="btn"
-                  shadow="soft"
-                />
+            <span className="flex items-center gap-3">
+              <Logo className="w-18 h-18 fill-current text-primary transition-transform duration-300 hover:scale-105" />
+              <div className="flex flex-col leading-tight select-none">
+                <span className="font-heading text-lg font-extrabold tracking-tight bg-gradient-to-r from-primary-hover via-primary to-secondary bg-clip-text text-transparent">
+                  The Travel Solution
+                </span>
+                <span className="text-[9px] text-text-secondary font-bold tracking-wider uppercase opacity-85 mt-0.5">
+                  Your Travel Partner
+                </span>
               </div>
-              Travel<span className="text-primary font-medium">Solution</span>
             </span>
           </Link>
 
@@ -221,17 +220,16 @@ export const Navbar: React.FC = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <span className="font-heading text-lg font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <div className="w-8 h-8 shrink-0">
-                <CustomImage
-                  src="/logo.jpeg"
-                  alt="TravelSolution Logo"
-                  fill
-                  rounded="btn"
-                  shadow="soft"
-                />
+            <span className="flex items-center gap-2.5">
+              <Logo className="w-10 h-10 fill-current text-primary" />
+              <div className="flex flex-col leading-tight select-none">
+                <span className="font-heading text-sm font-extrabold tracking-tight bg-gradient-to-r from-primary-hover via-primary to-secondary bg-clip-text text-transparent">
+                  The Travel Solution
+                </span>
+                <span className="text-[8px] text-text-secondary font-bold tracking-wider uppercase opacity-85 mt-0.5">
+                  Your Travel Partner
+                </span>
               </div>
-              TravelSolution
             </span>
             <button
               onClick={() => setIsOpen(false)}
