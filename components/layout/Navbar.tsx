@@ -7,6 +7,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
+import { Logo } from "../ui/Logo";
 
 import { cn } from "@/lib/utils";
 
@@ -28,25 +29,28 @@ export const Navbar: React.FC = () => {
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
 
   const navLinks: NavLink[] = [
-    { name: "Home", href: "#home" },
-    { name: "About Us", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
     {
       name: "Tour Packages",
       subLinks: [
-        { name: "Domestic Tours", href: "#domestic-tours" },
-        { name: "Religious Tours", href: "#religious-tours" },
-        { name: "Honeymoon Packages", href: "#honeymoon-packages" },
+        { name: "Domestic Tours", href: "/#domestic-tours" },
+        { name: "Religious Tours", href: "/#religious-tours" },
+        { name: "Honeymoon Packages", href: "/#honeymoon-packages" },
       ],
     },
     {
       name: "Booking Services",
       subLinks: [
-        { name: "Hotel Booking", href: "#hotel-booking" },
-        { name: "Taxi Booking", href: "#taxi-booking" },
-        { name: "Bus Booking", href: "#bus-booking" },
-        { name: "Flight Ticket Assistance", href: "#flight-assistance" },
+        { name: "Hotel Booking", href: "/#hotel-booking" },
+        { name: "Taxi Booking", href: "/#taxi-booking" },
+        { name: "Bus Booking", href: "/#bus-booking" },
+        { name: "Flight Ticket Assistance", href: "/#flight-assistance" },
       ],
     },
+    { name: "Blogs", href: "/blog" },
+    { name: "Gallery", href: "/gallery" },
+    { name: "Contact", href: "/contact" },
   ];
 
   useEffect(() => {
@@ -88,22 +92,27 @@ export const Navbar: React.FC = () => {
             : "bg-background border-transparent"
         )}
       >
-        <Container className="flex items-center justify-between h-16 md:h-20">
+        <Container className="flex items-center justify-between h-16 xl:h-20">
           {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn p-1"
           >
-            <span className="font-heading text-xl font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <span className="w-8 h-8 rounded-btn bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white text-base font-extrabold shadow-soft">
-                T
-              </span>
-              Travel<span className="text-primary font-medium">Solution</span>
+            <span className="flex items-center gap-3">
+              <Logo className="w-18 h-18 fill-current text-primary transition-transform duration-300 hover:scale-105" />
+              <div className="flex flex-col leading-tight select-none">
+                <span className="font-heading text-lg font-extrabold tracking-tight bg-gradient-to-r from-primary-hover via-primary to-secondary bg-clip-text text-transparent">
+                  The Travel Solution
+                </span>
+                <span className="text-[9px] text-text-secondary font-bold tracking-wider uppercase opacity-85 mt-0.5">
+                  Your Travel Partner
+                </span>
+              </div>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">
+          <nav className="hidden xl:flex items-center gap-6" aria-label="Main Navigation">
             {navLinks.map((link) => {
               if (link.subLinks) {
                 return (
@@ -138,13 +147,13 @@ export const Navbar: React.FC = () => {
                       )}
                     >
                       {link.subLinks.map((sub) => (
-                        <a
+                        <Link
                           key={sub.name}
                           href={sub.href}
                           className="block px-4 py-2.5 text-body-sm text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -152,26 +161,26 @@ export const Navbar: React.FC = () => {
               }
 
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  href={link.href || "#"}
                   className="relative py-2 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <Button variant="primary" size="sm">
               Get Started
             </Button>
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
@@ -188,7 +197,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none md:hidden",
+          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none xl:hidden",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
         )}
       >
@@ -211,11 +220,16 @@ export const Navbar: React.FC = () => {
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <span className="font-heading text-lg font-bold tracking-tight text-text-primary flex items-center gap-2">
-              <span className="w-8 h-8 rounded-btn bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white text-base font-extrabold">
-                T
-              </span>
-              TravelSolution
+            <span className="flex items-center gap-2.5">
+              <Logo className="w-10 h-10 fill-current text-primary" />
+              <div className="flex flex-col leading-tight select-none">
+                <span className="font-heading text-sm font-extrabold tracking-tight bg-gradient-to-r from-primary-hover via-primary to-secondary bg-clip-text text-transparent">
+                  The Travel Solution
+                </span>
+                <span className="text-[8px] text-text-secondary font-bold tracking-wider uppercase opacity-85 mt-0.5">
+                  Your Travel Partner
+                </span>
+              </div>
             </span>
             <button
               onClick={() => setIsOpen(false)}
@@ -256,14 +270,14 @@ export const Navbar: React.FC = () => {
                       )}
                     >
                       {link.subLinks.map((sub) => (
-                        <a
+                        <Link
                           key={sub.name}
                           href={sub.href}
                           onClick={() => setIsOpen(false)}
                           className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                         >
                           {sub.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -271,14 +285,14 @@ export const Navbar: React.FC = () => {
               }
 
               return (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  href={link.href || "#"}
                   onClick={() => setIsOpen(false)}
                   className="py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
-                </a>
+                </Link>
               );
             })}
           </nav>
