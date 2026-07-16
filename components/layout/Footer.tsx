@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
     <>
       <footer className="bg-surface text-text-primary  mt-auto pt-16 pb-8 transition-colors duration-[var(--transition-duration-default-val)]">
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-12 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-2 mb-12">
             {/* Brand Info */}
             <div className="sm:col-span-2 xl:col-span-2 flex flex-col gap-4">
               <Link
@@ -203,26 +203,38 @@ export const Footer: React.FC = () => {
               <ul className="flex flex-col gap-4">
                 <li className="flex items-start gap-2.5 text-body-sm text-text-secondary">
                   <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
-                  <span className="break-words">
-                    100 Travel Solutions Ave, Suite 500, San Francisco, CA 94107
-                  </span>
+                  <span className="break-words">NANGAL, SAHASTRADHARA RD, DEHRADUN, 248001</span>
                 </li>
-                <li className="flex items-center gap-2.5 text-body-sm text-text-secondary">
-                  <Phone size={16} className="text-primary shrink-0" />
-                  <a
-                    href="tel:+18005550199"
-                    className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
-                  >
-                    +1 (800) 555-0199
-                  </a>
+                <li className="flex items-start gap-2.5 text-body-sm text-text-secondary">
+                  <Phone size={16} className="text-primary shrink-0 mt-1" />
+                  <div className="flex flex-col gap-1.5">
+                    <a
+                      href="tel:+919258645860"
+                      className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
+                    >
+                      +91 9258645860
+                    </a>
+                    <a
+                      href="tel:+919084656222"
+                      className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
+                    >
+                      +91 9084656222
+                    </a>
+                    <a
+                      href="tel:+919756706378"
+                      className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
+                    >
+                      +91 9756706378
+                    </a>
+                  </div>
                 </li>
                 <li className="flex items-center gap-2.5 text-body-sm text-text-secondary">
                   <Mail size={16} className="text-primary shrink-0" />
                   <a
-                    href="mailto:support@travelsolution.com"
-                    className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md whitespace-nowrap"
+                    href="mailto:travelsolutionuk0@gmail.com"
+                    className="hover:text-primary hover:underline outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md break-all"
                   >
-                    support@travelsolution.com
+                    travelsolutionuk0@gmail.com
                   </a>
                 </li>
               </ul>
