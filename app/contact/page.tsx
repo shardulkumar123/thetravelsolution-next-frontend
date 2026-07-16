@@ -76,7 +76,7 @@ export default function ContactPage() {
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               {/* Left Column: Coordinates */}
-              <div className="lg:col-span-5 flex flex-col gap-6 text-left">
+              <div className="lg:col-span-5 flex flex-col gap-2 text-left">
                 <div>
                   <span className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary uppercase tracking-wider mb-3">
                     Information
@@ -100,7 +100,7 @@ export default function ContactPage() {
                   <div>
                     <h5 className="font-semibold text-text-primary text-base">Office Address</h5>
                     <p className="text-sm text-text-secondary mt-1">
-                      100 Travel Solutions Ave, Suite 500, San Francisco, CA 94107
+                      NANGAL, SAHASTRADHARA RD, DEHRADUN, 248001
                     </p>
                   </div>
                 </div>
@@ -111,7 +111,26 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h5 className="font-semibold text-text-primary text-base">Phone Inquiries</h5>
-                    <p className="text-sm text-text-secondary mt-1">+1 (800) 555-0199</p>
+                    <div className="flex  text-sm text-text-secondary mt-1 gap-1">
+                      <a
+                        href="tel:+919258645860"
+                        className="hover:text-primary transition-colors hover:underline"
+                      >
+                        +91 9258645860,
+                      </a>
+                      <a
+                        href="tel:+919084656222"
+                        className="hover:text-primary transition-colors hover:underline"
+                      >
+                        +91 9084656222
+                      </a>
+                      <a
+                        href="tel:+919756706378"
+                        className="hover:text-primary transition-colors hover:underline"
+                      >
+                        +91 9756706378
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -121,7 +140,14 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h5 className="font-semibold text-text-primary text-base">Email Support</h5>
-                    <p className="text-sm text-text-secondary mt-1">support@travelsolution.com</p>
+                    <p className="text-sm text-text-secondary mt-1">
+                      <a
+                        href="mailto:travelsolutionuk0@gmail.com"
+                        className="hover:text-primary transition-colors hover:underline"
+                      >
+                        travelsolutionuk0@gmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 
@@ -137,8 +163,8 @@ export default function ContactPage() {
               </div>
 
               {/* Right Column: Interactive Form */}
-              <div className="lg:col-span-7 p-8 md:p-10 rounded-card border border-border bg-card shadow-medium">
-                <Heading variant="h3" className="text-text-primary font-bold mb-6">
+              <div className="h-full lg:col-span-7 p-8 md:p-10 rounded-card border border-border bg-card shadow-medium">
+                <Heading variant="h3" className="text-text-primary font-bold pb-6">
                   Submit a Query
                 </Heading>
 
@@ -153,7 +179,7 @@ export default function ContactPage() {
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col gap-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="flex flex-col gap-1.5 text-left">
                         <label
@@ -258,7 +284,7 @@ export default function ContactPage() {
                     <Button
                       type="submit"
                       variant="primary"
-                      className="w-full flex items-center justify-center gap-2 mt-2"
+                      className="w-full flex items-center justify-center gap-2 mt-20"
                     >
                       <Send size={16} />
                       Send Message

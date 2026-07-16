@@ -72,7 +72,7 @@ export const ContactSection: React.FC = () => {
               <div>
                 <h5 className="font-semibold text-text-primary text-sm">Our Office</h5>
                 <p className="text-xs text-text-secondary mt-1">
-                  100 Travel Solutions Ave, Suite 500, San Francisco, CA 94107
+                  NANGAL, SAHASTRADHARA RD, DEHRADUN, 248001
                 </p>
               </div>
             </div>
@@ -83,7 +83,26 @@ export const ContactSection: React.FC = () => {
               </div>
               <div>
                 <h5 className="font-semibold text-text-primary text-sm">Call Us</h5>
-                <p className="text-xs text-text-secondary mt-1">+1 (800) 555-0199</p>
+                <div className="flex flex-col text-xs text-text-secondary mt-1 gap-1">
+                  <a
+                    href="tel:+919258645860"
+                    className="hover:text-primary transition-colors hover:underline"
+                  >
+                    +91 9258645860
+                  </a>
+                  <a
+                    href="tel:+919084656222"
+                    className="hover:text-primary transition-colors hover:underline"
+                  >
+                    +91 9084656222
+                  </a>
+                  <a
+                    href="tel:+919756706378"
+                    className="hover:text-primary transition-colors hover:underline"
+                  >
+                    +91 9756706378
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -93,7 +112,14 @@ export const ContactSection: React.FC = () => {
               </div>
               <div>
                 <h5 className="font-semibold text-text-primary text-sm">Email Us</h5>
-                <p className="text-xs text-text-secondary mt-1">support@travelsolution.com</p>
+                <p className="text-xs text-text-secondary mt-1">
+                  <a
+                    href="mailto:travelsolutionuk0@gmail.com"
+                    className="hover:text-primary transition-colors hover:underline"
+                  >
+                    travelsolutionuk0@gmail.com
+                  </a>
+                </p>
               </div>
             </div>
 
