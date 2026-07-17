@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 import { Footer } from "@/components/layout/Footer";
@@ -15,7 +15,7 @@ import { GALLERY_FILTERS, GALLERY_ITEMS, GalleryItem } from "@/utils/constants";
 export default function GalleryPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 20;
 
   const filters = GALLERY_FILTERS;
   const items: GalleryItem[] = GALLERY_ITEMS;
