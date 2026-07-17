@@ -34,9 +34,9 @@ export const Navbar: React.FC = () => {
     {
       name: "Tour Packages",
       subLinks: [
-        { name: "Domestic Tours", href: "/#domestic-tours" },
-        { name: "Religious Tours", href: "/#religious-tours" },
-        { name: "Honeymoon Packages", href: "/#honeymoon-packages" },
+        { name: "Domestic Tours", href: "/packages/domestic-tours" },
+        { name: "Religious Tours", href: "/packages/religious-tours" },
+        { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
       ],
     },
     {
@@ -92,7 +92,7 @@ export const Navbar: React.FC = () => {
             : "bg-background border-transparent"
         )}
       >
-        <Container className="flex items-center justify-between h-16 xl:h-20">
+        <Container className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link
             href="/"
@@ -112,7 +112,10 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-6" aria-label="Main Navigation">
+          <nav
+            className="hidden lg:flex items-center gap-4 lg:gap-2 xl:gap-6"
+            aria-label="Main Navigation"
+          >
             {navLinks.map((link) => {
               if (link.subLinks) {
                 return (
@@ -173,14 +176,14 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden xl:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Button variant="primary" size="sm">
               Get Started
             </Button>
           </div>
 
           {/* Mobile Right Controls */}
-          <div className="flex items-center gap-2 xl:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
@@ -197,7 +200,7 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer */}
       <div
         className={cn(
-          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none xl:hidden",
+          "fixed inset-0 z-[var(--z-index-drawer-val)] transition-opacity duration-300 pointer-events-none lg:hidden",
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0"
         )}
       >
