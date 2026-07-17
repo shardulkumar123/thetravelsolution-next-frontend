@@ -62,7 +62,7 @@ export default function ReligiousToursPage() {
         <ChardhamSpotlight onBookClick={handleBookClick} />
 
         {/* Other Religious Packages */}
-        <OtherReligiousTours />
+        <OtherReligiousTours onBookClick={handleBookClick} />
 
         {/* FAQs - "Pilgrim Intel" Section */}
         <ReligiousFaqSection />

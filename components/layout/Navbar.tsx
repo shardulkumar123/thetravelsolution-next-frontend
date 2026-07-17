@@ -2,8 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Phone, X } from "lucide-react";
 
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
@@ -27,27 +28,35 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
+    if (!href) return;
+
+    if (href.startsWith("#") || href.startsWith("/#")) {
+      const id = href.replace(/^\/?#/, "");
+      if (pathname === "/") {
+        const element = document.getElementById(id);
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: "smooth" });
+          setIsOpen(false);
+        }
+      }
+    }
+  };
 
   const navLinks: NavLink[] = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     {
-      name: "Tour Packages",
+      name: "Tours",
       subLinks: [
         { name: "Domestic Tours", href: "/packages/domestic-tours" },
-        { name: "Religious Tours", href: "/packages/religious-tours" },
-        { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
+        { name: "International Tours", href: "/packages/international-tours" },
       ],
     },
-    {
-      name: "Booking Services",
-      subLinks: [
-        { name: "Hotel Booking", href: "/#hotel-booking" },
-        { name: "Taxi Booking", href: "/#taxi-booking" },
-        { name: "Bus Booking", href: "/#bus-booking" },
-        { name: "Flight Ticket Assistance", href: "/#flight-assistance" },
-      ],
-    },
+    { name: "Booking Services", href: "/#services" },
     { name: "Blogs", href: "/blog" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
@@ -126,7 +135,7 @@ export const Navbar: React.FC = () => {
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <button
-                      className="flex items-center gap-1 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 py-1 transition-colors duration-200 cursor-pointer"
+                      className="flex items-center gap-1 text-xs font-semibold text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 py-1 transition-colors duration-200 cursor-pointer"
                       aria-expanded={activeDropdown === link.name}
                       aria-haspopup="true"
                     >
@@ -153,7 +162,8 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={sub.name}
                           href={sub.href}
-                          className="block px-4 py-2.5 text-body-sm text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
+                          onClick={(e) => handleLinkClick(e, sub.href)}
+                          className="block px-4 py-2 text-xs font-medium text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
                         >
                           {sub.name}
                         </Link>
@@ -167,7 +177,8 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.href || "#"}
-                  className="relative py-2 text-body-sm font-medium text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className="relative py-2 text-xs font-semibold text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -176,14 +187,28 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Button variant="primary" size="sm">
-              Get Started
-            </Button>
+          <div className="hidden lg:flex items-center gap-3">
+            <a href="tel:+919258645860">
+              <Button
+                variant="primary"
+                size="sm"
+                className="flex items-center gap-1.5 font-bold transition-colors duration-200 cursor-pointer"
+              >
+                <Phone size={14} />
+                Call Us
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Right Controls */}
           <div className="flex items-center gap-2 lg:hidden">
+            <a
+              href="tel:+919258645860"
+              className="p-2 rounded-btn hover:bg-surface text-text-secondary hover:text-primary outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
+              aria-label="Call Us"
+            >
+              <Phone size={20} />
+            </a>
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(true)}
@@ -276,7 +301,10 @@ export const Navbar: React.FC = () => {
                         <Link
                           key={sub.name}
                           href={sub.href}
-                          onClick={() => setIsOpen(false)}
+                          onClick={(e) => {
+                            setIsOpen(false);
+                            handleLinkClick(e, sub.href);
+                          }}
                           className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                         >
                           {sub.name}
@@ -291,7 +319,10 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.href || "#"}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    handleLinkClick(e, link.href);
+                  }}
                   className="py-3 text-body-lg font-medium text-text-secondary hover:text-primary tracking-wide border-b border-border/50 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
                 >
                   {link.name}
@@ -302,14 +333,17 @@ export const Navbar: React.FC = () => {
 
           {/* Footer CTA */}
           <div className="mt-auto flex flex-col gap-4">
-            <Button
-              variant="primary"
-              size="default"
-              className="w-full"
-              onClick={() => setIsOpen(false)}
-            >
-              Get Started
-            </Button>
+            <a href="tel:+919258645860" className="w-full">
+              <Button
+                variant="primary"
+                size="default"
+                className="w-full flex items-center justify-center gap-2 font-bold cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                <Phone size={16} />
+                Call Us
+              </Button>
+            </a>
           </div>
         </div>
       </div>

@@ -13,42 +13,36 @@ import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Calendar, Compass, Heart, ShieldCheck } from "lucide-react";
 
-import { DOMESTIC_PACKAGES } from "@/utils/constants";
+import { INTERNATIONAL_PACKAGES } from "@/utils/constants";
 
 const TRIP_INTEL = [
   {
-    id: "faq-1",
-    question: "Are flights included in the domestic tour package prices?",
+    id: "int-faq-1",
+    question: "Do you assist with tourist visas for international trips?",
     answer:
-      "No, our base package rates generally cover airport transfers, premium accommodations, sightseeing, select meals, and ground transportation. However, we have a dedicated flight booking assistance desk that can secure the best fares for your travel dates.",
+      "Yes! We provide complete visa application support, including document vetting, appointment scheduling, and guidance for visa-on-arrival processes (like Maldives or Bali) or eVisa submissions (like Dubai).",
   },
   {
-    id: "faq-2",
-    question: "Can I customize the itinerary or extend my stay?",
+    id: "int-faq-2",
+    question: "Is travel insurance included in these packages?",
     answer:
-      "Absolutely! We specialize in tailoring custom itineraries. You can upgrade hotel categories, extend stays at specific destinations, add custom activities, or adjust transit schedules to suit your group's preferences.",
+      "We highly recommend comprehensive international travel insurance covering medical emergencies, baggage loss, and trip cancellations. We partner with leading insurance providers and can bundle policy coverage into your travel package at premium rates.",
   },
   {
-    id: "faq-3",
-    question: "What travel documents are required for domestic journeys?",
+    id: "int-faq-3",
+    question: "Are flights and currency exchanges managed?",
     answer:
-      "You will need a government-issued photo ID (like Aadhaar, PAN Card, Driving License, or Voter ID). For specific high-altitude zones or border regions in Ladakh or Northeast India, special Inner Line Permits (ILP) are required, which our operations team will arrange on your behalf.",
+      "Our package base prices exclude international flights, but our ticketing team can book flights directly from your nearest hub. We also help coordinate forex cards and currency exchanges before you depart.",
   },
   {
-    id: "faq-4",
-    question: "What is the cancellation and refund policy?",
+    id: "int-faq-4",
+    question: "What is the policy for cancellations on international bookings?",
     answer:
-      "Cancellations made 30 days prior to the travel date receive a full refund minus minimal admin charges. Cancellations within 15–29 days receive a 50% refund. Cancellations under 15 days are subject to standard hotel/vendor policies and are usually non-refundable.",
-  },
-  {
-    id: "faq-5",
-    question: "What safety protocols are followed during the tours?",
-    answer:
-      "We ensure all local cabs and coaches are fully sanitized, coordinate only with verified star hotels that maintain high hygiene ratings, and allocate experienced local guides who know safe routes and medical support points.",
+      "Due to international hotel and flight booking protocols, cancellations are governed by strict vendor timelines. Full cancellations 45 days prior receive full refunds minus minor admin fees. Cancellations under 30 days are subject to actual cancellation charges imposed by airlines and luxury resorts.",
   },
 ];
 
-export default function DomesticToursPage() {
+export default function InternationalToursPage() {
   const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
   const [isBookingSubmitted, setIsBookingSubmitted] = useState(false);
   const [bookingForm, setBookingForm] = useState({
@@ -94,8 +88,8 @@ export default function DomesticToursPage() {
         <section className="relative py-24 bg-slate-900 text-white overflow-hidden text-center">
           <div className="absolute inset-0 z-0 select-none">
             <CustomImage
-              src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80"
-              alt="Domestic landscape roadtrip"
+              src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
+              alt="International travel landscape"
               fill
               priority
               className="object-cover opacity-25"
@@ -105,17 +99,17 @@ export default function DomesticToursPage() {
 
           <Container className="relative z-10">
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-xs font-semibold text-primary uppercase tracking-widest mb-3">
-              Explore India
+              Explore the World
             </span>
             <Heading variant="display-lg" className="text-white font-extrabold mb-4 tracking-tight">
-              Domestic Tour Packages
+              International Tour Packages
             </Heading>
             <div className="flex justify-center gap-2 text-sm font-semibold text-white/80">
               <Link href="/" className="hover:text-primary transition-colors">
                 Home
               </Link>
               <span>/</span>
-              <span className="text-primary">Domestic Tours</span>
+              <span className="text-primary">International Tours</span>
             </div>
           </Container>
         </section>
@@ -127,13 +121,12 @@ export default function DomesticToursPage() {
               variant="h2"
               className="font-extrabold text-3xl md:text-4xl mb-4 tracking-tight"
             >
-              Discover the Diverse Landscapes of India
+              Discover Global Wonders and Luxury Escapes
             </Heading>
-            <Text variant="body-md" color="text-secondary" className="leading-relaxed">
-              From the snow-clad peaks of the Himalayas to the warm shores of the Arabian Sea, India
-              offers a rich tapestry of heritage, nature, and adventure. Our meticulously planned
-              domestic tours offer premium stays, comfortable transits, and guided visits so you can
-              explore without a single worry.
+            <Text variant="body-md" className="text-text-secondary leading-relaxed">
+              From overwater luxury bungalows in the Maldives to historic European alpine loops, we
+              provide completely curated international travel solutions. Let us manage visas, stays,
+              and premium activities so you can explore with peace of mind.
             </Text>
           </Container>
         </section>
@@ -142,7 +135,7 @@ export default function DomesticToursPage() {
         <section className="py-20 bg-surface/30">
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {DOMESTIC_PACKAGES.map((pkg) => (
+              {INTERNATIONAL_PACKAGES.map((pkg) => (
                 <div
                   key={pkg.id}
                   className="flex flex-col bg-card border border-border rounded-3xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 group"
@@ -174,19 +167,16 @@ export default function DomesticToursPage() {
 
                       <Heading
                         variant="h3"
-                        className="text-2xl font-bold tracking-tight text-text-primary mb-3 text-left"
+                        className="text-2xl font-bold tracking-tight text-text-primary mb-3"
                       >
                         {pkg.title}
                       </Heading>
 
-                      <Text
-                        variant="body-sm"
-                        className="text-text-secondary leading-relaxed mb-6 text-left"
-                      >
+                      <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-6">
                         {pkg.description}
                       </Text>
 
-                      <div className="flex flex-col gap-3 mb-8 text-left">
+                      <div className="flex flex-col gap-3 mb-8">
                         <span className="text-xs font-bold text-text-primary uppercase tracking-wider">
                           Package Highlights:
                         </span>
@@ -254,40 +244,12 @@ export default function DomesticToursPage() {
                 Explore Themed Travel
               </Heading>
               <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                Looking for something specific? Discover our curated thematic collections designed
-                around spiritual pilgrimages and romantic getaways.
+                Looking for romantic getaways? Explore our customized {"couples' escapes"} with
+                premium privacy and wellness packages.
               </Text>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {/* Religious Tours Card */}
-              <div className="flex flex-col justify-between p-8 rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-0.5 transition-all duration-300 text-left">
-                <div className="flex flex-col gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary">
-                    <Compass size={24} />
-                  </div>
-                  <Heading
-                    variant="h3"
-                    className="text-xl font-bold tracking-tight text-text-primary"
-                  >
-                    Spiritual & Religious Tours
-                  </Heading>
-                  <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                    Embark on sacred journeys including the Char Dham Yatra, Kedarnath, and
-                    Badrinath with comprehensive biometric assistance, luxury hotels, and helicopter
-                    slot bookings.
-                  </Text>
-                </div>
-                <Link href="/packages/religious-tours" className="mt-8">
-                  <Button
-                    variant="primary"
-                    className="w-full font-bold shadow-soft cursor-pointer text-xs py-2.5"
-                  >
-                    View Religious Tours
-                  </Button>
-                </Link>
-              </div>
-
+            <div className="max-w-xl mx-auto">
               {/* Honeymoon Packages Card */}
               <div className="flex flex-col justify-between p-8 rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-0.5 transition-all duration-300 text-left">
                 <div className="flex flex-col gap-4">
@@ -301,8 +263,9 @@ export default function DomesticToursPage() {
                     Romantic Honeymoon Packages
                   </Heading>
                   <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                    Celebrate your new beginning with pristine beaches, cozy mountain villas,
-                    candlelight dinners, and complimentary room decorations tailored for couples.
+                    Celebrate your new beginning with overwater villas in the Maldives, private
+                    beachfront dinners, {"couple's"} spa treatments, and stunning tropical sunset
+                    packages.
                   </Text>
                 </div>
                 <Link href="/packages/honeymoon-packages" className="mt-8">
@@ -318,42 +281,22 @@ export default function DomesticToursPage() {
           </Container>
         </section>
 
-        {/* FAQs - "Trip Intel" Section */}
+        {/* FAQs */}
         <section className="py-20 bg-background border-t border-border">
-          <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-              {/* Left Column: Heading and Context */}
-              <div className="lg:col-span-2 flex flex-col gap-4 text-left">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary uppercase tracking-wider w-fit">
-                  <Compass size={14} /> Trip Intel
-                </span>
-                <Heading
-                  variant="h2"
-                  className="text-text-primary tracking-tight font-extrabold text-3xl md:text-4xl"
-                >
-                  Answers for the Curious Mind
-                </Heading>
-                <Text variant="body-md" color="text-secondary" className="leading-relaxed">
-                  Have questions about custom routes, package inclusions, or transit bookings? We
-                  have compiled practical intelligence to help you plan your domestic journey
-                  efficiently.
-                </Text>
-                <div className="mt-4 flex flex-col gap-3 p-5 rounded-2xl border border-border bg-surface">
-                  <span className="flex items-center gap-2 text-sm font-bold text-text-primary">
-                    <ShieldCheck size={18} className="text-primary" /> Verified Package Standards
-                  </span>
-                  <Text variant="body-sm" color="text-secondary" className="leading-relaxed">
-                    All itineraries are verified for transport reliability, local safety, and
-                    support response.
-                  </Text>
-                </div>
-              </div>
-
-              {/* Right Column: Interactive Accordion */}
-              <div className="lg:col-span-3">
-                <Accordion items={TRIP_INTEL} />
-              </div>
+          <Container className="max-w-4xl">
+            <div className="text-center mb-16">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-xs font-semibold text-secondary uppercase tracking-wider mb-4">
+                Travel Intel
+              </span>
+              <Heading
+                variant="h2"
+                className="font-extrabold text-text-primary text-3xl md:text-4xl tracking-tight"
+              >
+                International Travel Assistance
+              </Heading>
             </div>
+
+            <Accordion items={TRIP_INTEL} />
           </Container>
         </section>
       </main>

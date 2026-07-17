@@ -7,11 +7,60 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CustomImage } from "@/components/ui/CustomImage";
 import { Heading, Text } from "@/components/ui/Typography";
-import { CheckCircle2, ChevronLeft, ChevronRight, HeartPulse } from "lucide-react";
+import {
+  Calendar,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Compass,
+  HeartPulse,
+  ShieldCheck,
+} from "lucide-react";
 
 import { DHAMS, YATRA_ITINERARY } from "@/utils/constants";
 
 import { cn } from "@/lib/utils";
+
+// Mapping individual Dham details for card layout uniformity
+const DHAM_EXTRA_DETAILS: Record<
+  string,
+  {
+    location: string;
+    duration: string;
+    price: string;
+    packageId: string;
+    highlights: string[];
+  }
+> = {
+  Yamunotri: {
+    location: "Uttarakhand, India",
+    duration: "10 Days Yatra",
+    price: "₹48,990",
+    packageId: "st-4",
+    highlights: ["Surya Kund Dip", "Goddess Yamuna Seat", "Janki Chatti Trek"],
+  },
+  Gangotri: {
+    location: "Uttarakhand, India",
+    duration: "10 Days Yatra",
+    price: "₹48,990",
+    packageId: "st-4",
+    highlights: ["Bhagirathi Source", "Granite Temple", "Harsil Valley Loop"],
+  },
+  Kedarnath: {
+    location: "Uttarakhand, India",
+    duration: "10 Days Yatra",
+    price: "₹24,999",
+    packageId: "st-1",
+    highlights: ["Jyotirlinga Temple", "Helicopter Transfer", "16km Scenic Trek"],
+  },
+  Badrinath: {
+    location: "Uttarakhand, India",
+    duration: "10 Days Yatra",
+    price: "₹24,999",
+    packageId: "st-1",
+    highlights: ["Badri Vishal Seat", "Tapt Kund Baths", "Mana Tibetan Border"],
+  },
+};
 
 interface DhamCardProps {
   dham: (typeof DHAMS)[0];
@@ -32,39 +81,47 @@ const DhamCard: React.FC<DhamCardProps> = ({ dham, idx, onBookClick }) => {
     setCurrentImgIdx((prev) => (prev === dham.images.length - 1 ? 0 : prev + 1));
   };
 
+  const details = DHAM_EXTRA_DETAILS[dham.name] || {
+    location: "Uttarakhand, India",
+    duration: "10 Days Yatra",
+    price: "₹48,990",
+    packageId: "st-4",
+    highlights: ["Himalayan Sightseeing", "Temple Darshan", "VIP Clearances"],
+  };
+
   return (
-    <div className="group rounded-2xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden text-left">
+    <div className="group rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden text-left">
       {/* Image Slider */}
-      <div className="relative w-full h-[200px] md:h-[260px] 2xl:h-[180px] select-none overflow-hidden shrink-0 group/slider">
+      <div className="relative w-full h-[220px] md:h-[280px] select-none overflow-hidden shrink-0 group/slider">
         <CustomImage
           src={dham.images[currentImgIdx]}
           alt={`${dham.name} Dham`}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover group-hover:scale-103 transition-transform duration-500"
         />
         {/* Overlay Index */}
-        <div className="absolute top-3 left-3 bg-background/85 backdrop-blur-sm text-text-primary font-bold text-xs px-2.5 py-1 rounded-md shadow-soft z-10">
+        <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-text-primary font-bold text-xs px-3 py-1.5 rounded-full border border-primary/20 shadow-soft z-10">
           0{idx + 1}
         </div>
 
         {/* Slider Controls */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-background/85 hover:bg-background text-text-primary flex items-center justify-center shadow-soft opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 z-10 cursor-pointer border border-border"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/90 hover:bg-background text-text-primary flex items-center justify-center shadow-soft opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 z-10 cursor-pointer border border-border"
           aria-label="Previous image"
         >
-          <ChevronLeft size={14} />
+          <ChevronLeft size={16} />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-background/85 hover:bg-background text-text-primary flex items-center justify-center shadow-soft opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 z-10 cursor-pointer border border-border"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/90 hover:bg-background text-text-primary flex items-center justify-center shadow-soft opacity-0 group-hover/slider:opacity-100 transition-opacity duration-200 z-10 cursor-pointer border border-border"
           aria-label="Next image"
         >
-          <ChevronRight size={14} />
+          <ChevronRight size={16} />
         </button>
 
         {/* Indicator dots */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
           {dham.images.map((_, dotIdx) => (
             <button
               key={dotIdx}
@@ -82,36 +139,77 @@ const DhamCard: React.FC<DhamCardProps> = ({ dham, idx, onBookClick }) => {
         </div>
       </div>
 
-      <div className="p-5 flex-1 flex flex-col justify-between">
-        <div className="flex flex-col gap-2">
-          <Heading variant="h4" className="font-extrabold text-text-primary tracking-tight text-lg">
+      <div className="p-8 flex-1 flex flex-col justify-between">
+        <div>
+          <div className="flex items-center gap-4 text-xs font-bold text-text-secondary mb-3">
+            <span className="flex items-center gap-1">
+              <Compass size={14} className="text-primary" />
+              {details.location}
+            </span>
+            <span className="flex items-center gap-1">
+              <Calendar size={14} className="text-secondary" />
+              {details.duration}
+            </span>
+          </div>
+
+          <Heading
+            variant="h3"
+            className="text-2xl font-bold tracking-tight text-text-primary mb-3"
+          >
             {dham.name} Dham
           </Heading>
-          <Text
-            variant="body-sm"
-            color="text-secondary"
-            className="leading-relaxed min-h-[105px] line-clamp-5"
-          >
+
+          <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-6">
             {dham.desc}{" "}
-            <span className="text-text-secondary font-medium">
+            <span className="text-text-secondary font-semibold">
               (Altitude: <span className="text-primary font-bold">{dham.altitude}</span>)
             </span>
           </Text>
+
+          <div className="flex flex-col gap-3 mb-8">
+            <span className="text-xs font-bold text-text-primary uppercase tracking-wider">
+              Dham Highlights:
+            </span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {details.highlights.map((highlight, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 p-2.5 rounded-xl bg-surface border border-border/60"
+                >
+                  <ShieldCheck size={16} className="text-primary shrink-0" />
+                  <span className="text-xs font-semibold text-text-secondary">{highlight}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="mt-5 pt-4 border-t border-border flex justify-center">
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={() => onBookClick(dham.name)}
-            className="w-fit px-6 text-caption py-2.5 font-bold cursor-pointer flex items-center justify-center gap-1 group/btn shadow-soft hover:shadow-medium transition-all"
-          >
-            <span>Book This Dham</span>
-            <ChevronRight
-              size={14}
-              className="group-hover/btn:translate-x-0.5 transition-transform duration-200"
-            />
-          </Button>
+        <div className="pt-6 border-t border-border flex items-center justify-between gap-2">
+          <div className="flex flex-col text-left shrink-0">
+            <span className="text-xs font-bold text-text-secondary uppercase tracking-wider text-[10px]">
+              Starting Price
+            </span>
+            <span className="text-xl font-black text-primary font-heading mt-1">
+              {details.price}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Link href={`/packages/${details.packageId}`}>
+              <Button
+                variant="outline"
+                className="font-bold shadow-soft cursor-pointer text-xs py-2 px-4"
+              >
+                View Details
+              </Button>
+            </Link>
+            <Button
+              onClick={() => onBookClick(dham.name)}
+              variant="primary"
+              className="font-bold shadow-soft cursor-pointer text-xs py-2 px-4"
+            >
+              Book Now
+            </Button>
+          </div>
         </div>
       </div>
     </div>
@@ -145,7 +243,7 @@ export const ChardhamSpotlight: React.FC<ChardhamSpotlightProps> = ({ onBookClic
         </div>
 
         {/* The Four Dhams Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-8  mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
           {DHAMS.map((dham, idx) => (
             <DhamCard key={idx} dham={dham} idx={idx} onBookClick={onBookClick} />
           ))}
@@ -166,19 +264,19 @@ export const ChardhamSpotlight: React.FC<ChardhamSpotlightProps> = ({ onBookClic
             </Text>
             <div className="flex flex-col gap-3.5 mt-2">
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-primary shrink-0" />
                 <span className="text-body-sm font-semibold text-text-secondary">
                   Premium Hotels & Camps
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-primary shrink-0" />
                 <span className="text-body-sm font-semibold text-text-secondary">
                   Private Mountain Drivers
                 </span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 size={18} className="text-primary shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-primary shrink-0" />
                 <span className="text-body-sm font-semibold text-text-secondary">
                   24/7 Operations Desk Support
                 </span>

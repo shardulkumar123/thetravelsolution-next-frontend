@@ -21,9 +21,9 @@ export const HeroSection: React.FC = () => {
       />
 
       {/* Content Layer */}
-      <Container className="relative z-20 pt-24 pb-24 md:pt-32 md:pb-32 flex flex-col justify-center min-h-[80vh] md:min-h-[85vh]">
+      <Container className="relative z-20 pt-24 pb-24 md:pt-32 md:pb-32 flex flex-col justify-center min-h-[80vh] md:min-h-[85vh] md:px-20 lg:px-32 pointer-events-none">
         {/* Copywriting Block */}
-        <div className="flex flex-col justify-center items-start text-left gap-6 max-w-2xl my-auto animate-carousel-fade">
+        <div className="flex flex-col justify-center items-start text-left gap-6 max-w-2xl my-auto animate-carousel-fade pointer-events-auto">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white shadow-soft">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             <Text

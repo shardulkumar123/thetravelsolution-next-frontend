@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
 import { Footer } from "@/components/layout/Footer";
@@ -9,67 +9,11 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CustomImage } from "@/components/ui/CustomImage";
+import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
-import { Calendar, Compass, Heart, MapPin, ShieldCheck, Sparkles, Star, Wine } from "lucide-react";
+import { Calendar, Compass, Heart, ShieldCheck, Sparkles, Star, Wine } from "lucide-react";
 
-const HONEYMOON_PACKAGES = [
-  {
-    id: "hm-1",
-    title: "Maldives Overwater Luxury Retreat",
-    location: "Maldives (International)",
-    duration: "5 Days / 4 Nights",
-    price: "₹89,999",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Stay in a premium overwater villa with direct access to turquoise lagoons, private plunge pool, and beautiful marine reefs.",
-    highlights: ["Overwater Villa Stay", "Couple's Spa Session", "Private Beachfront Dinner"],
-  },
-  {
-    id: "hm-2",
-    title: "Romantic Kashmir & Dal Lake Shikara",
-    location: "Kashmir, India",
-    duration: "6 Days / 5 Nights",
-    price: "₹29,999",
-    image:
-      "https://images.unsplash.com/photo-1595841696667-aa9c92f90141?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Unravel the heaven on Earth with a romantic houseboat stay on Dal Lake, snow cable cars in Gulmarg, and flower walks in Pahalgam.",
-    highlights: ["Shikara Sunset Cruise", "Gulmarg Gondola Ride", "Dal Lake Houseboat Stay"],
-  },
-  {
-    id: "hm-3",
-    title: "Serene Havelock & Andaman Island Hopping",
-    location: "Andaman Islands, India",
-    duration: "6 Days / 5 Nights",
-    price: "₹34,999",
-    image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Walk hand-in-hand along Radhanagar beach, dive into crystal clear waters with guided scuba sessions, and dine under the stars.",
-    highlights: [
-      "Radhanagar Beach Sunset Walk",
-      "Scuba Diving Experience",
-      "Luxury Cruise Transfer",
-    ],
-  },
-  {
-    id: "hm-4",
-    title: "Cozy Manali Mountain Escape",
-    location: "Himachal Pradesh, India",
-    duration: "5 Days / 4 Nights",
-    price: "₹18,999",
-    image:
-      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Escape to private pine cottages, capture stunning valley views, trek to waterfalls, and cozy up next to mountain fireplaces.",
-    highlights: [
-      "Private Valley View Lodge",
-      "Solang Valley Snow Trek",
-      "Complimentary Honeymoon Cake",
-    ],
-  },
-];
+import { HONEYMOON_PACKAGES } from "@/utils/constants";
 
 const ROMANTIC_INTEL = [
   {
@@ -128,6 +72,42 @@ const PERKS = [
 ];
 
 export default function HoneymoonPackagesPage() {
+  const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
+  const [isBookingSubmitted, setIsBookingSubmitted] = useState(false);
+  const [bookingForm, setBookingForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    date: "",
+    travelers: "2",
+    notes: "",
+  });
+
+  const handleFormChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setBookingForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsBookingSubmitted(true);
+  };
+
+  const handleOpenModal = (packageName: string) => {
+    setBookingPackageName(packageName);
+    setIsBookingSubmitted(false);
+    setBookingForm({
+      name: "",
+      email: "",
+      phone: "",
+      date: "",
+      travelers: "2",
+      notes: "",
+    });
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-text-primary">
       <Navbar />
@@ -181,87 +161,99 @@ export default function HoneymoonPackagesPage() {
         </section>
 
         {/* Packages Grid */}
-        <section className="py-20 bg-surface/50">
+        <section className="py-20 bg-surface/30">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {HONEYMOON_PACKAGES.map((pkg) => (
                 <div
                   key={pkg.id}
-                  className="group rounded-3xl border border-border bg-card overflow-hidden shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row"
+                  className="flex flex-col bg-card border border-border rounded-3xl overflow-hidden shadow-soft hover:shadow-medium transition-all duration-300 group"
                 >
-                  {/* Left image */}
-                  <div className="relative w-full md:w-[45%] h-[260px] md:h-auto shrink-0 select-none overflow-hidden">
+                  <div className="relative w-full h-[280px] md:h-[340px] select-none">
                     <CustomImage
                       src={pkg.image}
                       alt={pkg.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover group-hover:scale-103 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4 bg-primary text-white font-bold text-xs px-3 py-1.5 rounded-full shadow-soft flex items-center gap-1">
-                      <Heart size={12} fill="currentColor" /> Romantic Choice
+                    <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-primary font-bold text-xs px-3.5 py-1.5 rounded-full border border-primary/20 shadow-soft">
+                      {pkg.location}
                     </div>
                   </div>
 
-                  {/* Right copy */}
-                  <div className="p-6 md:p-8 flex flex-col justify-between flex-1 text-left">
-                    <div className="flex flex-col gap-3">
-                      <div className="flex items-center justify-between">
-                        <span className="flex items-center gap-1 text-xs font-semibold text-primary uppercase tracking-wider">
-                          <MapPin size={14} />
+                  <div className="p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-4 text-xs font-bold text-text-secondary mb-3">
+                        <span className="flex items-center gap-1">
+                          <Compass size={14} className="text-primary" />
                           {pkg.location}
                         </span>
-                        <span className="flex items-center gap-1 text-caption text-text-secondary font-medium">
-                          <Calendar size={14} className="text-primary" />
+                        <span className="flex items-center gap-1">
+                          <Calendar size={14} className="text-secondary" />
                           {pkg.duration}
                         </span>
                       </div>
 
                       <Heading
                         variant="h3"
-                        className="font-extrabold text-xl md:text-2xl text-text-primary tracking-tight"
+                        className="text-2xl font-bold tracking-tight text-text-primary mb-3 text-left"
                       >
                         {pkg.title}
                       </Heading>
 
-                      <Text variant="body-sm" color="text-secondary" className="leading-relaxed">
+                      <Text
+                        variant="body-sm"
+                        className="text-text-secondary leading-relaxed mb-6 text-left"
+                      >
                         {pkg.description}
                       </Text>
 
-                      {/* Honeymoon Perks list */}
-                      <div className="mt-2">
-                        <span className="text-xs font-semibold text-text-primary uppercase tracking-wider block mb-1">
-                          Included Perks
+                      <div className="flex flex-col gap-3 mb-8 text-left">
+                        <span className="text-xs font-bold text-text-primary uppercase tracking-wider">
+                          Package Highlights:
                         </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {pkg.highlights.map((h, i) => (
-                            <span
-                              key={i}
-                              className="text-[11px] font-medium bg-primary/5 text-primary px-2.5 py-1 rounded-md border border-primary/10"
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                          {pkg.highlights.map((highlight, index) => (
+                            <div
+                              key={index}
+                              className="flex items-center gap-2 p-2.5 rounded-xl bg-surface border border-border/60"
                             >
-                              {h}
-                            </span>
+                              <ShieldCheck size={16} className="text-primary shrink-0" />
+                              <span className="text-xs font-semibold text-text-secondary">
+                                {highlight}
+                              </span>
+                            </div>
                           ))}
                         </div>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between border-t border-border/80 pt-5 mt-6">
-                      <div className="flex flex-col">
-                        <span className="text-caption text-text-secondary font-medium uppercase">
+                    <div className="pt-6 border-t border-border flex items-center justify-between gap-2">
+                      <div className="flex flex-col text-left shrink-0">
+                        <span className="text-xs font-bold text-text-secondary uppercase tracking-wider text-[10px]">
                           Starting Price
                         </span>
-                        <span className="text-xl font-black text-primary font-heading">
+                        <span className="text-xl font-black text-primary font-heading mt-1">
                           {pkg.price}
-                          <span className="text-xs text-text-secondary font-regular ml-1">
-                            / couple
-                          </span>
                         </span>
                       </div>
-                      <Link href="/contact">
-                        <Button variant="primary" size="sm" className="font-semibold shadow-soft">
-                          Inquire Now
+                      <div className="flex items-center gap-2">
+                        <Link href={`/packages/${pkg.id}`}>
+                          <Button
+                            variant="outline"
+                            className="font-bold shadow-soft cursor-pointer text-xs py-2 px-4"
+                          >
+                            View Details
+                          </Button>
+                        </Link>
+                        <Button
+                          onClick={() => handleOpenModal(pkg.title)}
+                          variant="primary"
+                          className="font-bold shadow-soft cursor-pointer text-xs py-2 px-4"
+                        >
+                          Book Now
                         </Button>
-                      </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -357,6 +349,158 @@ export default function HoneymoonPackagesPage() {
       </main>
 
       <Footer />
+
+      {/* Booking/Inquiry Modal */}
+      <Modal
+        isOpen={bookingPackageName !== null}
+        onClose={() => setBookingPackageName(null)}
+        title={`Inquiry: ${bookingPackageName}`}
+      >
+        {isBookingSubmitted ? (
+          <div className="py-8 text-center flex flex-col items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-success/10 text-success flex items-center justify-center font-bold text-xl">
+              ✓
+            </div>
+            <Heading variant="h4" className="font-extrabold text-text-primary">
+              Inquiry Submitted!
+            </Heading>
+            <Text variant="body-sm" color="text-secondary" className="max-w-xs">
+              Thank you for your interest in the package. Our travel expert will contact you shortly
+              on your provided details.
+            </Text>
+            <Button
+              variant="primary"
+              onClick={() => setBookingPackageName(null)}
+              className="mt-4 font-bold"
+            >
+              Close
+            </Button>
+          </div>
+        ) : (
+          <form onSubmit={handleFormSubmit} className="flex flex-col gap-4 mt-2">
+            <div className="flex flex-col gap-1.5 text-left">
+              <label
+                htmlFor="modal-name"
+                className="text-xs font-bold text-text-secondary uppercase"
+              >
+                Full Name
+              </label>
+              <input
+                id="modal-name"
+                name="name"
+                type="text"
+                required
+                value={bookingForm.name}
+                onChange={handleFormChange}
+                className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+                placeholder="John Doe"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5 text-left">
+                <label
+                  htmlFor="modal-email"
+                  className="text-xs font-bold text-text-secondary uppercase"
+                >
+                  Email Address
+                </label>
+                <input
+                  id="modal-email"
+                  name="email"
+                  type="email"
+                  required
+                  value={bookingForm.email}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div className="flex flex-col gap-1.5 text-left">
+                <label
+                  htmlFor="modal-phone"
+                  className="text-xs font-bold text-text-secondary uppercase"
+                >
+                  Phone Number
+                </label>
+                <input
+                  id="modal-phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  value={bookingForm.phone}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+                  placeholder="+91 98765 43210"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1.5 text-left">
+                <label
+                  htmlFor="modal-date"
+                  className="text-xs font-bold text-text-secondary uppercase"
+                >
+                  Travel Date
+                </label>
+                <input
+                  id="modal-date"
+                  name="date"
+                  type="date"
+                  required
+                  value={bookingForm.date}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+                />
+              </div>
+              <div className="flex flex-col gap-1.5 text-left">
+                <label
+                  htmlFor="modal-travelers"
+                  className="text-xs font-bold text-text-secondary uppercase"
+                >
+                  Number of Travelers
+                </label>
+                <select
+                  id="modal-travelers"
+                  name="travelers"
+                  value={bookingForm.travelers}
+                  onChange={handleFormChange}
+                  className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors"
+                >
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                    <option key={num} value={num}>
+                      {num} {num === 1 ? "Traveler" : "Travelers"}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 text-left">
+              <label
+                htmlFor="modal-notes"
+                className="text-xs font-bold text-text-secondary uppercase"
+              >
+                Additional Notes
+              </label>
+              <textarea
+                id="modal-notes"
+                name="notes"
+                rows={3}
+                value={bookingForm.notes}
+                onChange={handleFormChange}
+                className="w-full px-3 py-2 border border-border rounded-lg bg-surface text-text-primary text-sm focus:outline-none focus:border-primary transition-colors resize-none"
+                placeholder="Any specific requests or requirements..."
+              />
+            </div>
+
+            <Button type="submit" variant="primary" className="w-full mt-2 font-bold shadow-soft">
+              Submit Inquiry
+            </Button>
+          </form>
+        )}
+      </Modal>
     </div>
   );
 }

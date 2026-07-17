@@ -3,14 +3,11 @@ import React from "react";
 import {
   Award,
   Bus,
-  Calendar,
   Car,
   Compass,
-  FileText,
   Heart,
   Hotel,
   MapPin,
-  Mountain,
   Plane,
   Shield,
   ShieldCheck,
@@ -215,34 +212,27 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 export const SERVICES_ITEMS = [
   {
     id: "service-1",
-    title: "Customized Tour Packages",
-    description:
-      "Personalized itineraries tailored to your unique preferences, budget, and travel style.",
-    icon: <Calendar className="text-primary size-6" />,
-  },
-  {
-    id: "service-2",
     title: "Flight Bookings",
     description:
       "Seamless international and domestic flight ticket bookings with instant confirmations.",
     icon: <Plane className="text-secondary size-6" />,
   },
   {
-    id: "service-3",
+    id: "service-2",
     title: "Hotel Bookings",
     description:
       "Curated luxury hotels, boutique resorts, and budget-friendly stays verified for quality and comfort.",
     icon: <Hotel className="text-success size-6" />,
   },
   {
-    id: "service-4",
+    id: "service-3",
     title: "Bus Bookings",
     description:
       "Reliable, comfortable, and affordable intercity bus tickets for effortless regional travel.",
     icon: <Bus className="text-warning size-6" />,
   },
   {
-    id: "service-5",
+    id: "service-4",
     title: "Taxi Bookings",
     description:
       "Safe, prompt, and convenient taxi bookings for airport transfers, local sightseeing, and outstation trips.",
@@ -365,7 +355,9 @@ export const OTHER_RELIGIOUS_TOURS = [
     price: "₹9,999",
     image:
       "https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=600&q=80",
-    desc: "Witness the magnificent Ganga Aarti at Dashashwamedh Ghat, explore ancient temples, take early morning boat cruises, and experience the cultural heartbeat of Kashi.",
+    description:
+      "Witness the magnificent Ganga Aarti at Dashashwamedh Ghat, explore ancient temples, take early morning boat cruises, and experience the cultural heartbeat of Kashi.",
+    highlights: ["Ganga Aarti Tour", "Kashi Vishwanath Temple", "Morning Boat Cruise"],
   },
   {
     id: "rel-2",
@@ -375,7 +367,9 @@ export const OTHER_RELIGIOUS_TOURS = [
     price: "₹7,499",
     image:
       "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=600&q=80",
-    desc: "Offer prayers at the serene Harmandir Sahib (Golden Temple), experience the majestic community kitchen (Langar), and watch the patriotic ceremony at the Wagah Border.",
+    description:
+      "Offer prayers at the serene Harmandir Sahib (Golden Temple), experience the majestic community kitchen (Langar), and watch the patriotic ceremony at the Wagah Border.",
+    highlights: ["Golden Temple Visit", "Community Langar Feast", "Wagah Border Ceremony"],
   },
 ];
 
@@ -409,5 +403,275 @@ export const PILGRIM_INTEL = [
     question: "What items should I pack for the pilgrimage?",
     answer:
       "You must pack high-quality thermals, a windproof heavy jacket, comfortable trekking shoes with good grip, a raincoat or poncho (weather in the mountains changes rapidly), basic medical supplies, and sunscreen. Avoid packing heavy luggage; rely on light backpacks.",
+  },
+];
+
+export const SEASONAL_TOURS = [
+  {
+    id: "st-1",
+    title: "Kedarnath & Badrinath (Do Dham)",
+    location: "Uttarakhand, India",
+    duration: "6 Days / 5 Nights",
+    price: "₹24,990",
+    image:
+      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80",
+    description:
+      "A popular pilgrimage to Kedarnath and Badrinath temples in the Garhwal Himalayas with premium transfers and stays.",
+    category: "Chardham Yatra",
+    highlights: [
+      "Helicopter Booking Support",
+      "VIP Darshan Assistance",
+      "Premium Riverfront Hotels",
+    ],
+  },
+  {
+    id: "st-2",
+    title: "Kashmir Paradise Valley Loop",
+    location: "Kashmir, India",
+    duration: "6 Days / 5 Nights",
+    price: "₹19,999",
+    image:
+      "https://images.unsplash.com/photo-1595841696667-aa9c92f90141?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Experience the summer bloom and winter snow in Gulmarg, Sonamarg, and Pahalgam, including a romantic shikara stay.",
+    category: "Himalayan Escapes",
+    highlights: ["Dal Lake Houseboat Stay", "Gondola Ride in Gulmarg", "Private Shikara Cruise"],
+  },
+  {
+    id: "st-3",
+    title: "Kerala Backwaters & Hills",
+    location: "Kerala, India",
+    duration: "5 Days / 4 Nights",
+    price: "₹15,999",
+    image:
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Cruise through peaceful backwaters of Alleppey and relax in the cool tea plantations of Munnar.",
+    category: "Tropical Retreats",
+    highlights: ["Premium Houseboat Cruise", "Munnar Spice Tour", "Dolphin Spotting in Kumarakom"],
+  },
+  {
+    id: "st-4",
+    title: "Char Dham Grand Pilgrimage",
+    location: "Uttarakhand, India",
+    duration: "10 Days / 9 Nights",
+    price: "₹48,990",
+    image:
+      "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Complete spiritual circuit covering Yamunotri, Gangotri, Kedarnath, and Badrinath with fully managed logistics.",
+    category: "Chardham Yatra",
+    highlights: [
+      "Biometric Registration Done",
+      "Experienced Mountain Guide",
+      "Medical/Oxygen Assistance",
+    ],
+  },
+  {
+    id: "st-5",
+    title: "Ladakh Road Trip & Camping",
+    location: "Ladakh, India",
+    duration: "8 Days / 7 Nights",
+    price: "₹29,999",
+    image:
+      "https://images.unsplash.com/photo-1590050752117-238cb0612b1b?auto=format&fit=crop&w=800&q=80",
+    description:
+      "A popular summer adventure driving through Khardung La pass and camping next to the clear Pangong Lake.",
+    category: "Himalayan Escapes",
+    highlights: ["Lakefront Luxury Tents", "Khardung La Crossing", "Magnetic Hill Experience"],
+  },
+  {
+    id: "st-6",
+    title: "Goa Sunkissed Getaway",
+    location: "Goa, India",
+    duration: "4 Days / 3 Nights",
+    price: "₹12,999",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Perfect post-monsoon beach vacation featuring heritage sites, water sports, and beachside sunset dinners.",
+    category: "Tropical Retreats",
+    highlights: [
+      "Heritage Churches Tour",
+      "Water Sports Package Included",
+      "Private Beachside Cabana Dinner",
+    ],
+  },
+];
+
+export const DOMESTIC_PACKAGES = [
+  {
+    id: "pkg-1",
+    title: "Kerala Backwaters Serenade",
+    location: "Kerala, India",
+    duration: "5 Days / 4 Nights",
+    price: "₹15,999",
+    image:
+      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Experience the tranquility of houseboats cruising through palm-fringed canals, lush green tea estates in Munnar, and refreshing spice plantation walks.",
+    highlights: ["Private Deluxe Houseboat", "Munnar Tea Gardens", "Kathakali Dance Show"],
+  },
+  {
+    id: "pkg-2",
+    title: "Royal Rajasthan Heritage Route",
+    location: "Rajasthan, India",
+    duration: "7 Days / 6 Nights",
+    price: "₹24,999",
+    image:
+      "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Walk down the corridors of history with visits to Jaipur's massive Amber Fort, Udaipur's romantic Lake Palace, and Thar Desert camel safaris.",
+    highlights: [
+      "Fort & Palace Guided Tours",
+      "Thar Desert Sunset Safari",
+      "Lake Pichola Boat Ride",
+    ],
+  },
+  {
+    id: "pkg-3",
+    title: "Ladakh Adventure & Heights",
+    location: "Ladakh, India",
+    duration: "8 Days / 7 Nights",
+    price: "₹29,999",
+    image:
+      "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Drive on the world's highest motorable roads, gaze at the mystical blue waters of Pangong Lake, and discover centuries-old Buddhist monasteries.",
+    highlights: [
+      "Pangong Lake Luxury Camping",
+      "Khardung La Pass Crossing",
+      "Hemis Monastery Visit",
+    ],
+  },
+  {
+    id: "pkg-4",
+    title: "Goa Sunkissed Coastal Retreat",
+    location: "Goa, India",
+    duration: "4 Days / 3 Nights",
+    price: "₹12,999",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Unwind on golden sands, enjoy exciting water sports, explore historic Portuguese churches, and sample mouthwatering Konkani culinary delights.",
+    highlights: ["North Goa Beach Hopping", "Dudhsagar Waterfalls Tour", "Mandovi River Cruise"],
+  },
+];
+
+export const INTERNATIONAL_PACKAGES = [
+  {
+    id: "int-pkg-1",
+    title: "Maldives Overwater Luxury Retreat",
+    location: "Maldives (International)",
+    duration: "5 Days / 4 Nights",
+    price: "₹89,999",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Stay in a premium overwater villa with direct access to turquoise lagoons, private plunge pool, and beautiful marine reefs.",
+    highlights: ["Overwater Villa Stay", "Couple's Spa Session", "Private Beachfront Dinner"],
+  },
+  {
+    id: "int-pkg-2",
+    title: "Bali Tropical Island Getaway",
+    location: "Bali, Indonesia",
+    duration: "6 Days / 5 Nights",
+    price: "₹39,999",
+    image:
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Explore the spiritual temples of Ubud, relax on Seminyak's sunset beaches, hike active volcanoes, and dive into beautiful coral reefs.",
+    highlights: ["Ubud Private Pool Villa", "Tanah Lot Sunset Tour", "Nusa Penida Day Trip"],
+  },
+  {
+    id: "int-pkg-3",
+    title: "Dubai Skyline & Desert Oasis",
+    location: "Dubai, UAE",
+    duration: "5 Days / 4 Nights",
+    price: "₹45,999",
+    image:
+      "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Witness futuristic skyscrapers, enjoy VIP desert dune bashing, experience dynamic fountain shows, and shop at the world-famous Dubai Mall.",
+    highlights: [
+      "Burj Khalifa Observation Deck",
+      "Desert Safari & BBQ Dinner",
+      "Luxury Yacht Cruise",
+    ],
+  },
+  {
+    id: "int-pkg-4",
+    title: "Switzerland Alps Highlights",
+    location: "Zurich & Interlaken, Switzerland",
+    duration: "7 Days / 6 Nights",
+    price: "₹1,24,999",
+    image:
+      "https://images.unsplash.com/photo-1502784444187-359ac186c5bb?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Experience breathtaking train rides through snowcapped peaks, cruise pristine lakes, and explore fairytale villages in the Swiss Alps.",
+    highlights: [
+      "Jungfraujoch Top of Europe",
+      "Swiss Travel Pass Included",
+      "Scenic Lake Brienz Cruise",
+    ],
+  },
+];
+
+export const HONEYMOON_PACKAGES = [
+  {
+    id: "hm-1",
+    title: "Maldives Overwater Luxury Retreat",
+    location: "Maldives (International)",
+    duration: "5 Days / 4 Nights",
+    price: "₹89,999",
+    image:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Stay in a premium overwater villa with direct access to turquoise lagoons, private plunge pool, and beautiful marine reefs.",
+    highlights: ["Overwater Villa Stay", "Couple's Spa Session", "Private Beachfront Dinner"],
+  },
+  {
+    id: "hm-2",
+    title: "Romantic Kashmir & Dal Lake Shikara",
+    location: "Kashmir, India",
+    duration: "6 Days / 5 Nights",
+    price: "₹29,999",
+    image:
+      "https://images.unsplash.com/photo-1595841696667-aa9c92f90141?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Unravel the heaven on Earth with a romantic houseboat stay on Dal Lake, snow cable cars in Gulmarg, and flower walks in Pahalgam.",
+    highlights: ["Shikara Sunset Cruise", "Gulmarg Gondola Ride", "Dal Lake Houseboat Stay"],
+  },
+  {
+    id: "hm-3",
+    title: "Serene Havelock & Andaman Island Hopping",
+    location: "Andaman Islands, India",
+    duration: "6 Days / 5 Nights",
+    price: "₹34,999",
+    image:
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Walk hand-in-hand along Radhanagar beach, dive into crystal clear waters with guided scuba sessions, and dine under the stars.",
+    highlights: [
+      "Radhanagar Beach Sunset Walk",
+      "Scuba Diving Experience",
+      "Luxury Cruise Transfer",
+    ],
+  },
+  {
+    id: "hm-4",
+    title: "Cozy Manali Mountain Escape",
+    location: "Himachal Pradesh, India",
+    duration: "5 Days / 4 Nights",
+    price: "₹18,999",
+    image:
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80",
+    description:
+      "Escape to private pine cottages, capture stunning valley views, trek to waterfalls, and cozy up next to mountain fireplaces.",
+    highlights: [
+      "Private Valley View Lodge",
+      "Solang Valley Snow Trek",
+      "Complimentary Honeymoon Cake",
+    ],
   },
 ];
