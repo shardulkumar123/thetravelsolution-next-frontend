@@ -32,21 +32,21 @@ export const Footer: React.FC = () => {
 
   const footerLinks = {
     company: [
-      { name: "About Us", href: "#" },
-      { name: "Careers", href: "#" },
-      { name: "Press", href: "#" },
-      { name: "Blog", href: "#" },
+      { name: "About Us", href: "/about" },
+      { name: "Contact Us", href: "/contact" },
+      { name: "Travel Blogs", href: "/blogs" },
+      { name: "Media Gallery", href: "/gallery" },
     ],
     services: [
-      { name: "Flight Booking", href: "#" },
-      { name: "Hotel Reservation", href: "#" },
-      { name: "Holiday Packages", href: "#" },
-      { name: "Travel Insurance", href: "#" },
+      { name: "Domestic Tours", href: "/packages/domestic-tours" },
+      { name: "International Tours", href: "/packages/international-tours" },
+      { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
+      { name: "Religious Tours", href: "/packages/religious-tours" },
     ],
     legal: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms of Service", href: "#" },
-      { name: "Cookie Policy", href: "#" },
+      { name: "Privacy Policy", href: "/privacy-policy" },
+      { name: "Terms of Service", href: "/terms-of-service" },
+      { name: "Cookie Policy", href: "/cookie-policy" },
       { name: "Support Info", href: "#" },
     ],
   };
@@ -106,9 +106,9 @@ export const Footer: React.FC = () => {
     <>
       <footer className="bg-surface text-text-primary  mt-auto pt-16 pb-8 transition-colors duration-[var(--transition-duration-default-val)]">
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8 lg:gap-2 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
             {/* Brand Info */}
-            <div className="sm:col-span-2 xl:col-span-2 flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               <Link
                 href="/"
                 className="inline-block outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn w-fit"
@@ -126,7 +126,7 @@ export const Footer: React.FC = () => {
                 </span>
               </Link>
               <Text
-                variant="body-md"
+                variant="body-sm"
                 color="text-secondary"
                 className="max-w-sm mt-2 leading-relaxed"
               >
@@ -149,51 +149,51 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Company Links */}
-            <div>
+            <div className="lg:pl-8">
               <Heading
                 variant="h6"
-                className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs"
+                className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs text-left"
               >
                 Company
               </Heading>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-3 text-left">
                 {footerLinks.company.map((link) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
-                      className="text-body-sm text-text-secondary hover:text-primary hover:underline transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+                      className="text-caption text-text-secondary hover:text-primary hover:underline transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Services Links */}
-            <div>
+            {/* Tours Links */}
+            <div className="lg:pl-4">
               <Heading
                 variant="h6"
-                className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs"
+                className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs text-left"
               >
-                Services
+                Tours
               </Heading>
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-3 text-left">
                 {footerLinks.services.map((link) => (
                   <li key={link.name}>
-                    <a
+                    <Link
                       href={link.href}
-                      className="text-body-sm text-text-secondary hover:text-primary hover:underline transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
+                      className="text-caption text-text-secondary hover:text-primary hover:underline transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Contact Details */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="text-left">
               <Heading
                 variant="h6"
                 className="uppercase tracking-wider text-text-primary mb-4 font-semibold text-xs"
@@ -201,11 +201,11 @@ export const Footer: React.FC = () => {
                 Contact Us
               </Heading>
               <ul className="flex flex-col gap-4">
-                <li className="flex items-start gap-2.5 text-body-sm text-text-secondary">
+                <li className="flex items-start gap-2.5 text-caption text-text-secondary">
                   <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
                   <span className="break-words">NANGAL, SAHASTRADHARA RD, DEHRADUN, 248001</span>
                 </li>
-                <li className="flex items-start gap-2.5 text-body-sm text-text-secondary">
+                <li className="flex items-start gap-2.5 text-caption text-text-secondary">
                   <Phone size={16} className="text-primary shrink-0 mt-1" />
                   <div className="flex flex-col gap-1.5">
                     <a
@@ -228,7 +228,7 @@ export const Footer: React.FC = () => {
                     </a>
                   </div>
                 </li>
-                <li className="flex items-center gap-2.5 text-body-sm text-text-secondary">
+                <li className="flex items-center gap-2.5 text-caption text-text-secondary">
                   <Mail size={16} className="text-primary shrink-0" />
                   <a
                     href="mailto:travelsolutionuk0@gmail.com"
@@ -248,13 +248,13 @@ export const Footer: React.FC = () => {
             </Text>
             <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-end">
               {footerLinks.legal.slice(0, 3).map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-caption text-text-secondary hover:text-primary transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-md"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -264,7 +264,7 @@ export const Footer: React.FC = () => {
       {/* Floating Scroll to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white shadow-hard border border-primary cursor-pointer transition-all duration-300 hover:bg-primary-hover  active:scale-95 ${
+        className={`fixed bottom-24 right-6 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white shadow-hard border border-primary cursor-pointer transition-all duration-300 hover:bg-primary-hover  active:scale-95 ${
           isVisible
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"

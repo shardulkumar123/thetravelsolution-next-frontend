@@ -26,6 +26,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80"
               alt="Roadtrip travel landscape"
               fill
+              priority
               className="object-cover opacity-30"
             />
             <div className="absolute inset-0 bg-slate-950/60" />

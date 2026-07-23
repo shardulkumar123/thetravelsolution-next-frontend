@@ -34,6 +34,7 @@ export default function BlogPage() {
               src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
               alt="Travel blogs banner"
               fill
+              priority
               className="object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-slate-950/60" />
@@ -80,65 +81,67 @@ export default function BlogPage() {
                   key={post.id}
                   className="group flex flex-col rounded-card border border-border bg-card overflow-hidden shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 text-left"
                 >
-                  {/* Image container */}
-                  <div className="relative w-full h-[250px] overflow-hidden">
-                    <CustomImage
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-                    />
-                    {/* Category Overlay tag */}
-                    <span className="absolute top-4 left-4 inline-flex items-center px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-xs text-xs font-semibold text-white tracking-wider uppercase">
-                      {post.category}
-                    </span>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="flex-1 p-6 flex flex-col justify-between">
-                    <div>
-                      {/* Meta information row */}
-                      <div className="flex items-center gap-4 text-xs text-text-secondary mb-3 flex-wrap">
-                        <div className="flex items-center gap-1">
-                          <Calendar size={14} className="text-primary" />
-                          <span>{post.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <User size={14} className="text-primary" />
-                          <span>By {post.author}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Clock size={14} className="text-primary" />
-                          <span>{post.readTime}</span>
-                        </div>
-                      </div>
-
-                      <Heading
-                        variant="h4"
-                        className="text-text-primary font-bold group-hover:text-primary transition-colors duration-200 line-clamp-2"
-                      >
-                        {post.title}
-                      </Heading>
-
-                      <Text
-                        variant="body-sm"
-                        color="text-secondary"
-                        className="mt-3 leading-relaxed line-clamp-3"
-                      >
-                        {post.excerpt}
-                      </Text>
-                    </div>
-
-                    <div className="mt-6 pt-4 border-t border-border flex items-center">
-                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary uppercase tracking-wider group-hover:underline cursor-pointer">
-                        Read Full Article
-                        <ArrowRight
-                          size={14}
-                          className="transition-transform duration-200 group-hover:translate-x-1"
-                        />
+                  <Link href={`/blogs/${post.id}`} className="flex flex-col flex-1">
+                    {/* Image container */}
+                    <div className="relative w-full h-[250px] overflow-hidden">
+                      <CustomImage
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                      {/* Category Overlay tag */}
+                      <span className="absolute top-4 left-4 inline-flex items-center px-3 py-1 rounded-md bg-slate-900/80 backdrop-blur-xs text-xs font-semibold text-white tracking-wider uppercase">
+                        {post.category}
                       </span>
                     </div>
-                  </div>
+
+                    {/* Body Content */}
+                    <div className="flex-1 p-6 flex flex-col justify-between">
+                      <div>
+                        {/* Meta information row */}
+                        <div className="flex items-center gap-4 text-xs text-text-secondary mb-3 flex-wrap">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={14} className="text-primary" />
+                            <span>{post.date}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <User size={14} className="text-primary" />
+                            <span>By {post.author}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock size={14} className="text-primary" />
+                            <span>{post.readTime}</span>
+                          </div>
+                        </div>
+
+                        <Heading
+                          variant="h4"
+                          className="text-text-primary font-bold group-hover:text-primary transition-colors duration-200 line-clamp-2"
+                        >
+                          {post.title}
+                        </Heading>
+
+                        <Text
+                          variant="body-sm"
+                          color="text-secondary"
+                          className="mt-3 leading-relaxed line-clamp-3"
+                        >
+                          {post.excerpt}
+                        </Text>
+                      </div>
+
+                      <div className="mt-6 pt-4 border-t border-border flex items-center">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary uppercase tracking-wider group-hover:underline cursor-pointer">
+                          Read Full Article
+                          <ArrowRight
+                            size={14}
+                            className="transition-transform duration-200 group-hover:translate-x-1"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 </article>
               ))}
             </div>
