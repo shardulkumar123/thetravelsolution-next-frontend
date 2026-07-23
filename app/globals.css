@@ -292,3 +292,7 @@ textarea {
   transition-duration: var(--transition-duration-default-val);
   transition-timing-function: var(--transition-timing-default-val);
 }
+
+html {
+  scroll-behavior: smooth;
+}

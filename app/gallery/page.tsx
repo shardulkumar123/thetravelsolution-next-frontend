@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 import { Footer } from "@/components/layout/Footer";
@@ -15,7 +15,7 @@ import { GALLERY_FILTERS, GALLERY_ITEMS, GalleryItem } from "@/utils/constants";
 export default function GalleryPage() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 20;
 
   const filters = GALLERY_FILTERS;
   const items: GalleryItem[] = GALLERY_ITEMS;
@@ -44,6 +44,7 @@ export default function GalleryPage() {
               src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1200&q=80"
               alt="Rivers and hills travel banner"
               fill
+              priority
               className="object-cover opacity-35"
             />
             <div className="absolute inset-0 bg-slate-950/60" />

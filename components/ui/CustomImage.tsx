@@ -18,8 +18,12 @@ export const CustomImage: React.FC<CustomImageProps> = ({
   shadow = "none",
   bordered = false,
   alt,
+  sizes,
   ...props
 }) => {
+  const defaultSizes =
+    props.fill && !sizes ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : sizes;
+
   return (
     <div
       className={cn(
@@ -39,6 +43,7 @@ export const CustomImage: React.FC<CustomImageProps> = ({
         alt={alt || "Image"}
         loading={props.priority ? undefined : "lazy"}
         className={cn("object-cover", className)}
+        sizes={defaultSizes}
         {...props}
       />
     </div>

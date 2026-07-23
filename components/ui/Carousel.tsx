@@ -117,21 +117,21 @@ export const Carousel: React.FC<CarouselProps> = ({
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
         aria-label="Previous slide"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-30 hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-primary hover:bg-primary-hover text-white transition-all duration-300 outline-none focus:ring-2 focus:ring-primary cursor-pointer shadow-soft hover:scale-105"
         aria-label="Next slide"
       >
         <ChevronRight size={24} />
       </button>
 
       {/* Timing Indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex gap-2">
         {slides.map((_, index) => {
           const isActive = index === currentIndex;
           return (

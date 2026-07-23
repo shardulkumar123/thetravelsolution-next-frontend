@@ -4,13 +4,20 @@ import React, { useState } from "react";
 
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { CustomImage } from "@/components/ui/CustomImage";
 import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
+import { CheckCircle2, Clock, MapPin } from "lucide-react";
 
-import { SERVICES_ITEMS } from "@/utils/constants";
+import { SEASONAL_TOURS } from "@/utils/constants";
 
-export const ServicesSection: React.FC = () => {
-  const [bookingServiceName, setBookingServiceName] = useState<string | null>(null);
+import { cn } from "@/lib/utils";
+
+const TABS = ["All", "Chardham Yatra", "Himalayan Escapes", "Tropical Retreats"];
+
+export const SeasonalToursSection: React.FC = () => {
+  const [activeTab, setActiveTab] = useState("All");
+  const [bookingTourName, setBookingTourName] = useState<string | null>(null);
   const [isBookingSubmitted, setIsBookingSubmitted] = useState(false);
   const [bookingForm, setBookingForm] = useState({
     name: "",
@@ -33,8 +40,8 @@ export const ServicesSection: React.FC = () => {
     setIsBookingSubmitted(true);
   };
 
-  const handleOpenModal = (serviceName: string) => {
-    setBookingServiceName(serviceName);
+  const handleOpenModal = (tourName: string) => {
+    setBookingTourName(tourName);
     setIsBookingSubmitted(false);
     setBookingForm({
       name: "",
@@ -46,62 +53,137 @@ export const ServicesSection: React.FC = () => {
     });
   };
 
+  const filteredTours =
+    activeTab === "All"
+      ? SEASONAL_TOURS
+      : SEASONAL_TOURS.filter((tour) => tour.category === activeTab);
+
   return (
     <section
-      className="bg-background text-text-primary py-20 relative overflow-hidden border-b border-border"
-      id="services"
+      className="py-20 bg-background border-b border-border relative overflow-hidden"
+      id="seasonal-tours"
     >
-      {/* Decorative blurred backgrounds for a premium feel */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none -mr-32 -mt-32" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/3 rounded-full blur-[100px] pointer-events-none -ml-32 -mb-32" />
+      {/* Decorative blurred backgrounds */}
+      <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-primary/3 rounded-full blur-[120px] pointer-events-none -ml-20 -mt-20" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-secondary/3 rounded-full blur-[120px] pointer-events-none -mr-20 -mb-20" />
 
       <Container className="relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 gap-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-widest font-bold">
-            Booking Services
-          </div>
-          <Heading variant="h2" className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            Premium Services We Offer
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 gap-4">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-semibold text-primary uppercase tracking-wider">
+            Seasonal Specials
+          </span>
+          <Heading
+            variant="h2"
+            className="text-3xl md:text-5xl font-extrabold tracking-tight text-text-primary"
+          >
+            Popular Tours & Seasonal Trips
           </Heading>
           <Text variant="body-md" className="text-text-secondary leading-relaxed max-w-xl">
-            From planning customized itineraries to managing transit logistics, we cover all details
-            so you can enjoy your dream getaway.
+            Explore our handpicked seasonal itineraries, curated pilgrim tours, and most popular
+            destinations trending this season.
           </Text>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES_ITEMS.map((service) => (
-            <div
-              key={service.id}
-              onClick={() => handleOpenModal(service.title)}
-              className="group relative flex flex-col p-8 rounded-card border border-border bg-card text-text-primary shadow-soft hover:shadow-medium hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer"
-            >
-              {/* Subtle hover gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+        {/* Tab Filters */}
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-3xl bg-surface border border-border gap-1.5">
+            {TABS.map((tab) => {
+              const isActive = activeTab === tab;
+              return (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={cn(
+                    "px-5 py-2 text-xs md:text-sm font-semibold rounded-2xl transition-all duration-300 cursor-pointer outline-none",
+                    isActive
+                      ? "bg-primary text-white shadow-soft"
+                      : "text-text-secondary hover:text-primary"
+                  )}
+                >
+                  {tab}
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
-              {/* Icon Container */}
-              <div className="flex items-center justify-center w-14 h-14 rounded-btn bg-surface border border-border shrink-0 shadow-soft group-hover:scale-110 group-hover:border-primary/30 group-hover:bg-primary/5 transition-all duration-300 mb-6">
-                {service.icon}
+        {/* Tour Packages Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredTours.map((tour) => (
+            <div
+              key={tour.id}
+              onClick={() => handleOpenModal(tour.title)}
+              className="group relative flex flex-col rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer text-left"
+            >
+              {/* Tour Image */}
+              <div className="relative w-full h-[220px] select-none overflow-hidden shrink-0">
+                <CustomImage
+                  src={tour.image}
+                  alt={tour.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                {/* Category Badge overlay */}
+                <div className="absolute top-4 left-4 bg-background/90 backdrop-blur-sm text-primary font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider border border-primary/20 shadow-soft">
+                  {tour.category}
+                </div>
               </div>
 
-              {/* Title & Description */}
-              <Heading
-                variant="h3"
-                className="text-xl font-bold tracking-tight mb-3 group-hover:text-primary transition-colors duration-300"
-              >
-                {service.title}
-              </Heading>
+              {/* Tour Content */}
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div className="flex flex-col gap-3">
+                  {/* Meta items */}
+                  <div className="flex items-center gap-4 text-xs font-bold text-text-secondary">
+                    <span className="flex items-center gap-1">
+                      <MapPin size={14} className="text-primary" />
+                      {tour.location}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock size={14} className="text-secondary" />
+                      {tour.duration}
+                    </span>
+                  </div>
 
-              <Text variant="body-md" className="text-text-secondary leading-relaxed flex-1">
-                {service.description}
-              </Text>
+                  <Heading
+                    variant="h3"
+                    className="text-xl font-bold tracking-tight text-text-primary mt-1"
+                  >
+                    {tour.title}
+                  </Heading>
 
-              {/* Modern subtle micro-interaction link indicator */}
-              <div className="mt-6 flex items-center gap-1.5 text-body-sm font-bold text-primary opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                <span>Learn More</span>
-                <span className="text-base leading-none">&rarr;</span>
+                  <Text
+                    variant="body-sm"
+                    className="text-text-secondary leading-relaxed line-clamp-3"
+                  >
+                    {tour.description}
+                  </Text>
+                </div>
+
+                {/* Highlights List */}
+                <div className="mt-5 pt-4 border-t border-border/80 flex flex-col gap-2.5">
+                  {tour.highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <CheckCircle2 size={16} className="text-primary shrink-0" />
+                      <span className="text-xs font-semibold text-text-secondary">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer Section */}
+                <div className="mt-6 pt-5 border-t border-border flex items-center justify-between">
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">
+                      Starting Price
+                    </span>
+                    <span className="text-xl font-black text-primary font-heading mt-0.5">
+                      {tour.price}
+                    </span>
+                  </div>
+                  <Button variant="primary" size="sm" className="font-bold px-5">
+                    Book Now
+                  </Button>
+                </div>
               </div>
             </div>
           ))}
@@ -110,9 +192,9 @@ export const ServicesSection: React.FC = () => {
 
       {/* Booking/Inquiry Modal */}
       <Modal
-        isOpen={bookingServiceName !== null}
-        onClose={() => setBookingServiceName(null)}
-        title={`Inquiry: ${bookingServiceName}`}
+        isOpen={bookingTourName !== null}
+        onClose={() => setBookingTourName(null)}
+        title={`Inquiry: ${bookingTourName}`}
       >
         {isBookingSubmitted ? (
           <div className="py-8 text-center flex flex-col items-center gap-3">
@@ -123,12 +205,12 @@ export const ServicesSection: React.FC = () => {
               Inquiry Submitted!
             </Heading>
             <Text variant="body-sm" color="text-secondary" className="max-w-xs">
-              Thank you for your interest. Our travel expert will contact you shortly on your
-              provided details.
+              Thank you for your interest in the package. Our travel expert will contact you shortly
+              on your provided details.
             </Text>
             <Button
               variant="primary"
-              onClick={() => setBookingServiceName(null)}
+              onClick={() => setBookingTourName(null)}
               className="mt-4 font-bold"
             >
               Close
@@ -263,4 +345,4 @@ export const ServicesSection: React.FC = () => {
   );
 };
 
-ServicesSection.displayName = "ServicesSection";
+SeasonalToursSection.displayName = "SeasonalToursSection";
