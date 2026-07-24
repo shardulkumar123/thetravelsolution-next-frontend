@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
 
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
+
 export default function ReligiousToursPage() {
   const [bookingDhamName, setBookingDhamName] = useState<string | null>(null);
   const [isBookingSubmitted, setIsBookingSubmitted] = useState(false);
@@ -48,6 +50,17 @@ export default function ReligiousToursPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Dham: ${bookingDhamName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   return (

@@ -12,9 +12,10 @@ import { CustomImage } from "@/components/ui/CustomImage";
 import { Modal } from "@/components/ui/Modal";
 import { TourCard } from "@/components/ui/TourCard";
 import { Heading, Text } from "@/components/ui/Typography";
-import { Heart } from "lucide-react";
+import { Compass, Heart, ShieldCheck } from "lucide-react";
 
 import { INTERNATIONAL_PACKAGES } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 const TRIP_INTEL = [
   {
@@ -65,6 +66,17 @@ export default function InternationalToursPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Package: ${bookingPackageName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = (packageName: string) => {
