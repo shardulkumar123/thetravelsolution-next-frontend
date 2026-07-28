@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, Phone, X } from "lucide-react";
 
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils";
 interface SubLink {
   name: string;
   href: string;
+  subLinks?: SubLink[];
 }
 
 interface NavLink {
@@ -27,7 +28,9 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeNestedDropdown, setActiveNestedDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [mobileNestedDropdown, setMobileNestedDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href?: string) => {
@@ -52,12 +55,20 @@ export const Navbar: React.FC = () => {
     {
       name: "Tours",
       subLinks: [
-        { name: "Domestic Tours", href: "/packages/domestic-tours" },
+        {
+          name: "Domestic Tours",
+          href: "/packages/domestic-tours",
+          subLinks: [
+            { name: "Religious Packages", href: "/packages/religious-tours" },
+            { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
+            { name: "Girls Tours", href: "/packages/girls-tours" },
+          ],
+        },
         { name: "International Tours", href: "/packages/international-tours" },
       ],
     },
     { name: "Booking Services", href: "/#services" },
-    { name: "Blogs", href: "/blog" },
+    { name: "Blogs", href: "/blogs" },
     { name: "Gallery", href: "/gallery" },
     { name: "Contact", href: "/contact" },
   ];
@@ -158,16 +169,64 @@ export const Navbar: React.FC = () => {
                           : "opacity-0 translate-y-2 scale-95 invisible"
                       )}
                     >
-                      {link.subLinks.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={(e) => handleLinkClick(e, sub.href)}
-                          className="block px-4 py-2 text-xs font-medium text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
+                      {link.subLinks.map((sub) => {
+                        if (sub.subLinks) {
+                          return (
+                            <div
+                              key={sub.name}
+                              className="relative group/nested"
+                              onMouseEnter={() => setActiveNestedDropdown(sub.name)}
+                              onMouseLeave={() => setActiveNestedDropdown(null)}
+                            >
+                              <Link
+                                href={sub.href}
+                                onClick={(e) => handleLinkClick(e, sub.href)}
+                                className="flex items-center justify-between px-4 py-2 text-xs font-medium text-text-secondary hover:text-primary hover:bg-surface transition-colors duration-150"
+                              >
+                                {sub.name}
+                                <ChevronRight
+                                  size={14}
+                                  className={cn(
+                                    "transition-transform duration-200 text-text-secondary",
+                                    activeNestedDropdown === sub.name && "text-primary"
+                                  )}
+                                />
+                              </Link>
+
+                              <div
+                                className={cn(
+                                  "absolute left-full top-0 ml-1 w-56 rounded-md bg-card border border-border shadow-hard py-2 transition-all duration-200 origin-left z-50",
+                                  activeNestedDropdown === sub.name
+                                    ? "opacity-100 translate-x-0 scale-100 visible"
+                                    : "opacity-0 -translate-x-2 scale-95 invisible"
+                                )}
+                              >
+                                {sub.subLinks.map((nestedSub) => (
+                                  <Link
+                                    key={nestedSub.name}
+                                    href={nestedSub.href}
+                                    onClick={(e) => handleLinkClick(e, nestedSub.href)}
+                                    className="block px-4 py-2 text-xs font-medium text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
+                                  >
+                                    {nestedSub.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <Link
+                            key={sub.name}
+                            href={sub.href}
+                            onClick={(e) => handleLinkClick(e, sub.href)}
+                            className="block px-4 py-2 text-xs font-medium text-text-secondary hover:text-primary hover:bg-surface rounded-md transition-colors duration-150"
+                          >
+                            {sub.name}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 );
@@ -290,26 +349,85 @@ export const Navbar: React.FC = () => {
                       />
                     </button>
 
-                    {/* Collapsible Sub-menu */}
                     <div
                       className={cn(
                         "flex flex-col gap-1 pl-4 overflow-hidden transition-all duration-300 ease-in-out",
-                        isExpanded ? "max-h-60 py-2 opacity-100" : "max-h-0 py-0 opacity-0"
+                        isExpanded ? "max-h-[500px] py-2 opacity-100" : "max-h-0 py-0 opacity-0"
                       )}
                     >
-                      {link.subLinks.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={(e) => {
-                            setIsOpen(false);
-                            handleLinkClick(e, sub.href);
-                          }}
-                          className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
+                      {link.subLinks.map((sub) => {
+                        if (sub.subLinks) {
+                          const isNestedExpanded = mobileNestedDropdown === sub.name;
+                          return (
+                            <div key={sub.name} className="flex flex-col">
+                              <div className="flex items-center justify-between">
+                                <Link
+                                  href={sub.href}
+                                  onClick={(e) => {
+                                    setIsOpen(false);
+                                    handleLinkClick(e, sub.href);
+                                  }}
+                                  className="flex-1 py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                                >
+                                  {sub.name}
+                                </Link>
+                                <button
+                                  onClick={() =>
+                                    setMobileNestedDropdown(isNestedExpanded ? null : sub.name)
+                                  }
+                                  className="p-2 text-text-secondary hover:text-primary outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn transition-colors duration-200"
+                                  aria-expanded={isNestedExpanded}
+                                >
+                                  <ChevronDown
+                                    size={16}
+                                    className={cn(
+                                      "transition-transform duration-200",
+                                      isNestedExpanded && "rotate-180"
+                                    )}
+                                  />
+                                </button>
+                              </div>
+
+                              <div
+                                className={cn(
+                                  "flex flex-col gap-1 pl-4 overflow-hidden transition-all duration-300 ease-in-out",
+                                  isNestedExpanded
+                                    ? "max-h-[300px] py-1 opacity-100"
+                                    : "max-h-0 py-0 opacity-0"
+                                )}
+                              >
+                                {sub.subLinks.map((nestedSub) => (
+                                  <Link
+                                    key={nestedSub.name}
+                                    href={nestedSub.href}
+                                    onClick={(e) => {
+                                      setIsOpen(false);
+                                      handleLinkClick(e, nestedSub.href);
+                                    }}
+                                    className="py-2 text-body-sm text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                                  >
+                                    {nestedSub.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <Link
+                            key={sub.name}
+                            href={sub.href}
+                            onClick={(e) => {
+                              setIsOpen(false);
+                              handleLinkClick(e, sub.href);
+                            }}
+                            className="py-2.5 text-body-md text-text-secondary hover:text-primary tracking-wide outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-btn px-2 transition-colors duration-200"
+                          >
+                            {sub.name}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 );

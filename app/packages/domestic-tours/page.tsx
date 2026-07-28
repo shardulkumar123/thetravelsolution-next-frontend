@@ -15,6 +15,7 @@ import { Heading, Text } from "@/components/ui/Typography";
 import { Compass, Heart, ShieldCheck } from "lucide-react";
 
 import { DOMESTIC_PACKAGES } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 const TRIP_INTEL = [
   {
@@ -52,6 +53,7 @@ const TRIP_INTEL = [
 export default function DomesticToursPage() {
   const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
   const [isBookingSubmitted, setIsBookingSubmitted] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("all");
   const [bookingForm, setBookingForm] = useState({
     name: "",
     email: "",
@@ -60,6 +62,10 @@ export default function DomesticToursPage() {
     travelers: "2",
     notes: "",
   });
+
+  const filteredPackages = DOMESTIC_PACKAGES.filter(
+    (pkg) => activeCategory === "all" || (pkg as { category?: string }).category === activeCategory
+  );
 
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -71,6 +77,17 @@ export default function DomesticToursPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Package: ${bookingPackageName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = (packageName: string) => {
@@ -142,10 +159,40 @@ export default function DomesticToursPage() {
         {/* Packages Grid */}
         <section className="py-20 bg-surface/30">
           <Container>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {DOMESTIC_PACKAGES.map((pkg) => (
-                <TourCard key={pkg.id} pkg={pkg} onBookClick={handleOpenModal} />
+            {/* Filter Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+              {[
+                { id: "all", label: "All Tours" },
+                { id: "religious", label: "Religious Packages" },
+                { id: "honeymoon", label: "Honeymoon Packages" },
+                { id: "girls-tours", label: "Girls Tours" },
+              ].map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                    activeCategory === category.id
+                      ? "bg-primary text-primary-foreground shadow-soft"
+                      : "bg-background border border-border text-text-secondary hover:text-primary hover:border-primary/50"
+                  }`}
+                >
+                  {category.label}
+                </button>
               ))}
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {filteredPackages.length > 0 ? (
+                filteredPackages.map((pkg) => (
+                  <TourCard key={pkg.id} pkg={pkg} onBookClick={handleOpenModal} />
+                ))
+              ) : (
+                <div className="col-span-1 lg:col-span-2 text-center py-12">
+                  <Text variant="body-lg" className="text-text-secondary">
+                    No packages found for this category.
+                  </Text>
+                </div>
+              )}
             </div>
           </Container>
         </section>

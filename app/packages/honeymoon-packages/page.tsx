@@ -15,6 +15,7 @@ import { Heading, Text } from "@/components/ui/Typography";
 import { Compass, Heart, ShieldCheck, Sparkles, Star, Wine } from "lucide-react";
 
 import { HONEYMOON_PACKAGES } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 const ROMANTIC_INTEL = [
   {
@@ -94,6 +95,17 @@ export default function HoneymoonPackagesPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Package: ${bookingPackageName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = (packageName: string) => {
