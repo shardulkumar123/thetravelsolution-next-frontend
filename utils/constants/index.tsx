@@ -687,6 +687,7 @@ export const DOMESTIC_PACKAGES = [
     description:
       "Experience the tranquility of houseboats cruising through palm-fringed canals, lush green tea estates in Munnar, and refreshing spice plantation walks.",
     highlights: ["Private Deluxe Houseboat", "Munnar Tea Gardens", "Kathakali Dance Show"],
+    category: "honeymoon",
   },
   {
     id: "pkg-2",
@@ -703,6 +704,7 @@ export const DOMESTIC_PACKAGES = [
       "Thar Desert Sunset Safari",
       "Lake Pichola Boat Ride",
     ],
+    category: "girls-tours",
   },
   {
     id: "pkg-3",
@@ -719,6 +721,7 @@ export const DOMESTIC_PACKAGES = [
       "Khardung La Pass Crossing",
       "Hemis Monastery Visit",
     ],
+    category: "religious",
   },
   {
     id: "pkg-4",
@@ -731,6 +734,7 @@ export const DOMESTIC_PACKAGES = [
     description:
       "Unwind on golden sands, enjoy exciting water sports, explore historic Portuguese churches, and sample mouthwatering Konkani culinary delights.",
     highlights: ["North Goa Beach Hopping", "Dudhsagar Waterfalls Tour", "Mandovi River Cruise"],
+    category: "girls-tours",
   },
 ];
 

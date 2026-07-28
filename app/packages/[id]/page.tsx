@@ -20,6 +20,7 @@ import {
   OTHER_RELIGIOUS_TOURS,
   SEASONAL_TOURS,
 } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 // Helper to look up package details across all datasets
 const findPackageById = (id: string) => {
@@ -131,6 +132,17 @@ export default function PackageDetailPage() {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Package: ${pkg?.title}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = () => {

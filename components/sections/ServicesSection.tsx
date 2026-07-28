@@ -8,6 +8,7 @@ import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
 
 import { SERVICES_ITEMS } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 export const ServicesSection: React.FC = () => {
   const [bookingServiceName, setBookingServiceName] = useState<string | null>(null);
@@ -31,6 +32,17 @@ export const ServicesSection: React.FC = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Service Inquiry*
+Service: ${bookingServiceName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = (serviceName: string) => {

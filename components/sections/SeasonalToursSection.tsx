@@ -10,6 +10,7 @@ import { Heading, Text } from "@/components/ui/Typography";
 import { CheckCircle2, Clock, MapPin } from "lucide-react";
 
 import { SEASONAL_TOURS } from "@/utils/constants";
+import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 import { cn } from "@/lib/utils";
 
@@ -38,6 +39,17 @@ export const SeasonalToursSection: React.FC = () => {
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsBookingSubmitted(true);
+
+    const message = `*New Booking Inquiry*
+Tour: ${bookingTourName}
+Name: ${bookingForm.name}
+Email: ${bookingForm.email}
+Phone: ${bookingForm.phone}
+Travel Date: ${bookingForm.date}
+Travelers: ${bookingForm.travelers}
+Notes: ${bookingForm.notes || "None"}`;
+
+    sendWhatsAppMessage(message);
   };
 
   const handleOpenModal = (tourName: string) => {
