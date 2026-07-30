@@ -8,7 +8,58 @@ import { Container } from "@/components/ui/Container";
 import { Heading, Text } from "@/components/ui/Typography";
 
 export default function TermsOfServicePage() {
-  const lastUpdated = "July 18, 2026";
+  const lastUpdated = "July 30, 2026";
+
+  const terms = [
+    {
+      title: "1. Advance Payment",
+      content:
+        "25% required to confirm the booking; balance must be cleared before the tour begins.",
+    },
+    {
+      title: "2. Cancellation Policy",
+      content:
+        "100% cancellation charges applicable if cancelled within 15 days of departure. Refunds (if any) are subject to vendor terms.",
+    },
+    {
+      title: "3. Service Usage",
+      content:
+        "Vehicles, hotels, and amenities must be used responsibly. Any misuse or illegal activity may result in penalties or immediate service cancellation.",
+    },
+    {
+      title: "4. Driver & Vehicle Limits",
+      content:
+        "Drivers will adhere to legal driving hours. Night driving, detours, or non-itinerary usage may attract extra charges.",
+    },
+    {
+      title: "5. Changes & Delays",
+      content:
+        "Itinerary changes due to weather, roadblocks, or political unrest are beyond our control. No refunds will be provided for unused services.",
+    },
+    {
+      title: "6. ID Requirements",
+      content: "All travelers must carry valid government-issued ID.",
+    },
+    {
+      title: "7. Hotel Policies",
+      content:
+        "Standard check-in/check-out times apply. Early check-in or late check-out is subject to availability and may incur extra charges.",
+    },
+    {
+      title: "8. Child & Extra Bed Policy",
+      content:
+        "Charges may apply as per hotel norms. Please confirm in advance for family arrangements.",
+    },
+    {
+      title: "9. Force Majeure",
+      content:
+        "No liability for delays, damages, or cancellations caused by natural calamities, accidents, strikes, or unforeseen circumstances.",
+    },
+    {
+      title: "10. Dispute Jurisdiction",
+      content: "All disputes are subject to the jurisdiction of Dehradun, Uttarakhand.",
+    },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-text-primary">
@@ -26,7 +77,7 @@ export default function TermsOfServicePage() {
               variant="h1"
               className="text-text-primary font-heading font-extrabold text-3xl md:text-5xl tracking-tight mb-4 text-white"
             >
-              Terms of Service
+              Terms & Conditions
             </Heading>
             <Text variant="body-md" className="text-white/80">
               Last Updated: {lastUpdated}
@@ -38,128 +89,19 @@ export default function TermsOfServicePage() {
         <section className="py-16 bg-background">
           <Container className="max-w-4xl text-left">
             <div className="prose prose-slate max-w-none flex flex-col gap-8">
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  1. Agreement to Terms
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  By accessing our website, browsing our travel listings (domestic, international,
-                  honeymoon, and religious packages), or placing inquiries/bookings, you agree to
-                  comply with and be bound by these Terms of Service. If you do not agree, please
-                  discontinue using this website immediately.
-                </Text>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  2. Booking and Inquiry Conditions
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
-                  We display custom packages and offer immediate booking inquiry forms:
-                </Text>
-                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2">
-                  <li>
-                    <strong>Accuracy of Details:</strong> You must supply authentic traveler names,
-                    contacts, and requirements when submitting an inquiry or query.
-                  </li>
-                  <li>
-                    <strong>Price Changes:</strong> Package starting prices listed on the website
-                    are baseline dynamic estimates and are subject to transport, hotel availability,
-                    and season spikes.
-                  </li>
-                  <li>
-                    <strong>Flight and Visa Terms:</strong> International tours packages generally
-                    do not include visa processing fees or flight reservations unless specified
-                    inside your private custom booking quotation.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  3. Cancellation and Refund Policy
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  Cancellations of confirmed hotel bookings, mountain drivers, or local operations
-                  desk reservations are subject to standard operators fees. Specific cancellation
-                  charges will be shared transparently during the final payment validation phase. We
-                  recommend reviewing local operators guidelines prior to processing final yatra
-                  deposits.
-                </Text>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  4. Traveler Safety Responsibility
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  Certain tour itineraries (specifically pilgrim circuits like Yamunotri and
-                  Kedarnath) require traveling to high elevations and traversing steep terrains.
-                  Travelers are solely responsible for verifying their medical suitability,
-                  acquiring necessary high-altitude preparation (such as portable oxygen cylinders
-                  and warm apparel), and carrying verified physical fitness logs if required by
-                  government authorities.
-                </Text>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  5. Intellectual Property
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  All digital assets, logos, design templates, layouts, typography settings, and
-                  image sliders displayed on this site are protected by copyright laws. You may not
-                  extract, replicate, or reuse any media elements without explicit written
-                  authorization from us.
-                </Text>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  6. Limitation of Liability
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  The Travel Solution will not be held liable for itinerary changes, delays,
-                  transport halts, road blocks, landslides, flight cancelations, or medical issues
-                  arising from natural Himalayan climate patterns or independent airline/resort
-                  service lapses.
-                </Text>
-              </div>
-
-              <div className="pt-6 border-t border-border mt-4">
-                <Heading variant="h4" className="text-lg font-bold text-text-primary mb-2">
-                  Legal Queries
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  If you require clarifying information regarding our Booking Agreements or Terms of
-                  Use, please reach out to us at{" "}
-                  <a
-                    href="mailto:travelsolutionuk0@gmail.com"
-                    className="text-primary hover:underline font-bold"
+              {terms.map((term, index) => (
+                <div key={index}>
+                  <Heading
+                    variant="h2"
+                    className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
                   >
-                    travelsolutionuk0@gmail.com
-                  </a>
-                  .
-                </Text>
-              </div>
+                    {term.title}
+                  </Heading>
+                  <Text variant="body-sm" className="text-text-secondary leading-relaxed">
+                    {term.content}
+                  </Text>
+                </div>
+              ))}
             </div>
           </Container>
         </section>

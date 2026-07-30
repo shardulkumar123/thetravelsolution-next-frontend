@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { Heading, Text } from "@/components/ui/Typography";
 
 export default function PrivacyPolicyPage() {
-  const lastUpdated = "July 18, 2026";
+  const lastUpdated = "July 30, 2026";
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-text-primary">
@@ -39,75 +39,82 @@ export default function PrivacyPolicyPage() {
           <Container className="max-w-4xl text-left">
             <div className="prose prose-slate max-w-none flex flex-col gap-8">
               <div>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-4">
+                  Welcome to The Travel Solution (&ldquo;we&rdquo;, &ldquo;us&rdquo;,
+                  &ldquo;our&rdquo;). Your privacy is a priority for us. This Privacy Policy
+                  explains how we collect, use, disclose and safeguard your personal information
+                  when you visit our website, engage with our content or use our services.
+                </Text>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
+                  By accessing or using our Site, you agree to the terms of this Privacy Policy.
+                </Text>
+              </div>
+
+              <div>
                 <Heading
                   variant="h2"
                   className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
                 >
-                  1. Introduction
+                  1. Information We Collect
+                </Heading>
+                <Heading variant="h4" className="text-base font-bold text-text-primary mb-2">
+                  Personal Information You Provide
+                </Heading>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
+                  We may collect personal information that you provide including when you:
+                </Text>
+                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2 mb-4">
+                  <li>Complete contact or inquiry forms</li>
+                  <li>Book tours or request travel planning support</li>
+                  <li>Communicate with us via email or messaging</li>
+                </ul>
+
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
+                  This personal information includes:
+                </Text>
+                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2 mb-4">
+                  <li>Name</li>
+                  <li>Email address</li>
+                  <li>Phone number</li>
+                  <li>Travel preferences and itinerary details</li>
+                  <li>Payment and credit card details</li>
+                </ul>
+
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
+                  This data also helps us understand user behaviour and improve the experience on
+                  the Site. Like many websites, we may use cookies to collect this information.
+                </Text>
+              </div>
+
+              <div>
+                <Heading
+                  variant="h2"
+                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
+                >
+                  2. How We Use Your Information
+                </Heading>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
+                  We may use the information we collect for purposes including:
+                </Text>
+                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2">
+                  <li>Providing, operating and improving our Site and services</li>
+                  <li>Personalising your experience</li>
+                  <li>Responding to inquiries and booking requests</li>
+                </ul>
+              </div>
+
+              <div>
+                <Heading
+                  variant="h2"
+                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
+                >
+                  3. Cookies & Tracking Technologies
                 </Heading>
                 <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  Welcome to The Travel Solution (&quot;we,&quot; &quot;our,&quot; or
-                  &quot;us&quot;). We respect your privacy and are committed to protecting your
-                  personal data. This Privacy Policy outlines how we collect, use, disclose, and
-                  safeguard your information when you visit our website or book domestic,
-                  international, religious, or honeymoon travel packages through us.
+                  We use cookies and similar technologies to remember your preferences and track
+                  usage trends. You can usually adjust your browser settings to decline cookies but
+                  this may limit certain features.
                 </Text>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  2. Information We Collect
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
-                  We collect personal data to provide tailored travel services and seamless inquiry
-                  processes. This includes:
-                </Text>
-                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2">
-                  <li>
-                    <strong>Identity Information:</strong> Name, age, gender, and travel
-                    companions&apos; details.
-                  </li>
-                  <li>
-                    <strong>Contact Details:</strong> Email address, mobile phone numbers, and
-                    physical address.
-                  </li>
-                  <li>
-                    <strong>Booking Documentation:</strong> Passport details (for international
-                    travel), visa documents, travel insurance, and flight preferences.
-                  </li>
-                  <li>
-                    <strong>Inquiry Content:</strong> Preferences, travel dates, custom requests,
-                    and destination choices submitted through our booking modals.
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <Heading
-                  variant="h2"
-                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
-                >
-                  3. How We Use Your Data
-                </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
-                  We process your data strictly to fulfill bookings, address queries, and customize
-                  packages:
-                </Text>
-                <ul className="list-disc pl-6 text-xs text-text-secondary font-semibold flex flex-col gap-2">
-                  <li>Processing hotel reservations, visa clearances, and logistics support.</li>
-                  <li>Sending travel confirmations, updates, alerts, and detailed itineraries.</li>
-                  <li>
-                    Assisting high-altitude preparation and safety coordination during pilgrim
-                    yatras (like Char Dham).
-                  </li>
-                  <li>
-                    Analyzing page usage to optimize website design, image carousels, and search
-                    experiences.
-                  </li>
-                </ul>
               </div>
 
               <div>
@@ -117,11 +124,12 @@ export default function PrivacyPolicyPage() {
                 >
                   4. Sharing Your Information
                 </Heading>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
+                  We do not sell your personal information to third parties.
+                </Text>
                 <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  We only share your information with trusted third-party providers (hotels,
-                  airlines, local transport networks, and tour guides) as required to deliver your
-                  selected travel itinerary. We do not sell, lease, or rent your personal
-                  information to third-party marketing companies.
+                  We may share information with legal authorities if required by law or to protect
+                  rights and safety.
                 </Text>
               </div>
 
@@ -133,10 +141,9 @@ export default function PrivacyPolicyPage() {
                   5. Data Security
                 </Heading>
                 <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  We use industry-standard physical, electronic, and administrative safeguards to
-                  protect your personal details against unauthorized access, loss, misuse, or
-                  alteration. All booking inquiry forms and transmissions are encrypted using
-                  standard secure protocols.
+                  We use administrative, technical and physical safeguard measures to protect
+                  personal information. However, no security measure is perfect or impenetrable and
+                  we cannot guarantee absolute security.
                 </Text>
               </div>
 
@@ -145,35 +152,62 @@ export default function PrivacyPolicyPage() {
                   variant="h2"
                   className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
                 >
-                  6. Your Rights
+                  6. Data Retention
                 </Heading>
                 <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  You have the right to request access to the personal data we hold about you,
-                  request corrections to out-of-date or incomplete information, or request the
-                  deletion of your customer details once the travel bookings are completed, subject
-                  to regulatory compliance.
+                  We retain personal information only for as long as necessary to fulfil the
+                  purposes outlined in this Privacy Policy and as permitted by applicable laws.
+                </Text>
+              </div>
+
+              <div>
+                <Heading
+                  variant="h2"
+                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
+                >
+                  7. Changes to This Privacy Policy
+                </Heading>
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
+                  We may update this Privacy Policy. When we do, we will revise the &ldquo;Last
+                  Updated&rdquo; date. Continued use of the Site after changes constitutes
+                  acceptance of the updated policy.
                 </Text>
               </div>
 
               <div className="pt-6 border-t border-border mt-4">
-                <Heading variant="h4" className="text-lg font-bold text-text-primary mb-2">
-                  Questions & Support
+                <Heading
+                  variant="h2"
+                  className="text-2xl font-extrabold tracking-tight text-text-primary mb-3"
+                >
+                  8. Contact Us
                 </Heading>
-                <Text variant="body-sm" className="text-text-secondary leading-relaxed">
-                  If you have questions about this policy or want to update your details, please
-                  reach out to us at{" "}
-                  <a
-                    href="mailto:travelsolutionuk0@gmail.com"
-                    className="text-primary hover:underline font-bold"
-                  >
-                    travelsolutionuk0@gmail.com
-                  </a>{" "}
-                  or call us directly at{" "}
-                  <a href="tel:+919258645860" className="text-primary hover:underline font-bold">
-                    +91 92586 45860
-                  </a>
-                  .
+                <Text variant="body-sm" className="text-text-secondary leading-relaxed mb-3">
+                  If you have any questions about this Privacy Policy or your personal information:
                 </Text>
+                <ul className="list-none pl-0 text-xs text-text-secondary font-semibold flex flex-col gap-2">
+                  <li>
+                    <strong>Phone:</strong>{" "}
+                    <a href="tel:9258645860" className="text-primary hover:underline font-bold">
+                      9258645860
+                    </a>
+                    ,{" "}
+                    <a href="tel:9084656222" className="text-primary hover:underline font-bold">
+                      9084656222
+                    </a>
+                  </li>
+                  <li>
+                    <strong>Email:</strong>{" "}
+                    <a
+                      href="mailto:travelsolutionuk0@gmail.com"
+                      className="text-primary hover:underline font-bold"
+                    >
+                      travelsolutionuk0@gmail.com
+                    </a>
+                  </li>
+                  <li>
+                    <strong>Address:</strong> Nangal Sahastradhara dehradun 248001, Uttarakhand
+                  </li>
+                </ul>
               </div>
             </div>
           </Container>
