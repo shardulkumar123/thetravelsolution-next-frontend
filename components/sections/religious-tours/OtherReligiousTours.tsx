@@ -2,7 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { TourCard } from "@/components/ui/TourCard";
 import { Heading, Text } from "@/components/ui/Typography";
 
-import { OTHER_RELIGIOUS_TOURS } from "@/utils/constants";
+import { OTHER_RELIGIOUS_TOURS } from "@/constants/packages/religious";
 
 interface OtherReligiousToursProps {
   onBookClick: (packageName: string) => void;

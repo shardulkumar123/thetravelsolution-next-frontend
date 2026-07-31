@@ -13,14 +13,13 @@ import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Clock, Compass, HeartHandshake, Phone, ShieldCheck } from "lucide-react";
 
-import {
-  DOMESTIC_PACKAGES,
-  HONEYMOON_PACKAGES,
-  INTERNATIONAL_PACKAGES,
-  OTHER_RELIGIOUS_TOURS,
-  SEASONAL_TOURS,
-} from "@/utils/constants";
+import { SEASONAL_TOURS } from "@/utils/constants";
 import { sendWhatsAppMessage } from "@/utils/whatsapp";
+
+import { DOMESTIC_PACKAGES } from "@/constants/packages/domestic";
+import { HONEYMOON_PACKAGES } from "@/constants/packages/honeymoon";
+import { INTERNATIONAL_PACKAGES } from "@/constants/packages/international";
+import { OTHER_RELIGIOUS_TOURS } from "@/constants/packages/religious";
 
 // Helper to look up package details across all datasets
 const findPackageById = (id: string) => {

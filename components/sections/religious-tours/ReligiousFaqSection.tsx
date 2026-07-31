@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Compass, ShieldCheck } from "lucide-react";
 
-import { PILGRIM_INTEL } from "@/utils/constants";
+import { PILGRIM_INTEL } from "@/constants/packages/religious";
 
 export const ReligiousFaqSection: React.FC = () => {
   return (

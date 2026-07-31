@@ -14,64 +14,20 @@ import { TourCard } from "@/components/ui/TourCard";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Compass, Heart, ShieldCheck, Sparkles, Star, Wine } from "lucide-react";
 
-import { HONEYMOON_PACKAGES } from "@/utils/constants";
 import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
-const ROMANTIC_INTEL = [
-  {
-    id: "hm-faq-1",
-    question: "Can we customize the honeymoon packages with extra activities?",
-    answer:
-      "Absolutely! Every honeymoon package can be customized to suit your unique tastes. You can request changes to hotel rooms (e.g., upgrading to pool suites), extend your stay, add specific candlelight settings, or schedule private photography shoots.",
-  },
-  {
-    id: "hm-faq-2",
-    question: "Do you arrange complimentary room decorations and surprises?",
-    answer:
-      "Yes, all our Honeymoon Packages include a complimentary honeymoon cake, a floral bed decoration setup on arrival, and a romantic candlelight dinner at one of the top-rated local dining spots. You can also specify any extra surprises you'd like us to arrange.",
-  },
-  {
-    id: "hm-faq-3",
-    question: "Which destinations are best suited for a winter honeymoon?",
-    answer:
-      "If you love snow-clad peaks and cozy fireplaces, Kashmir and Manali are magical from December to February. If you prefer warm beaches and water adventures, Maldives and Andaman Islands offer the most pleasant weather during the winter months.",
-  },
-  {
-    id: "hm-faq-4",
-    question: "Do you assist with visa requirements for international packages?",
-    answer:
-      "Yes! For destinations like the Maldives (which offers visa-on-arrival for Indian citizens), we guide you through all pre-travel documentation, hotel vouchers, and immigration declarations. For other international destinations requiring prior visas, our ticketing desk coordinates the entire application.",
-  },
-  {
-    id: "hm-faq-5",
-    question: "What is your booking timeline and deposit policy?",
-    answer:
-      "We recommend booking at least 30 to 45 days in advance, especially during the peak wedding/honeymoon season (October to March). A 30% advance deposit is required to secure the bookings, with the remaining balance due 15 days before your travel date.",
-  },
-];
+import {
+  HONEYMOON_PACKAGES,
+  HONEYMOON_PERKS,
+  ROMANTIC_INTEL,
+} from "@/constants/packages/honeymoon";
 
-const PERKS = [
-  {
-    icon: <Wine className="text-primary size-6" />,
-    title: "Candlelight Dinners",
-    desc: "A beautifully decorated private dining spot arranged on beaches or overlooking mountain ranges.",
-  },
-  {
-    icon: <Sparkles className="text-secondary size-6" />,
-    title: "Floral Room Decors",
-    desc: "A warm and fragrant floral bed decoration arranged on the day of your arrival.",
-  },
-  {
-    icon: <Heart className="text-success size-6" />,
-    title: "Couple's Spa & Wellness",
-    desc: "Complimentary vouchers for deep relaxation massages and body scrubs at premium resort spas.",
-  },
-  {
-    icon: <Star className="text-warning size-6" />,
-    title: "Photography Shoots",
-    desc: "Professional half-day photo shoots to capture your special moments amidst stunning landscapes.",
-  },
-];
+const ICON_MAP = {
+  wine: { Icon: Wine, colorClass: "text-primary" },
+  sparkles: { Icon: Sparkles, colorClass: "text-secondary" },
+  heart: { Icon: Heart, colorClass: "text-success" },
+  star: { Icon: Star, colorClass: "text-warning" },
+};
 
 export default function HoneymoonPackagesPage() {
   const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
@@ -208,25 +164,31 @@ Notes: ${bookingForm.notes || "None"}`;
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {PERKS.map((perk, idx) => (
-                <div
-                  key={idx}
-                  className="p-8 rounded-2xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-4 text-left"
-                >
-                  <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface border border-border shrink-0 text-primary shadow-soft">
-                    {perk.icon}
-                  </div>
-                  <Heading
-                    variant="h4"
-                    className="font-bold text-text-primary tracking-tight text-base md:text-lg"
+              {HONEYMOON_PERKS.map((perk, idx) => {
+                const iconConfig = ICON_MAP[perk.iconName as keyof typeof ICON_MAP];
+                const IconComponent = iconConfig ? iconConfig.Icon : Sparkles;
+                const colorClass = iconConfig ? iconConfig.colorClass : "text-primary";
+
+                return (
+                  <div
+                    key={idx}
+                    className="p-8 rounded-2xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1 transition-all duration-300 flex flex-col items-start gap-4 text-left"
                   >
-                    {perk.title}
-                  </Heading>
-                  <Text variant="body-sm" color="text-secondary" className="leading-relaxed">
-                    {perk.desc}
-                  </Text>
-                </div>
-              ))}
+                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-surface border border-border shrink-0 text-primary shadow-soft">
+                      <IconComponent className={`${colorClass} size-6`} />
+                    </div>
+                    <Heading
+                      variant="h4"
+                      className="font-bold text-text-primary tracking-tight text-base md:text-lg"
+                    >
+                      {perk.title}
+                    </Heading>
+                    <Text variant="body-sm" color="text-secondary" className="leading-relaxed">
+                      {perk.desc}
+                    </Text>
+                  </div>
+                );
+              })}
             </div>
           </Container>
         </section>

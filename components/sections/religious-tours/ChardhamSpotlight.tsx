@@ -9,7 +9,7 @@ import { TourCard } from "@/components/ui/TourCard";
 import { Heading, Text } from "@/components/ui/Typography";
 import { CheckCircle2, HeartPulse } from "lucide-react";
 
-import { DHAMS, YATRA_ITINERARY } from "@/utils/constants";
+import { DHAMS, YATRA_ITINERARY } from "@/constants/packages/religious";
 
 // Mapping individual Dham details for card layout uniformity
 const DHAM_EXTRA_DETAILS: Record<

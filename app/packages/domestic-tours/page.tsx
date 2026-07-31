@@ -14,41 +14,9 @@ import { TourCard } from "@/components/ui/TourCard";
 import { Heading, Text } from "@/components/ui/Typography";
 import { Compass, Heart, ShieldCheck } from "lucide-react";
 
-import { DOMESTIC_PACKAGES } from "@/utils/constants";
 import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
-const TRIP_INTEL = [
-  {
-    id: "faq-1",
-    question: "Are flights included in the domestic tour package prices?",
-    answer:
-      "No, our base package rates generally cover airport transfers, premium accommodations, sightseeing, select meals, and ground transportation. However, we have a dedicated flight booking assistance desk that can secure the best fares for your travel dates.",
-  },
-  {
-    id: "faq-2",
-    question: "Can I customize the itinerary or extend my stay?",
-    answer:
-      "Absolutely! We specialize in tailoring custom itineraries. You can upgrade hotel categories, extend stays at specific destinations, add custom activities, or adjust transit schedules to suit your group's preferences.",
-  },
-  {
-    id: "faq-3",
-    question: "What travel documents are required for domestic journeys?",
-    answer:
-      "You will need a government-issued photo ID (like Aadhaar, PAN Card, Driving License, or Voter ID). For specific high-altitude zones or border regions in Ladakh or Northeast India, special Inner Line Permits (ILP) are required, which our operations team will arrange on your behalf.",
-  },
-  {
-    id: "faq-4",
-    question: "What is the cancellation and refund policy?",
-    answer:
-      "Cancellations made 30 days prior to the travel date receive a full refund minus minimal admin charges. Cancellations within 15–29 days receive a 50% refund. Cancellations under 15 days are subject to standard hotel/vendor policies and are usually non-refundable.",
-  },
-  {
-    id: "faq-5",
-    question: "What safety protocols are followed during the tours?",
-    answer:
-      "We ensure all local cabs and coaches are fully sanitized, coordinate only with verified star hotels that maintain high hygiene ratings, and allocate experienced local guides who know safe routes and medical support points.",
-  },
-];
+import { DOMESTIC_PACKAGES, TRIP_INTEL } from "@/constants/packages/domestic";
 
 export default function DomesticToursPage() {
   const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
