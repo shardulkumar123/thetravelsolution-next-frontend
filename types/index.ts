@@ -12,6 +12,11 @@ export interface ItineraryStep {
   details: string;
 }
 
+export interface OtherDetailSection {
+  title: string;
+  items: string[];
+}
+
 export interface TourPackage {
   id: string;
   title: string;
@@ -25,4 +30,5 @@ export interface TourPackage {
   itinerary: ItineraryStep[];
   inclusions: string[];
   exclusions: string[];
+  otherDetails?: OtherDetailSection[];
 }

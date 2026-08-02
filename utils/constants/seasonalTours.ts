@@ -85,5 +85,38 @@ export const SEASONAL_TOURS: TourPackage[] = [
       "Tips, travel insurance, medical insurance, laundry charges, liquors, mineral water, telephone charges.",
       "Porter, pony, horse, cable car, boat, train tickets, air tickets charges.",
     ],
+    otherDetails: [
+      {
+        title: "Hotels Terms & Conditions",
+        items: [
+          "Please read emails carefully and understand the contents and prices. All the email conversations will be also part of your contract with us once you make the booking.",
+          "There is no deluxe facilities in Kedarnath ji due to high altitude. There only serve you bed system.",
+          "As per the directive given by the Government of India, all Indian/Foreign Nationals are required to provide proper proof of identification upon check-in. Valid identifications documents are: Passport & Visa together, Voters Id card, Current Drivers License, Aadhar Card. All the documents must include a photograph.",
+          "Hotel / camps or any kind of accommodation can deny stay if valid id proof is not provided. Company is not responsible for any ID proof related issues.",
+          "Generally hotel check in time is 14:00 hrs and checkout time is 11:00 hrs across India. Confirm early check in or late checkout will be chargeable if not included in cost. Kindly contact hotel directly if you want complimentary early check in or late check out.",
+          "Fixed Menu during low occupancy in hotel – This meal credit amount is decided by hotel management – if bills goes above the given meal credit amount then extra amount should be paid directly at respective hotel. Room service for the food or packing is charged extra at many hotels. Normally in Chardham you will get north Indian type food only and most of the standard and deluxe hotels give thali if meals are included in package.",
+          "Normally for extra bed on double sharing rooms many hotels has rollaway bed while rest of the hotels provide extra mattress only. If you are not comfortable with mattress system instead of bed let us know in advance.",
+          "Most of the hotels in Chardham are not running full year so don’t expect similar service and room quality like you get in Haridwar-Rishikesh in the same price range. Especially in may June and other busy days the budget/standard hotels in Chardham can cost more than deluxe hotel in Haridwar-Rishikesh or Delhi. Also if you want to stay good hotels with good reviews you need to book at least 3 months before in may June and 1-2 month before in Oct Nov season as good hotels are mostly booked in advance by groups. In Kedarnath there is only basic dharamshala / budget hotel type basic facility only even if your package is luxury in Kedarnath don’t expect even deluxe rooms.",
+        ],
+      },
+      {
+        title: "Vehicle Terms & Conditions",
+        items: [
+          "Vehicle will be permitted to use for sightseeing points on the route and inside the city limits or which is mentioned in itinerary. For additional sightseeing, off route sightseeing, sightseeing not inside the city limits or substitute sightseeing kindly contact company. Refund is not possible if any particular sightseeing point is not covered. In case you want some excursions kindly inform company in advance or discuss these things with company rather than driver. All nearby sightseeing points should be covered together. However in case of sometime issues with some particular place we can adjust. In Chardham route some of the places are not on the way like Trijuginarayan, Lakhamandal, Auli, Kalimath, Neelkanth Mahadev, AdiBadri, Bhavishya Badri etc. Kindly contact directly to company in case you want to include these places rather than driver.",
+          "Due to any reason if Vehicle breakdown due to technical reasons we will try our best to arrange another vehicle as soon as possible for the major problems. For minor problems which will not take much time vehicle will be repaired. Kindly cooperate.",
+          "We shall not be responsible for any delays & alterations in the program or expenses incurred directly or indirectly due to natural hazards, flight cancellations, accident, breakdown of transport, weather, sickness, landslides, closures/blockades due to political unrest or any such incidents.",
+          "In case the driver is not cooperative kindly contact company on the spot.",
+          "Driver will not drive on No-entry zones and should not be forced to drive on narrow streets or roads which can create traffic jam. Normal working hours of driver is 12 hrs in case you want services more than 12 hours in a day kindly inform us in advance.",
+          "In some hill area roads driving after sunset and music is not allowed due to risk of life. Kindly cooperate for the same.",
+          "Pick up and drop point will be one only (If multiple pickups and drop please mentions email conversation before booking).",
+          "In case you want multiple visit to the some particular place kindly mention in advance because some places are having very high charges of parking.",
+          "Tour destination / route cannot change without prior notice (Amended route and tour Destination rates may be change).",
+          "The rates are subject to change, depending on the fluctuation of diesel/Petrol prices in India. If the prices increased more than 5 % than the time of booking we will increase the rate even if the rates are confirmed earlier.",
+          "Company reserves the right to give you a similar car if the car you booked is unavailable.",
+          "Some time vehicle parking area little far from the sightseeing spots. Guests need to reach the parking at their own cost.",
+          "No refund for short stay or unveiled facilities.",
+        ],
+      },
+    ],
   },
 ];

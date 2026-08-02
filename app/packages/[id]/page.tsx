@@ -303,6 +303,40 @@ Notes: ${bookingForm.notes || "None"}`;
                     ))}
                   </div>
                 </div>
+
+                {pkg.otherDetails && pkg.otherDetails.length > 0 && (
+                  <div className="flex flex-col gap-6">
+                    <Heading
+                      variant="h3"
+                      className="text-xl font-extrabold text-text-primary tracking-tight"
+                    >
+                      Important Information & Terms
+                    </Heading>
+                    <div className="flex flex-col gap-4">
+                      {pkg.otherDetails.map((section, idx) => (
+                        <div
+                          key={idx}
+                          className="p-6 rounded-3xl border border-border bg-card flex flex-col gap-4"
+                        >
+                          <h4 className="font-extrabold text-text-primary text-body-md border-b border-border/80 pb-2">
+                            {section.title}
+                          </h4>
+                          <ul className="flex flex-col gap-3">
+                            {section.items.map((item, i) => (
+                              <li
+                                key={i}
+                                className="flex gap-2 text-xs font-semibold text-text-secondary leading-relaxed"
+                              >
+                                <span className="text-primary mt-0.5">•</span>
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Right Column: Sticky Booking Sidebar */}
