@@ -140,6 +140,18 @@ export const OTHER_RELIGIOUS_TOURS: TourPackage[] = [
           "Transfer to Lal Bahadur Shastri Airport or Varanasi Junction for your onward journey home.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "rel-2",
@@ -168,6 +180,18 @@ export const OTHER_RELIGIOUS_TOURS: TourPackage[] = [
         details:
           "Visit the historic Jallianwala Bagh. Later, transfer to Sri Guru Ram Dass Jee International Airport for your departure.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
 ];

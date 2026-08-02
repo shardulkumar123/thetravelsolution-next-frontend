@@ -40,6 +40,18 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
           "Breakfast on board. Transfer back to Cochin for sightseeing (Fort Kochi, Chinese Fishing Nets, Jewish Synagogue) before departure.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "pkg-2",
@@ -93,6 +105,18 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
         details:
           "After breakfast, check out from the heritage hotel and transfer to Udaipur airport or railway station for onward journey.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
   {
@@ -148,6 +172,18 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
           "Transfer to Kushok Bakula Rimpochee Airport for flight back to Delhi, concluding your Himalayan tour.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "pkg-4",
@@ -182,6 +218,18 @@ export const DOMESTIC_PACKAGES: TourPackage[] = [
         details:
           "Transfer back to the airport for your flight home, bringing back beautiful coastal memories.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
 ];

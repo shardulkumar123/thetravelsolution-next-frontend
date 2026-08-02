@@ -244,12 +244,7 @@ Notes: ${bookingForm.notes || "None"}`;
                       {"What's Included:"}
                     </span>
                     <ul className="flex flex-col gap-2">
-                      {[
-                        "Luxury Stays & Resorts",
-                        "Airport Pick-up & Transfers",
-                        "Daily Buffet Breakfasts",
-                        "Private Guided Excursions",
-                      ].map((inc, i) => (
+                      {pkg.inclusions.map((inc: string, i: number) => (
                         <li
                           key={i}
                           className="flex items-center gap-2 text-xs font-semibold text-text-secondary"
@@ -264,12 +259,7 @@ Notes: ${bookingForm.notes || "None"}`;
                       {"What's Excluded:"}
                     </span>
                     <ul className="flex flex-col gap-2">
-                      {[
-                        "International / Domestic Flights",
-                        "Visas & Processing Fees",
-                        "Personal Laundry & Extras",
-                        "Tips and Driver Gratuities",
-                      ].map((exc, i) => (
+                      {pkg.exclusions.map((exc: string, i: number) => (
                         <li
                           key={i}
                           className="flex items-center gap-2 text-xs font-semibold text-text-secondary"

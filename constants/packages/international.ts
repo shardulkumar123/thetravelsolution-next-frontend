@@ -39,6 +39,18 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
           "Enjoy a final breakfast overlooking the Indian Ocean. Check out and take a speedboat transfer back to Velana International Airport.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "int-pkg-2",
@@ -83,6 +95,18 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
           "Spend your morning shopping for Balinese handicrafts and coffee. Transfer to Denpasar airport for your flight back home.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "int-pkg-3",
@@ -125,6 +149,18 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
         details:
           "Morning at leisure for last-minute shopping at Mall of the Emirates. Check out and get transferred to Dubai International Airport.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
   {
@@ -178,6 +214,18 @@ export const INTERNATIONAL_PACKAGES: TourPackage[] = [
         details:
           "Check out of your Swiss hotel and take a local airport train connection to Zurich International Airport for your return flight.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
 ];

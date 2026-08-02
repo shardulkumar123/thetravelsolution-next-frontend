@@ -23,4 +23,6 @@ export interface TourPackage {
   highlights: string[];
   category?: string;
   itinerary: ItineraryStep[];
+  inclusions: string[];
+  exclusions: string[];
 }

@@ -39,6 +39,18 @@ export const HONEYMOON_PACKAGES: TourPackage[] = [
           "Enjoy a final breakfast overlooking the Indian Ocean. Check out and take a speedboat transfer back to Velana International Airport.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "hm-2",
@@ -82,6 +94,18 @@ export const HONEYMOON_PACKAGES: TourPackage[] = [
         details:
           "Drive back from Pahalgam to Srinagar Airport for your departing flight, carrying memorable valley experiences.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
   {
@@ -130,6 +154,18 @@ export const HONEYMOON_PACKAGES: TourPackage[] = [
         details: "Check out from hotel and get transferred to the airport for your onward journey.",
       },
     ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
+    ],
   },
   {
     id: "hm-4",
@@ -168,6 +204,18 @@ export const HONEYMOON_PACKAGES: TourPackage[] = [
         details:
           "Check out from your cottage. Take a evening semi-sleeper coach transfer back to Delhi, concluding your mountain escape.",
       },
+    ],
+    inclusions: [
+      "Luxury Stays & Resorts",
+      "Airport Pick-up & Transfers",
+      "Daily Buffet Breakfasts",
+      "Private Guided Excursions",
+    ],
+    exclusions: [
+      "International / Domestic Flights",
+      "Visas & Processing Fees",
+      "Personal Laundry & Extras",
+      "Tips and Driver Gratuities",
     ],
   },
 ];

@@ -423,243 +423,87 @@ export const SERVICES_ITEMS = [
 export const SEASONAL_TOURS: TourPackage[] = [
   {
     id: "st-1",
-    title: "Kedarnath & Badrinath (Do Dham)",
-    location: "Uttarakhand, India",
-    duration: "6 Days / 5 Nights",
-    price: "₹24,990",
-    image:
-      "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80",
-    description:
-      "A popular pilgrimage to Kedarnath and Badrinath temples in the Garhwal Himalayas with premium transfers and stays.",
-    category: "Chardham Yatra",
-    highlights: [
-      "Helicopter Booking Support",
-      "VIP Darshan Assistance",
-      "Premium Riverfront Hotels",
-    ],
-    itinerary: [
-      {
-        title: "Dehradun to Guptkashi Scenic Drive",
-        details:
-          "Pickup from Dehradun/Haridwar and drive along Ganga and Alaknanda confluences to Guptkashi. Check in to premium riverfront lodge.",
-      },
-      {
-        title: "Kedarnath Dham Heli/Trek Ascent",
-        details:
-          "Board helicopter or begin the sacred trek up to Kedarnath. Stay overnight near the temple, participating in the evening Shiva Aarti.",
-      },
-      {
-        title: "Kedarnath Abhishek & Descent to Guptkashi",
-        details:
-          "Participate in early morning Rudrabhishek puja. Fly or trek back down to Guptkashi for a relaxed evening and overnight stay.",
-      },
-      {
-        title: "Guptkashi to Badrinath Dham Drive",
-        details:
-          "Drive via Joshimath to Badrinath temple. Take a holy bath in the hot springs of Tapt Kund, then enter the temple for Lord Badri Vishal darshan.",
-      },
-      {
-        title: "Badrinath Sightseeing & Drive to Rishikesh",
-        details:
-          "Explore Mana Village (Vyas Gufa, Bhim Pul). Drive down to the yoga capital, Rishikesh. Walk across Lakshman Jhula in the evening.",
-      },
-      {
-        title: "Ganga Aarti & Rishikesh Departure",
-        details:
-          "Participate in morning Ganga Aarti. Transfer to Dehradun Airport or Haridwar station for your return journey home.",
-      },
-    ],
-  },
-  {
-    id: "st-2",
-    title: "Kashmir Paradise Valley Loop",
-    location: "Kashmir, India",
-    duration: "6 Days / 5 Nights",
-    price: "₹19,999",
-    image:
-      "https://images.unsplash.com/photo-1595841696667-aa9c92f90141?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Experience the summer bloom and winter snow in Gulmarg, Sonamarg, and Pahalgam, including a romantic shikara stay.",
-    category: "Himalayan Escapes",
-    highlights: ["Dal Lake Houseboat Stay", "Gondola Ride in Gulmarg", "Private Shikara Cruise"],
-    itinerary: [
-      {
-        title: "Srinagar Airport Arrival & Houseboat Stay",
-        details:
-          "Arrive in Srinagar. Check into a premium wooden houseboat on Dal Lake. Enjoy a relaxed Shikara boat ride at sunset.",
-      },
-      {
-        title: "Srinagar to Gulmarg Alpine Day Trip",
-        details:
-          "Drive to the meadow of flowers, Gulmarg. Experience the world's second-highest Gondola Cable Car Ride, climbing up to Apharwat Peak.",
-      },
-      {
-        title: "Srinagar Mugal Gardens Sightseeing",
-        details:
-          "Explore Srinagar's historic Mughal architecture: Shalimar Bagh, Nishat Bagh, Chashme Shahi, and the Hazratbal Shrine.",
-      },
-      {
-        title: "Srinagar to Pahalgam Valley Drive",
-        details:
-          "Drive to Pahalgam, the Valley of Shepherds. Stop by saffron fields at Pampore. In the afternoon, visit Betaab Valley and Aru Valley in local union cabs.",
-      },
-      {
-        title: "Pahalgam Leisure Day & Treks",
-        details:
-          "Enjoy the scenic beauty of Pahalgam. Ride ponies to Baisaran Meadow (often called Mini Switzerland) or relax along the Lidder River.",
-      },
-      {
-        title: "Pahalgam to Srinagar & Departure",
-        details:
-          "Drive back from Pahalgam to Srinagar Airport for your departing flight, carrying memorable valley experiences.",
-      },
-    ],
-  },
-  {
-    id: "st-3",
-    title: "Kerala Backwaters & Hills",
-    location: "Kerala, India",
-    duration: "5 Days / 4 Nights",
-    price: "₹15,999",
-    image:
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Cruise through peaceful backwaters of Alleppey and relax in the cool tea plantations of Munnar.",
-    category: "Tropical Retreats",
-    highlights: ["Premium Houseboat Cruise", "Munnar Spice Tour", "Dolphin Spotting in Kumarakom"],
-    itinerary: [
-      {
-        title: "Arrival in Cochin & Drive to Munnar",
-        details:
-          "Arrive at Cochin Airport/Railway Station and travel to the scenic hill station Munnar. En route, enjoy the beautiful Valara and Cheeyappara waterfalls. Check in to resort.",
-      },
-      {
-        title: "Munnar Sightseeing Tour",
-        details:
-          "Explore Munnar's wonders: Eravikulam National Park (home to Nilgiri Tahr), Mattupetty Dam, Echo Point, Tea Museum, and Photo Point.",
-      },
-      {
-        title: "Munnar to Thekkady Wild Woods",
-        details:
-          "Drive to Thekkady. Visit the Periyar National Park, take a spice plantation tour, and enjoy an evening boating session or traditional Kathakali show.",
-      },
-      {
-        title: "Thekkady to Alleppey Houseboat",
-        details:
-          "Check into a private luxury houseboat in Alleppey. Cruise along the scenic palm-fringed backwaters, enjoying freshly prepared traditional Kerala meals.",
-      },
-      {
-        title: "Alleppey to Cochin Departure",
-        details:
-          "Breakfast on board. Transfer back to Cochin for sightseeing (Fort Kochi, Chinese Fishing Nets, Jewish Synagogue) before departure.",
-      },
-    ],
-  },
-  {
-    id: "st-4",
-    title: "Char Dham Grand Pilgrimage",
+    title: "Char Dham Yatra Tour from Haridwar",
     location: "Uttarakhand, India",
     duration: "10 Days / 9 Nights",
-    price: "₹48,990",
+    price: "₹27,500",
     image:
       "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80",
     description:
-      "Complete spiritual circuit covering Yamunotri, Gangotri, Kedarnath, and Badrinath with fully managed logistics.",
+      "Char Dham yatra is the most sacred yatra for Hindu in India. There are four temples included in char dham yatra: Yamunotri, Gangotri, Kedarnath, Badrinath. THE TRAVEL SOLUTION brought you 9 nights Char Dham tour packages from Haridwar in which you can visit all Char Dham of Uttarakhand. This package starts from Haridwar, Rishikesh or Dehradun. Organising customized tours only.",
     category: "Chardham Yatra",
     highlights: [
-      "Biometric Registration Done",
-      "Experienced Mountain Guide",
-      "Medical/Oxygen Assistance",
-    ],
-    itinerary: YATRA_ITINERARY,
-  },
-  {
-    id: "st-5",
-    title: "Ladakh Road Trip & Camping",
-    location: "Ladakh, India",
-    duration: "8 Days / 7 Nights",
-    price: "₹29,999",
-    image:
-      "https://images.unsplash.com/photo-1590050752117-238cb0612b1b?auto=format&fit=crop&w=800&q=80",
-    description:
-      "A popular summer adventure driving through Khardung La pass and camping next to the clear Pangong Lake.",
-    category: "Himalayan Escapes",
-    highlights: ["Lakefront Luxury Tents", "Khardung La Crossing", "Magnetic Hill Experience"],
-    itinerary: [
-      {
-        title: "Leh Airport Arrival & Acclimatization",
-        details:
-          "Fly to Leh. Day strictly reserved for resting and acclimating to the high altitude (3,500m). Walk around the local Leh market in the evening.",
-      },
-      {
-        title: "Leh City Heritage & Monastery Tour",
-        details:
-          "Visit Hall of Fame, Shanti Stupa, Sangam (confluence of Indus and Zanskar rivers), Magnetic Hill, and Pathar Sahib Gurudwara.",
-      },
-      {
-        title: "Leh to Nubra Valley via Khardung La",
-        details:
-          "Drive through the world's highest motorable pass, Khardung La (5,359m). Arrive at Nubra Valley, enjoy a double-humped camel safari at Hunder Sand Dunes.",
-      },
-      {
-        title: "Nubra Valley to Pangong Lake via Shyok",
-        details:
-          "Travel to the famous high-altitude Pangong Lake. Witness the changing shades of the lake's blue water. Spend the night at a luxury lakeside camp.",
-      },
-      {
-        title: "Pangong Lake to Leh via Chang La",
-        details:
-          "Wake up to a beautiful sunrise by the lake. Drive back to Leh via the high-altitude Chang La pass. Shop for local souvenirs in the evening.",
-      },
-      {
-        title: "Leh Adventure Excursion",
-        details:
-          "A day for optional adventure activities: river rafting in Indus River or exploring Shey and Thiksey monasteries.",
-      },
-      {
-        title: "Leh to Delhi Departure",
-        details:
-          "Transfer to Kushok Bakula Rimpochee Airport for flight back to Delhi, concluding your Himalayan tour.",
-      },
-    ],
-  },
-  {
-    id: "st-6",
-    title: "Goa Sunkissed Getaway",
-    location: "Goa, India",
-    duration: "4 Days / 3 Nights",
-    price: "₹12,999",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Perfect post-monsoon beach vacation featuring heritage sites, water sports, and beachside sunset dinners.",
-    category: "Tropical Retreats",
-    highlights: [
-      "Heritage Churches Tour",
-      "Water Sports Package Included",
-      "Private Beachside Cabana Dinner",
+      "Yamunotri & Gangotri",
+      "Kedarnath & Badrinath",
+      "Customized Private Tours",
+      "Ex Haridwar/Dehradun",
     ],
     itinerary: [
       {
-        title: "Arrival in Goa & Beachside Sunset",
+        title: "Haridwar – Barkot",
         details:
-          "Arrive at Manohar International Airport (MOPA) and transfer to your beachfront resort. Spend the evening relaxing on Calangute Beach or enjoying a beach shack dinner.",
+          "Morning meet our representative at your Hotel / Airport / Railway Station. After some basic information start your journey to Barkot. Later drive to Barkot. Check into the hotel arrival in Barkot. Overnight stay at Barkot. (Meals: Dinner)",
       },
       {
-        title: "North Goa Sightseeing & Water Sports",
+        title: "Barkot - Janakichatti - Yamunotri - Jankichatti - Barkot",
         details:
-          "Explore historic Fort Aguada, Chapora Fort, and participate in exciting water sports like parasailing and jet-skiing at Baga Beach.",
+          'Early morning after breakfast, drive to Jankichatti / Phoolchatti. Start your trek from here to Yamunotri (6kms) (Either by walk or by horse or by Doli at own cost). After arrival at Yamunotri take bath in warm waters of Surya Kund (Hot Spring). Enjoy Darshan of "Yamunaji". Return trek to Jankichatti. Later drive towards Barkot. Overnight stay at Barkot. (Meals: Breakfast and Dinner)',
       },
       {
-        title: "Dudhsagar Waterfalls & Spice Plantation Tour",
+        title: "Barkot – Uttarkashi",
         details:
-          "Embark on an early morning jeep safari to the majestic Dudhsagar Waterfalls, followed by a traditional buffet lunch at a spice plantation.",
+          "Morning after breakfast, relax for a while. Later drive to Uttarkashi. Visit Shivgufa on the way to Uttarkashi. In Uttarkashi visit Kashi Vishwanath Temple. After that, check in hotel. Day free for rest. Overnight stay at Uttarkashi. (Meals: Breakfast and Dinner)",
       },
       {
-        title: "Goa Departure",
+        title: "Uttarkashi – Gangotri – Uttarkashi",
         details:
-          "Transfer back to the airport for your flight home, bringing back beautiful coastal memories.",
+          "Early morning after breakfast, drive to Gangotri. On the way visit Gangnani Hot Spring. Take a holy dip in Kund. Later drive to Gangotri via beautiful Harsil valley. On arrival at Gangotri, take a holy dip in the sacred river Ganges which is also called Bhagirathi at its origin. Perform Pooja and Darshan, after that relax for some time in the lovely surroundings. Later return drive to Uttarkashi. Overnight stay at Uttarkashi. (Meals: Breakfast and Dinner)",
       },
+      {
+        title: "Uttarkashi – Guptkashi",
+        details:
+          "Morning after breakfast, drive to Guptkashi. Enroute you can see the beautiful river Mandakini at Tilwara. The Mandakini River comes from Kedarnath, drive alongside the river to reach Guptakashi, visit Ardh Narishwar Temple in Guptakashi. Check into the hotel arrival in Guptkashi. Overnight stay at Guptkashi. (Meals: Breakfast and Dinner)",
+      },
+      {
+        title: "Guptkashi – Sonprayag – Kedarnath",
+        details:
+          "Morning after breakfast, today we will go to Kedarnath. To reach Kedarnath you will have two options. One if by trekking and other is by Air via Helicopter (at your own cost). By Helicopter: Morning our driver will transfer you to your Helipad location. By Trek: Drive to Sonprayag early in the morning, Gaurikund to Kedarnath is further 14 Kms trek.",
+      },
+      {
+        title: "Kedarnath – Sonprayag – Guptkashi",
+        details:
+          "Morning after breakfast explore nearby areas by walk at Kedarnath. Later reach Guptkashi as per your choice by trek or Helicopter. At arrival check in to hotel in Guptkashi. Overnight stay at Guptkashi. (Meals: Dinner)",
+      },
+      {
+        title: "Guptkashi – Joshimath – Badrinath",
+        details:
+          "Morning after breakfast, drive to Badrinath. Check in to the hotel arrival in Badrinath. Pilgrims after having a bath in the Taptkund have the Darshan of Badrivishal & Aarti in evening. Overnight stay at Badrinath. (Meals: Breakfast and Dinner)",
+      },
+      {
+        title: "Badrinath – Joshimath – Rudraprayag",
+        details:
+          "Morning enjoy the after breakfast, drive for Rudraprayag via Joshimath. Visit on the way Darshan of VishnuPrayag, Narsingh Temple in Joshimath, KarnPrayag and NandPrayag. Check into the hotel arrival in Rudraprayag. Overnight stay at Rudraprayag. (Meals: Breakfast and Dinner)",
+      },
+      {
+        title: "Rudraprayag – Rishikesh – Haridwar",
+        details:
+          "Morning after breakfast, drive for Haridwar / Dehradun / Rishikesh. Drop at Hotel / Airport / railway station. (Meals: Breakfast)",
+      },
+    ],
+    inclusions: [
+      "Hotel accommodation as per package same or similar hotels.",
+      "Meals as per package (Breakfast, Dinner).",
+      "Transfers and sightseeing as per above.",
+      "All toll tax, parking, fuel and driver allowances.",
+    ],
+    exclusions: [
+      "Horse / Paalki / Helicopter for Trekking at Kedarnath.",
+      "Meals in Kedarnath are not included.",
+      "Anything not mentioned under 'Package Inclusions'.",
+      "All personal expenses, optional tours and extra meals.",
+      "Any kind of entry fees anywhere if not mentioned in including.",
+      "Tips, travel insurance, medical insurance, laundry charges, liquors, mineral water, telephone charges.",
+      "Porter, pony, horse, cable car, boat, train tickets, air tickets charges.",
     ],
   },
 ];
