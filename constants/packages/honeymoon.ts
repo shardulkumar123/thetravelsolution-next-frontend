@@ -1,4 +1,6 @@
-export const HONEYMOON_PACKAGES = [
+import { TourPackage } from "@/types";
+
+export const HONEYMOON_PACKAGES: TourPackage[] = [
   {
     id: "hm-1",
     title: "Maldives Overwater Luxury Retreat",
@@ -10,6 +12,33 @@ export const HONEYMOON_PACKAGES = [
     description:
       "Stay in a premium overwater villa with direct access to turquoise lagoons, private plunge pool, and beautiful marine reefs.",
     highlights: ["Overwater Villa Stay", "Couple's Spa Session", "Private Beachfront Dinner"],
+    itinerary: [
+      {
+        title: "Velana Airport Arrival & Speedboat Transfer",
+        details:
+          "Arrive at Male Airport and transfer to your luxury resort via speedboat/seaplane. Check into your premium overwater villa.",
+      },
+      {
+        title: "Spa Session & Lagoon Snorkeling",
+        details:
+          "Enjoy a relaxing couple's spa session. In the afternoon, swim in the turquoise lagoon and explore the resort's house reef.",
+      },
+      {
+        title: "Ocean Excursions & Dolphin Cruise",
+        details:
+          "Embark on an excursion: snorkeling with sea turtles or a sunset cruise to spot active dolphins in the open ocean.",
+      },
+      {
+        title: "Leisure & Private Beachfront Dinner",
+        details:
+          "Relax by your private plunge pool. As night falls, enjoy a curated multi-course private dinner served on the beach under the stars.",
+      },
+      {
+        title: "Speedboat to Male & Departure",
+        details:
+          "Enjoy a final breakfast overlooking the Indian Ocean. Check out and take a speedboat transfer back to Velana International Airport.",
+      },
+    ],
   },
   {
     id: "hm-2",
@@ -22,6 +51,38 @@ export const HONEYMOON_PACKAGES = [
     description:
       "Unravel the heaven on Earth with a romantic houseboat stay on Dal Lake, snow cable cars in Gulmarg, and flower walks in Pahalgam.",
     highlights: ["Shikara Sunset Cruise", "Gulmarg Gondola Ride", "Dal Lake Houseboat Stay"],
+    itinerary: [
+      {
+        title: "Srinagar Airport Arrival & Houseboat Stay",
+        details:
+          "Arrive in Srinagar. Check into a premium wooden houseboat on Dal Lake. Enjoy a relaxed Shikara boat ride at sunset.",
+      },
+      {
+        title: "Srinagar to Gulmarg Alpine Day Trip",
+        details:
+          "Drive to the meadow of flowers, Gulmarg. Experience the world's second-highest Gondola Cable Car Ride, climbing up to Apharwat Peak.",
+      },
+      {
+        title: "Srinagar Mugal Gardens Sightseeing",
+        details:
+          "Explore Srinagar's historic Mughal architecture: Shalimar Bagh, Nishat Bagh, Chashme Shahi, and the Hazratbal Shrine.",
+      },
+      {
+        title: "Srinagar to Pahalgam Valley Drive",
+        details:
+          "Drive to Pahalgam, the Valley of Shepherds. Stop by saffron fields at Pampore. In the afternoon, visit Betaab Valley and Aru Valley in local union cabs.",
+      },
+      {
+        title: "Pahalgam Leisure Day & Treks",
+        details:
+          "Enjoy the scenic beauty of Pahalgam. Ride ponies to Baisaran Meadow (often called Mini Switzerland) or relax along the Lidder River.",
+      },
+      {
+        title: "Pahalgam to Srinagar & Departure",
+        details:
+          "Drive back from Pahalgam to Srinagar Airport for your departing flight, carrying memorable valley experiences.",
+      },
+    ],
   },
   {
     id: "hm-3",
@@ -38,6 +99,37 @@ export const HONEYMOON_PACKAGES = [
       "Scuba Diving Experience",
       "Luxury Cruise Transfer",
     ],
+    itinerary: [
+      {
+        title: "Arrival in Port Blair & Cellular Jail Light Show",
+        details:
+          "Arrive at Port Blair airport. Visit the historic Cellular Jail in the afternoon and witness the moving Sound and Light Show in the evening.",
+      },
+      {
+        title: "Port Blair to Havelock Island Cruise",
+        details:
+          "Board a premium luxury cruise ferry to Havelock Island. Check in to your beachfront resort and relax on the white sands of Radhanagar Beach.",
+      },
+      {
+        title: "Radhanagar Beach Sunset Walk & Scuba Session",
+        details:
+          "Participate in a guided couple's introductory scuba diving session. In the evening, enjoy a romantic walk along Radhanagar Beach during sunset.",
+      },
+      {
+        title: "Elephant Beach Boat Trip & Snorkeling",
+        details:
+          "Take a speed boat to Elephant Beach. Indulge in complimentary snorkeling, coral viewing, and fun water activities in the shallow turquoise waters.",
+      },
+      {
+        title: "Havelock to Port Blair Return",
+        details:
+          "Return to Port Blair via cruise ferry. Spend the evening shopping for local woodcrafts and sea-shell souvenirs in the local markets.",
+      },
+      {
+        title: "Port Blair Departure",
+        details: "Check out from hotel and get transferred to the airport for your onward journey.",
+      },
+    ],
   },
   {
     id: "hm-4",
@@ -50,6 +142,33 @@ export const HONEYMOON_PACKAGES = [
     description:
       "Escape to private pine cottages, capture stunning valley views, trek to waterfalls, and cozy up next to mountain fireplaces.",
     highlights: ["Private Wood Cottage", "Solang Valley Paragliding", "Jogini Waterfall Trek"],
+    itinerary: [
+      {
+        title: "Delhi to Manali Overnight Travel & Cozy Check-in",
+        details:
+          "Travel from Delhi to Manali. Check in to your private wood cottage and enjoy a cozy evening by the fireplace.",
+      },
+      {
+        title: "Manali Local Sightseeing & Hadimba Temple",
+        details:
+          "Explore the ancient Hadimba Temple, Vashisht Hot Springs, and take a stroll through the bustling Mall Road and Old Manali cafes.",
+      },
+      {
+        title: "Solang Valley Adventure & Paragliding",
+        details:
+          "Head to Solang Valley. Experience thrilling outdoor sports like paragliding, zorbing, and quad-biking surrounded by snowcapped peaks.",
+      },
+      {
+        title: "Jogini Waterfall Trek & Vashisht Village",
+        details:
+          "Embark on a short, romantic trek through pine forests to the beautiful Jogini Waterfall. Relax in local cafes in the afternoon.",
+      },
+      {
+        title: "Manali to Delhi Departure",
+        details:
+          "Check out from your cottage. Take a evening semi-sleeper coach transfer back to Delhi, concluding your mountain escape.",
+      },
+    ],
   },
 ];
 

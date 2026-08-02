@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -25,7 +26,7 @@ export const SeasonalToursSection: React.FC = () => {
     email: "",
     phone: "",
     date: "",
-    travelers: "2",
+    travelers: "1",
     notes: "",
   });
 
@@ -60,7 +61,7 @@ Notes: ${bookingForm.notes || "None"}`;
       email: "",
       phone: "",
       date: "",
-      travelers: "2",
+      travelers: "1",
       notes: "",
     });
   };
@@ -125,8 +126,7 @@ Notes: ${bookingForm.notes || "None"}`;
           {filteredTours.map((tour) => (
             <div
               key={tour.id}
-              onClick={() => handleOpenModal(tour.title)}
-              className="group relative flex flex-col rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1.5 transition-all duration-300 overflow-hidden cursor-pointer text-left"
+              className="group relative flex flex-col rounded-3xl border border-border bg-card shadow-soft hover:shadow-medium hover:-translate-y-1.5 transition-all duration-300 overflow-hidden text-left"
             >
               {/* Tour Image */}
               <div className="relative w-full h-[220px] select-none overflow-hidden shrink-0">
@@ -183,8 +183,8 @@ Notes: ${bookingForm.notes || "None"}`;
                 </div>
 
                 {/* Footer Section */}
-                <div className="mt-6 pt-5 border-t border-border flex items-center justify-between">
-                  <div className="flex flex-col text-left">
+                <div className="mt-6 pt-5 border-t border-border flex items-center justify-between gap-2">
+                  <div className="flex flex-col text-left shrink-0">
                     <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">
                       Starting Price
                     </span>
@@ -192,9 +192,21 @@ Notes: ${bookingForm.notes || "None"}`;
                       {tour.price}
                     </span>
                   </div>
-                  <Button variant="primary" size="sm" className="font-bold px-5">
-                    Book Now
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Link href={`/packages/${tour.id}`}>
+                      <Button variant="outline" size="sm" className="font-bold px-4 cursor-pointer">
+                        View Details
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      className="font-bold px-4 cursor-pointer"
+                      onClick={() => handleOpenModal(tour.title)}
+                    >
+                      Book Now
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>

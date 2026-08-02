@@ -23,7 +23,7 @@ export default function ReligiousToursPage() {
     email: "",
     phone: "",
     date: "",
-    travelers: "2",
+    travelers: "1",
     notes: "",
   });
 
@@ -35,7 +35,7 @@ export default function ReligiousToursPage() {
       email: "",
       phone: "",
       date: "",
-      travelers: "2",
+      travelers: "1",
       notes: "",
     });
   };

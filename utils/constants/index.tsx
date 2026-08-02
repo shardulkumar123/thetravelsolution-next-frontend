@@ -13,6 +13,10 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import { TourPackage } from "@/types";
+
+import { YATRA_ITINERARY } from "@/constants/packages/religious";
+
 export const CAROUSEL_SLIDES = [
   {
     src: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80",
@@ -416,7 +420,7 @@ export const SERVICES_ITEMS = [
   },
 ];
 
-export const SEASONAL_TOURS = [
+export const SEASONAL_TOURS: TourPackage[] = [
   {
     id: "st-1",
     title: "Kedarnath & Badrinath (Do Dham)",
@@ -433,6 +437,38 @@ export const SEASONAL_TOURS = [
       "VIP Darshan Assistance",
       "Premium Riverfront Hotels",
     ],
+    itinerary: [
+      {
+        title: "Dehradun to Guptkashi Scenic Drive",
+        details:
+          "Pickup from Dehradun/Haridwar and drive along Ganga and Alaknanda confluences to Guptkashi. Check in to premium riverfront lodge.",
+      },
+      {
+        title: "Kedarnath Dham Heli/Trek Ascent",
+        details:
+          "Board helicopter or begin the sacred trek up to Kedarnath. Stay overnight near the temple, participating in the evening Shiva Aarti.",
+      },
+      {
+        title: "Kedarnath Abhishek & Descent to Guptkashi",
+        details:
+          "Participate in early morning Rudrabhishek puja. Fly or trek back down to Guptkashi for a relaxed evening and overnight stay.",
+      },
+      {
+        title: "Guptkashi to Badrinath Dham Drive",
+        details:
+          "Drive via Joshimath to Badrinath temple. Take a holy bath in the hot springs of Tapt Kund, then enter the temple for Lord Badri Vishal darshan.",
+      },
+      {
+        title: "Badrinath Sightseeing & Drive to Rishikesh",
+        details:
+          "Explore Mana Village (Vyas Gufa, Bhim Pul). Drive down to the yoga capital, Rishikesh. Walk across Lakshman Jhula in the evening.",
+      },
+      {
+        title: "Ganga Aarti & Rishikesh Departure",
+        details:
+          "Participate in morning Ganga Aarti. Transfer to Dehradun Airport or Haridwar station for your return journey home.",
+      },
+    ],
   },
   {
     id: "st-2",
@@ -446,6 +482,38 @@ export const SEASONAL_TOURS = [
       "Experience the summer bloom and winter snow in Gulmarg, Sonamarg, and Pahalgam, including a romantic shikara stay.",
     category: "Himalayan Escapes",
     highlights: ["Dal Lake Houseboat Stay", "Gondola Ride in Gulmarg", "Private Shikara Cruise"],
+    itinerary: [
+      {
+        title: "Srinagar Airport Arrival & Houseboat Stay",
+        details:
+          "Arrive in Srinagar. Check into a premium wooden houseboat on Dal Lake. Enjoy a relaxed Shikara boat ride at sunset.",
+      },
+      {
+        title: "Srinagar to Gulmarg Alpine Day Trip",
+        details:
+          "Drive to the meadow of flowers, Gulmarg. Experience the world's second-highest Gondola Cable Car Ride, climbing up to Apharwat Peak.",
+      },
+      {
+        title: "Srinagar Mugal Gardens Sightseeing",
+        details:
+          "Explore Srinagar's historic Mughal architecture: Shalimar Bagh, Nishat Bagh, Chashme Shahi, and the Hazratbal Shrine.",
+      },
+      {
+        title: "Srinagar to Pahalgam Valley Drive",
+        details:
+          "Drive to Pahalgam, the Valley of Shepherds. Stop by saffron fields at Pampore. In the afternoon, visit Betaab Valley and Aru Valley in local union cabs.",
+      },
+      {
+        title: "Pahalgam Leisure Day & Treks",
+        details:
+          "Enjoy the scenic beauty of Pahalgam. Ride ponies to Baisaran Meadow (often called Mini Switzerland) or relax along the Lidder River.",
+      },
+      {
+        title: "Pahalgam to Srinagar & Departure",
+        details:
+          "Drive back from Pahalgam to Srinagar Airport for your departing flight, carrying memorable valley experiences.",
+      },
+    ],
   },
   {
     id: "st-3",
@@ -459,6 +527,33 @@ export const SEASONAL_TOURS = [
       "Cruise through peaceful backwaters of Alleppey and relax in the cool tea plantations of Munnar.",
     category: "Tropical Retreats",
     highlights: ["Premium Houseboat Cruise", "Munnar Spice Tour", "Dolphin Spotting in Kumarakom"],
+    itinerary: [
+      {
+        title: "Arrival in Cochin & Drive to Munnar",
+        details:
+          "Arrive at Cochin Airport/Railway Station and travel to the scenic hill station Munnar. En route, enjoy the beautiful Valara and Cheeyappara waterfalls. Check in to resort.",
+      },
+      {
+        title: "Munnar Sightseeing Tour",
+        details:
+          "Explore Munnar's wonders: Eravikulam National Park (home to Nilgiri Tahr), Mattupetty Dam, Echo Point, Tea Museum, and Photo Point.",
+      },
+      {
+        title: "Munnar to Thekkady Wild Woods",
+        details:
+          "Drive to Thekkady. Visit the Periyar National Park, take a spice plantation tour, and enjoy an evening boating session or traditional Kathakali show.",
+      },
+      {
+        title: "Thekkady to Alleppey Houseboat",
+        details:
+          "Check into a private luxury houseboat in Alleppey. Cruise along the scenic palm-fringed backwaters, enjoying freshly prepared traditional Kerala meals.",
+      },
+      {
+        title: "Alleppey to Cochin Departure",
+        details:
+          "Breakfast on board. Transfer back to Cochin for sightseeing (Fort Kochi, Chinese Fishing Nets, Jewish Synagogue) before departure.",
+      },
+    ],
   },
   {
     id: "st-4",
@@ -476,6 +571,7 @@ export const SEASONAL_TOURS = [
       "Experienced Mountain Guide",
       "Medical/Oxygen Assistance",
     ],
+    itinerary: YATRA_ITINERARY,
   },
   {
     id: "st-5",
@@ -489,6 +585,43 @@ export const SEASONAL_TOURS = [
       "A popular summer adventure driving through Khardung La pass and camping next to the clear Pangong Lake.",
     category: "Himalayan Escapes",
     highlights: ["Lakefront Luxury Tents", "Khardung La Crossing", "Magnetic Hill Experience"],
+    itinerary: [
+      {
+        title: "Leh Airport Arrival & Acclimatization",
+        details:
+          "Fly to Leh. Day strictly reserved for resting and acclimating to the high altitude (3,500m). Walk around the local Leh market in the evening.",
+      },
+      {
+        title: "Leh City Heritage & Monastery Tour",
+        details:
+          "Visit Hall of Fame, Shanti Stupa, Sangam (confluence of Indus and Zanskar rivers), Magnetic Hill, and Pathar Sahib Gurudwara.",
+      },
+      {
+        title: "Leh to Nubra Valley via Khardung La",
+        details:
+          "Drive through the world's highest motorable pass, Khardung La (5,359m). Arrive at Nubra Valley, enjoy a double-humped camel safari at Hunder Sand Dunes.",
+      },
+      {
+        title: "Nubra Valley to Pangong Lake via Shyok",
+        details:
+          "Travel to the famous high-altitude Pangong Lake. Witness the changing shades of the lake's blue water. Spend the night at a luxury lakeside camp.",
+      },
+      {
+        title: "Pangong Lake to Leh via Chang La",
+        details:
+          "Wake up to a beautiful sunrise by the lake. Drive back to Leh via the high-altitude Chang La pass. Shop for local souvenirs in the evening.",
+      },
+      {
+        title: "Leh Adventure Excursion",
+        details:
+          "A day for optional adventure activities: river rafting in Indus River or exploring Shey and Thiksey monasteries.",
+      },
+      {
+        title: "Leh to Delhi Departure",
+        details:
+          "Transfer to Kushok Bakula Rimpochee Airport for flight back to Delhi, concluding your Himalayan tour.",
+      },
+    ],
   },
   {
     id: "st-6",
@@ -505,6 +638,28 @@ export const SEASONAL_TOURS = [
       "Heritage Churches Tour",
       "Water Sports Package Included",
       "Private Beachside Cabana Dinner",
+    ],
+    itinerary: [
+      {
+        title: "Arrival in Goa & Beachside Sunset",
+        details:
+          "Arrive at Manohar International Airport (MOPA) and transfer to your beachfront resort. Spend the evening relaxing on Calangute Beach or enjoying a beach shack dinner.",
+      },
+      {
+        title: "North Goa Sightseeing & Water Sports",
+        details:
+          "Explore historic Fort Aguada, Chapora Fort, and participate in exciting water sports like parasailing and jet-skiing at Baga Beach.",
+      },
+      {
+        title: "Dudhsagar Waterfalls & Spice Plantation Tour",
+        details:
+          "Embark on an early morning jeep safari to the majestic Dudhsagar Waterfalls, followed by a traditional buffet lunch at a spice plantation.",
+      },
+      {
+        title: "Goa Departure",
+        details:
+          "Transfer back to the airport for your flight home, bringing back beautiful coastal memories.",
+      },
     ],
   },
 ];

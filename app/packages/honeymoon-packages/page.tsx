@@ -72,7 +72,7 @@ Notes: ${bookingForm.notes || "None"}`;
       email: "",
       phone: "",
       date: "",
-      travelers: "2",
+      travelers: "1",
       notes: "",
     });
   };

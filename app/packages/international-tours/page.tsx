@@ -26,7 +26,7 @@ export default function InternationalToursPage() {
     email: "",
     phone: "",
     date: "",
-    travelers: "2",
+    travelers: "1",
     notes: "",
   });
 
@@ -61,7 +61,7 @@ Notes: ${bookingForm.notes || "None"}`;
       email: "",
       phone: "",
       date: "",
-      travelers: "2",
+      travelers: "1",
       notes: "",
     });
   };

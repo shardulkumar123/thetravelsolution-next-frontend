@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -11,10 +11,11 @@ import { Container } from "@/components/ui/Container";
 import { CustomImage } from "@/components/ui/CustomImage";
 import { Modal } from "@/components/ui/Modal";
 import { Heading, Text } from "@/components/ui/Typography";
-import { Clock, Compass, HeartHandshake, Phone, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Clock, Compass, HeartHandshake, Phone, ShieldCheck } from "lucide-react";
 
 import { SEASONAL_TOURS } from "@/utils/constants";
 import { sendWhatsAppMessage } from "@/utils/whatsapp";
+import { TourPackage } from "@/types";
 
 import { DOMESTIC_PACKAGES } from "@/constants/packages/domestic";
 import { HONEYMOON_PACKAGES } from "@/constants/packages/honeymoon";
@@ -22,68 +23,37 @@ import { INTERNATIONAL_PACKAGES } from "@/constants/packages/international";
 import { OTHER_RELIGIOUS_TOURS } from "@/constants/packages/religious";
 
 // Helper to look up package details across all datasets
-const findPackageById = (id: string) => {
-  const allPackages = [
+const findPackageById = (id: string): TourPackage | undefined => {
+  const allPackages: TourPackage[] = [
     ...DOMESTIC_PACKAGES,
     ...INTERNATIONAL_PACKAGES,
     ...HONEYMOON_PACKAGES,
     ...OTHER_RELIGIOUS_TOURS,
-    ...SEASONAL_TOURS.map((st) => ({
-      ...st,
-      highlights: st.highlights,
-    })),
+    ...SEASONAL_TOURS,
   ];
   return allPackages.find((pkg) => pkg.id === id);
 };
 
-// Mock itinerary generator based on title & duration
-const generateItinerary = (title: string, durationStr: string) => {
-  const daysMatch = durationStr.match(/(\d+)\s*Days/i);
+// Itinerary generator based on package ID, title, & duration
+const generateItinerary = (pkg: TourPackage) => {
+  const daysMatch = pkg.duration.match(/(\d+)\s*Days/i);
   const days = daysMatch ? parseInt(daysMatch[1]) : 4;
 
-  const steps = [
-    {
-      title: "Arrival and Leisurely Check-in",
-      details:
-        "Land at the destination terminal. Our luxury private transport coordinates your transition directly to the resort. Enjoy a welcoming orientation, unpack, and relax.",
-    },
-    {
-      title: "Guided Sightseeing and Culture Trail",
-      details:
-        "Embark on a customized private highlights tour. Explore historic monuments, local heritage sites, panoramic viewpoints, and sample regional delicacies.",
-    },
-    {
-      title: "Adventure, Leisure, and Scenic Treks",
-      details:
-        "Set out for exciting regional activities like boat cruises, mountain pass crossings, snow treks, or water sports fully arranged by our operations desk.",
-    },
-    {
-      title: "Immersive Local Experiences and Souvenirs",
-      details:
-        "Spend a relaxing day checking out artisan villages, local craft markets, or taking complimentary couple's spa treatments and taking sunset beach walks.",
-    },
-    {
-      title: "Final Day Transit and Departure",
-      details:
-        "Enjoy a hearty breakfast at the hotel, complete check-out procedures, and take our private terminal transfer for your return journey home.",
-    },
-  ];
+  const steps = pkg.itinerary;
 
   return Array.from({ length: days }).map((_, idx) => {
     const step = steps[Math.min(idx, steps.length - 1)];
     return {
       day: `Day ${idx + 1}`,
-      title: idx === days - 1 ? "Departure and Farewells" : step.title,
-      details:
-        idx === days - 1
-          ? "Check out from your premium room. Take a private vehicle transfer back to the transit terminal for your journey back home."
-          : step.details,
+      title: step.title,
+      details: step.details,
     };
   });
 };
 
 export default function PackageDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const id = params.id as string;
 
   const pkg = findPackageById(id);
@@ -95,7 +65,7 @@ export default function PackageDetailPage() {
     email: "",
     phone: "",
     date: "",
-    travelers: "2",
+    travelers: "1",
     notes: "",
   });
 
@@ -152,12 +122,12 @@ Notes: ${bookingForm.notes || "None"}`;
       email: "",
       phone: "",
       date: "",
-      travelers: "2",
+      travelers: "1",
       notes: "",
     });
   };
 
-  const itinerary = generateItinerary(pkg.title, pkg.duration);
+  const itinerary = generateItinerary(pkg);
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-text-primary">
@@ -165,7 +135,7 @@ Notes: ${bookingForm.notes || "None"}`;
 
       <main className="flex-1">
         {/* Banner Hero */}
-        <section className="relative py-28 md:py-36 bg-slate-900 text-white overflow-hidden text-center">
+        <section className="relative py-20 md:py-28 bg-slate-900 text-white overflow-hidden text-center">
           <div className="absolute inset-0 z-0 select-none">
             <CustomImage
               src={pkg.image}
@@ -178,6 +148,15 @@ Notes: ${bookingForm.notes || "None"}`;
           </div>
 
           <Container className="relative z-10 flex flex-col items-center gap-4">
+            <div className="w-full flex justify-start mb-4">
+              <button
+                onClick={() => router.back()}
+                className="flex items-center gap-2 text-white/85 hover:text-white transition-colors text-xs font-bold cursor-pointer bg-white/10 hover:bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/15 shadow-sm"
+              >
+                <ArrowLeft size={14} />
+                Back
+              </button>
+            </div>
             <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-xs font-semibold text-primary uppercase tracking-widest">
               {pkg.location}
             </span>
@@ -207,6 +186,23 @@ Notes: ${bookingForm.notes || "None"}`;
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
               {/* Left Column: Details & Itinerary */}
               <div className="lg:col-span-2 flex flex-col gap-10 text-left">
+                {/* Package Image */}
+                <div className="relative w-full h-[300px] md:h-[420px] rounded-3xl overflow-hidden shadow-soft select-none shrink-0 border border-border">
+                  <CustomImage
+                    src={
+                      pkg.image ||
+                      ("images" in pkg && Array.isArray((pkg as { images?: string[] }).images)
+                        ? (pkg as { images: string[] }).images[0]
+                        : "") ||
+                      ""
+                    }
+                    alt={pkg.title}
+                    fill
+                    priority
+                    className="object-cover"
+                  />
+                </div>
+
                 {/* Description */}
                 <div className="flex flex-col gap-4">
                   <Heading
@@ -227,7 +223,7 @@ Notes: ${bookingForm.notes || "None"}`;
                     Package Highlights
                   </Heading>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {pkg.highlights.map((highlight, index) => (
+                    {pkg.highlights.map((highlight: string, index: number) => (
                       <div
                         key={index}
                         className="flex items-center gap-3 p-4 rounded-2xl bg-surface border border-border/80"

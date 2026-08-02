@@ -1,3 +1,5 @@
+import { TourPackage } from "@/types";
+
 export const DHAMS = [
   {
     name: "Yamunotri",
@@ -104,7 +106,7 @@ export const YATRA_ITINERARY = [
   },
 ];
 
-export const OTHER_RELIGIOUS_TOURS = [
+export const OTHER_RELIGIOUS_TOURS: TourPackage[] = [
   {
     id: "rel-1",
     title: "Varanasi Heritage & Sacred Ganges",
@@ -116,6 +118,28 @@ export const OTHER_RELIGIOUS_TOURS = [
     description:
       "Witness the magnificent Ganga Aarti at Dashashwamedh Ghat, explore ancient temples, take early morning boat cruises, and experience the cultural heartbeat of Kashi.",
     highlights: ["Ganga Aarti Tour", "Kashi Vishwanath Temple", "Morning Boat Cruise"],
+    itinerary: [
+      {
+        title: "Arrival in Varanasi & Ganga Aarti Tour",
+        details:
+          "Arrive in Varanasi. In the evening, witness the magnificent Ganga Aarti ceremony at Dashashwamedh Ghat from a private boat.",
+      },
+      {
+        title: "Kashi Vishwanath Temple & Heritage Walks",
+        details:
+          "Offer prayers at the sacred Kashi Vishwanath Temple. Walk through the narrow alleys of the ancient city and discover its heritage.",
+      },
+      {
+        title: "Morning Boat Cruise & Sarnath Excursion",
+        details:
+          "Take an early morning boat cruise on the Ganges to witness the sunrise. Later, visit Sarnath where Lord Buddha gave his first sermon.",
+      },
+      {
+        title: "Varanasi Departure",
+        details:
+          "Transfer to Lal Bahadur Shastri Airport or Varanasi Junction for your onward journey home.",
+      },
+    ],
   },
   {
     id: "rel-2",
@@ -128,6 +152,23 @@ export const OTHER_RELIGIOUS_TOURS = [
     description:
       "Offer prayers at the serene Harmandir Sahib (Golden Temple), experience the majestic community kitchen (Langar), and watch the patriotic ceremony at the Wagah Border.",
     highlights: ["Golden Temple Visit", "Community Langar Feast", "Wagah Border Ceremony"],
+    itinerary: [
+      {
+        title: "Arrival in Amritsar & Golden Temple Visit",
+        details:
+          "Arrive in Amritsar and transfer to your hotel. Visit the beautiful Golden Temple (Harmandir Sahib) in the evening when it is fully illuminated.",
+      },
+      {
+        title: "Community Langar & Wagah Border Ceremony",
+        details:
+          "Experience the community kitchen (Langar) at the Golden Temple. In the afternoon, head to the Wagah Border to watch the patriotic military ceremony.",
+      },
+      {
+        title: "Amritsar Departure",
+        details:
+          "Visit the historic Jallianwala Bagh. Later, transfer to Sri Guru Ram Dass Jee International Airport for your departure.",
+      },
+    ],
   },
 ];
 

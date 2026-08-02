@@ -1,4 +1,6 @@
-export const DOMESTIC_PACKAGES = [
+import { TourPackage } from "@/types";
+
+export const DOMESTIC_PACKAGES: TourPackage[] = [
   {
     id: "pkg-1",
     title: "Kerala Backwaters Serenade",
@@ -11,6 +13,33 @@ export const DOMESTIC_PACKAGES = [
       "Experience the tranquility of houseboats cruising through palm-fringed canals, lush green tea estates in Munnar, and refreshing spice plantation walks.",
     highlights: ["Private Deluxe Houseboat", "Munnar Tea Gardens", "Kathakali Dance Show"],
     category: "honeymoon",
+    itinerary: [
+      {
+        title: "Arrival in Cochin & Drive to Munnar",
+        details:
+          "Arrive at Cochin Airport/Railway Station and travel to the scenic hill station Munnar. En route, enjoy the beautiful Valara and Cheeyappara waterfalls. Check in to resort.",
+      },
+      {
+        title: "Munnar Sightseeing Tour",
+        details:
+          "Explore Munnar's wonders: Eravikulam National Park (home to Nilgiri Tahr), Mattupetty Dam, Echo Point, Tea Museum, and Photo Point.",
+      },
+      {
+        title: "Munnar to Thekkady Wild Woods",
+        details:
+          "Drive to Thekkady. Visit the Periyar National Park, take a spice plantation tour, and enjoy an evening boating session or traditional Kathakali show.",
+      },
+      {
+        title: "Thekkady to Alleppey Houseboat",
+        details:
+          "Check into a private luxury houseboat in Alleppey. Cruise along the scenic palm-fringed backwaters, enjoying freshly prepared traditional Kerala meals.",
+      },
+      {
+        title: "Alleppey to Cochin Departure",
+        details:
+          "Breakfast on board. Transfer back to Cochin for sightseeing (Fort Kochi, Chinese Fishing Nets, Jewish Synagogue) before departure.",
+      },
+    ],
   },
   {
     id: "pkg-2",
@@ -28,6 +57,43 @@ export const DOMESTIC_PACKAGES = [
       "Lake Pichola Boat Ride",
     ],
     category: "girls-tours",
+    itinerary: [
+      {
+        title: "Arrive in Jaipur - The Pink City",
+        details:
+          "Welcome to Jaipur. Check in to hotel. In the evening, explore local heritage markets and visit the beautiful Birla Temple.",
+      },
+      {
+        title: "Jaipur Historic Forts & Palaces Tour",
+        details:
+          "Visit Amber Fort with an optional elephant/jeep ride, Hawa Mahal (Palace of Winds), City Palace museum, and the ancient Jantar Mantar observatory.",
+      },
+      {
+        title: "Jaipur to Jodhpur (The Blue City)",
+        details:
+          "Drive to Jodhpur. Visit the monumental Mehrangarh Fort towering above the blue city, Jaswant Thada cenotaph, and the vibrant local clock tower markets.",
+      },
+      {
+        title: "Jodhpur to Udaipur via Ranakpur",
+        details:
+          "Travel to Udaipur. Stop en route at the architecturally stunning 15th-century Ranakpur Jain Temple, famous for its 1444 unique marble pillars.",
+      },
+      {
+        title: "Udaipur Romantic Lake City Tour",
+        details:
+          "Explore Udaipur: City Palace complex, Jagdish Temple, Saheliyon-ki-Bari gardens, and enjoy a romantic sunset boat ride on Lake Pichola.",
+      },
+      {
+        title: "Udaipur Heritage Walks & Leisure",
+        details:
+          "A day at leisure to explore local lakes, shopping streets for Rajasthani handicrafts, and trying local Mewari cuisine.",
+      },
+      {
+        title: "Udaipur Departure",
+        details:
+          "After breakfast, check out from the heritage hotel and transfer to Udaipur airport or railway station for onward journey.",
+      },
+    ],
   },
   {
     id: "pkg-3",
@@ -45,6 +111,43 @@ export const DOMESTIC_PACKAGES = [
       "Hemis Monastery Visit",
     ],
     category: "religious",
+    itinerary: [
+      {
+        title: "Leh Airport Arrival & Acclimatization",
+        details:
+          "Fly to Leh. Day strictly reserved for resting and acclimating to the high altitude (3,500m). Walk around the local Leh market in the evening.",
+      },
+      {
+        title: "Leh City Heritage & Monastery Tour",
+        details:
+          "Visit Hall of Fame, Shanti Stupa, Sangam (confluence of Indus and Zanskar rivers), Magnetic Hill, and Pathar Sahib Gurudwara.",
+      },
+      {
+        title: "Leh to Nubra Valley via Khardung La",
+        details:
+          "Drive through the world's highest motorable pass, Khardung La (5,359m). Arrive at Nubra Valley, enjoy a double-humped camel safari at Hunder Sand Dunes.",
+      },
+      {
+        title: "Nubra Valley to Pangong Lake via Shyok",
+        details:
+          "Travel to the famous high-altitude Pangong Lake. Witness the changing shades of the lake's blue water. Spend the night at a luxury lakeside camp.",
+      },
+      {
+        title: "Pangong Lake to Leh via Chang La",
+        details:
+          "Wake up to a beautiful sunrise by the lake. Drive back to Leh via the high-altitude Chang La pass. Shop for local souvenirs in the evening.",
+      },
+      {
+        title: "Leh Adventure Excursion",
+        details:
+          "A day for optional adventure activities: river rafting in Indus River or exploring Shey and Thiksey monasteries.",
+      },
+      {
+        title: "Leh to Delhi Departure",
+        details:
+          "Transfer to Kushok Bakula Rimpochee Airport for flight back to Delhi, concluding your Himalayan tour.",
+      },
+    ],
   },
   {
     id: "pkg-4",
@@ -58,6 +161,28 @@ export const DOMESTIC_PACKAGES = [
       "Unwind on golden sands, enjoy exciting water sports, explore historic Portuguese churches, and sample mouthwatering Konkani culinary delights.",
     highlights: ["North Goa Beach Hopping", "Dudhsagar Waterfalls Tour", "Mandovi River Cruise"],
     category: "girls-tours",
+    itinerary: [
+      {
+        title: "Arrival in Goa & Beachside Sunset",
+        details:
+          "Arrive at Manohar International Airport (MOPA) and transfer to your beachfront resort. Spend the evening relaxing on Calangute Beach or enjoying a beach shack dinner.",
+      },
+      {
+        title: "North Goa Sightseeing & Water Sports",
+        details:
+          "Explore historic Fort Aguada, Chapora Fort, and participate in exciting water sports like parasailing and jet-skiing at Baga Beach.",
+      },
+      {
+        title: "Dudhsagar Waterfalls & Spice Plantation Tour",
+        details:
+          "Embark on an early morning jeep safari to the majestic Dudhsagar Waterfalls, followed by a traditional buffet lunch at a spice plantation.",
+      },
+      {
+        title: "Goa Departure",
+        details:
+          "Transfer back to the airport for your flight home, bringing back beautiful coastal memories.",
+      },
+    ],
   },
 ];
 
