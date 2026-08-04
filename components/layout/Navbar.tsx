@@ -61,7 +61,6 @@ export const Navbar: React.FC = () => {
           subLinks: [
             { name: "Religious Packages", href: "/packages/religious-tours" },
             { name: "Honeymoon Packages", href: "/packages/honeymoon-packages" },
-            { name: "Girls Tours", href: "/packages/girls-tours" },
           ],
         },
         { name: "International Tours", href: "/packages/international-tours" },

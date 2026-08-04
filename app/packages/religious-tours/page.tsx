@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { ChardhamSpotlight } from "@/components/sections/religious-tours/ChardhamSpotlight";
 import { OtherReligiousTours } from "@/components/sections/religious-tours/OtherReligiousTours";
 import { ReligiousFaqSection } from "@/components/sections/religious-tours/ReligiousFaqSection";
 // Import modular sections
@@ -52,7 +51,7 @@ export default function ReligiousToursPage() {
     setIsBookingSubmitted(true);
 
     const message = `*New Booking Inquiry*
-Dham: ${bookingDhamName}
+Tour: ${bookingDhamName}
 Name: ${bookingForm.name}
 Email: ${bookingForm.email}
 Phone: ${bookingForm.phone}
@@ -71,9 +70,6 @@ Notes: ${bookingForm.notes || "None"}`;
         {/* Banner Hero */}
         <ReligiousHero />
 
-        {/* Featured Spotlight: Chaar Dham Yatra */}
-        <ChardhamSpotlight onBookClick={handleBookClick} />
-
         {/* Other Religious Packages */}
         <OtherReligiousTours onBookClick={handleBookClick} />
 
@@ -87,7 +83,7 @@ Notes: ${bookingForm.notes || "None"}`;
       <Modal
         isOpen={bookingDhamName !== null}
         onClose={() => setBookingDhamName(null)}
-        title={`Inquiry: ${bookingDhamName} Dham Yatra`}
+        title={`Inquiry: ${bookingDhamName}`}
       >
         {isBookingSubmitted ? (
           <div className="py-8 text-center flex flex-col items-center gap-3">

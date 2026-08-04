@@ -15,7 +15,7 @@ import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 import { cn } from "@/lib/utils";
 
-const TABS = ["All", "Chardham Yatra"];
+const TABS = ["All", "Chardham Yatra", "Do Dham Yatra", "Adi Kailash Yatra"];
 
 export const SeasonalToursSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("All");

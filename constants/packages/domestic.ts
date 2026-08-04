@@ -2,234 +2,56 @@ import { TourPackage } from "@/types";
 
 export const DOMESTIC_PACKAGES: TourPackage[] = [
   {
-    id: "pkg-1",
-    title: "Kerala Backwaters Serenade",
-    location: "Kerala, India",
-    duration: "5 Days / 4 Nights",
-    price: "₹15,999",
+    id: "pkg-adv-1",
+    title: "Corbett Long Weekend Luxury Tour Package",
+    location: "Uttarakhand, India (RAMNAGAR TO RAMNAGAR)",
+    duration: "3 Days / 2 Nights",
+    price: "₹9,999",
     image:
-      "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1615959189197-48400fc3889a?auto=format&fit=crop&w=800&q=80",
     description:
-      "Experience the tranquility of houseboats cruising through palm-fringed canals, lush green tea estates in Munnar, and refreshing spice plantation walks.",
-    highlights: ["Private Deluxe Houseboat", "Munnar Tea Gardens", "Kathakali Dance Show"],
-    category: "honeymoon",
-    itinerary: [
-      {
-        title: "Arrival in Cochin & Drive to Munnar",
-        details:
-          "Arrive at Cochin Airport/Railway Station and travel to the scenic hill station Munnar. En route, enjoy the beautiful Valara and Cheeyappara waterfalls. Check in to resort.",
-      },
-      {
-        title: "Munnar Sightseeing Tour",
-        details:
-          "Explore Munnar's wonders: Eravikulam National Park (home to Nilgiri Tahr), Mattupetty Dam, Echo Point, Tea Museum, and Photo Point.",
-      },
-      {
-        title: "Munnar to Thekkady Wild Woods",
-        details:
-          "Drive to Thekkady. Visit the Periyar National Park, take a spice plantation tour, and enjoy an evening boating session or traditional Kathakali show.",
-      },
-      {
-        title: "Thekkady to Alleppey Houseboat",
-        details:
-          "Check into a private luxury houseboat in Alleppey. Cruise along the scenic palm-fringed backwaters, enjoying freshly prepared traditional Kerala meals.",
-      },
-      {
-        title: "Alleppey to Cochin Departure",
-        details:
-          "Breakfast on board. Transfer back to Cochin for sightseeing (Fort Kochi, Chinese Fishing Nets, Jewish Synagogue) before departure.",
-      },
-    ],
-    inclusions: [
-      "Luxury Stays & Resorts",
-      "Airport Pick-up & Transfers",
-      "Daily Buffet Breakfasts",
-      "Private Guided Excursions",
-    ],
-    exclusions: [
-      "International / Domestic Flights",
-      "Visas & Processing Fees",
-      "Personal Laundry & Extras",
-      "Tips and Driver Gratuities",
-    ],
-  },
-  {
-    id: "pkg-2",
-    title: "Royal Rajasthan Heritage Route",
-    location: "Rajasthan, India",
-    duration: "7 Days / 6 Nights",
-    price: "₹24,999",
-    image:
-      "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Walk down the corridors of history with visits to Jaipur's massive Amber Fort, Udaipur's romantic Lake Palace, and Thar Desert camel safaris.",
+      "Enjoy a premium wildlife holiday in India's famous Jim Corbett National Park. This package features luxury resort accommodations, exhilarating jeep safaris, exceptional hospitality, and immersive nature experiences.",
     highlights: [
-      "Fort & Palace Guided Tours",
-      "Thar Desert Sunset Safari",
-      "Lake Pichola Boat Ride",
+      "Premium wildlife holiday in India's famous national park",
+      "Luxury resort accommodations and safari experiences",
+      "Ideal for families and wildlife enthusiasts",
+      "Exceptional hospitality and natural surroundings",
+      "Memorable wilderness escape",
     ],
-    category: "girls-tours",
+    category: "adventure",
     itinerary: [
       {
-        title: "Arrive in Jaipur - The Pink City",
+        title: "Day 1: Arriving at Jim Corbett Nation Park",
         details:
-          "Welcome to Jaipur. Check in to hotel. In the evening, explore local heritage markets and visit the beautiful Birla Temple.",
+          "After arriving at Jim Corbett National Park check-in to your Jim Corbett hotel or resort and take some rest there. After some rest, its time to have a buffet lunch at restaurant premises, After lunch takes some rest and then visit for local sightseeing or enjoy the swimming pool. After enjoying in swimming pool or by local sightseeing its time to way back to your hotel or resort. After this, you have to take your buffet dinner and overnight stay there.",
       },
       {
-        title: "Jaipur Historic Forts & Palaces Tour",
+        title: "Day 2: Corbett Park Jeep Safari",
         details:
-          "Visit Amber Fort with an optional elephant/jeep ride, Hawa Mahal (Palace of Winds), City Palace museum, and the ancient Jantar Mantar observatory.",
+          "Early morning go for Jeep safari of Jim Corbett national park. After Jeep Safari your breakfast will be ready to eat. Have your buffet breakfast and came back to your hotel/resort take some rest and then have your buffet lunch. After lunch, you can enjoy indoor activities like badminton, cricket, pool, and table tennis. take evening tea/ coffee in a roundhouse or room have a buffet dinner. You will stay overnight there.",
       },
       {
-        title: "Jaipur to Jodhpur (The Blue City)",
-        details:
-          "Drive to Jodhpur. Visit the monumental Mehrangarh Fort towering above the blue city, Jaswant Thada cenotaph, and the vibrant local clock tower markets.",
-      },
-      {
-        title: "Jodhpur to Udaipur via Ranakpur",
-        details:
-          "Travel to Udaipur. Stop en route at the architecturally stunning 15th-century Ranakpur Jain Temple, famous for its 1444 unique marble pillars.",
-      },
-      {
-        title: "Udaipur Romantic Lake City Tour",
-        details:
-          "Explore Udaipur: City Palace complex, Jagdish Temple, Saheliyon-ki-Bari gardens, and enjoy a romantic sunset boat ride on Lake Pichola.",
-      },
-      {
-        title: "Udaipur Heritage Walks & Leisure",
-        details:
-          "A day at leisure to explore local lakes, shopping streets for Rajasthani handicrafts, and trying local Mewari cuisine.",
-      },
-      {
-        title: "Udaipur Departure",
-        details:
-          "After breakfast, check out from the heritage hotel and transfer to Udaipur airport or railway station for onward journey.",
+        title: "Day 3: Departure",
+        details: "Take buffet breakfast and leave for your home with sweet memories of wildlife",
       },
     ],
     inclusions: [
-      "Luxury Stays & Resorts",
-      "Airport Pick-up & Transfers",
-      "Daily Buffet Breakfasts",
-      "Private Guided Excursions",
+      "Accommodation for 02 nights/03 days in luxury hotel or resort",
+      "Welcome refreshment on arrival, Breakfast, Dinner",
+      "Complimentary two bottles of mineral water in the room replenished daily.",
+      "Fruit Baskets & Bakery Products on arrival",
+      "Tea/coffee maker in the room",
+      "Cultural program every alternate evening",
+      "Slide show/Wild life movie every alternate evening",
+      "Complimentary Wi-Fi.",
+      "Complimentary uses of Swimming Pool",
     ],
     exclusions: [
-      "International / Domestic Flights",
-      "Visas & Processing Fees",
-      "Personal Laundry & Extras",
-      "Tips and Driver Gratuities",
-    ],
-  },
-  {
-    id: "pkg-3",
-    title: "Ladakh Adventure & Heights",
-    location: "Ladakh, India",
-    duration: "8 Days / 7 Nights",
-    price: "₹29,999",
-    image:
-      "https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Drive on the world's highest motorable roads, gaze at the mystical blue waters of Pangong Lake, and discover centuries-old Buddhist monasteries.",
-    highlights: [
-      "Pangong Lake Luxury Camping",
-      "Khardung La Pass Crossing",
-      "Hemis Monastery Visit",
-    ],
-    category: "religious",
-    itinerary: [
-      {
-        title: "Leh Airport Arrival & Acclimatization",
-        details:
-          "Fly to Leh. Day strictly reserved for resting and acclimating to the high altitude (3,500m). Walk around the local Leh market in the evening.",
-      },
-      {
-        title: "Leh City Heritage & Monastery Tour",
-        details:
-          "Visit Hall of Fame, Shanti Stupa, Sangam (confluence of Indus and Zanskar rivers), Magnetic Hill, and Pathar Sahib Gurudwara.",
-      },
-      {
-        title: "Leh to Nubra Valley via Khardung La",
-        details:
-          "Drive through the world's highest motorable pass, Khardung La (5,359m). Arrive at Nubra Valley, enjoy a double-humped camel safari at Hunder Sand Dunes.",
-      },
-      {
-        title: "Nubra Valley to Pangong Lake via Shyok",
-        details:
-          "Travel to the famous high-altitude Pangong Lake. Witness the changing shades of the lake's blue water. Spend the night at a luxury lakeside camp.",
-      },
-      {
-        title: "Pangong Lake to Leh via Chang La",
-        details:
-          "Wake up to a beautiful sunrise by the lake. Drive back to Leh via the high-altitude Chang La pass. Shop for local souvenirs in the evening.",
-      },
-      {
-        title: "Leh Adventure Excursion",
-        details:
-          "A day for optional adventure activities: river rafting in Indus River or exploring Shey and Thiksey monasteries.",
-      },
-      {
-        title: "Leh to Delhi Departure",
-        details:
-          "Transfer to Kushok Bakula Rimpochee Airport for flight back to Delhi, concluding your Himalayan tour.",
-      },
-    ],
-    inclusions: [
-      "Luxury Stays & Resorts",
-      "Airport Pick-up & Transfers",
-      "Daily Buffet Breakfasts",
-      "Private Guided Excursions",
-    ],
-    exclusions: [
-      "International / Domestic Flights",
-      "Visas & Processing Fees",
-      "Personal Laundry & Extras",
-      "Tips and Driver Gratuities",
-    ],
-  },
-  {
-    id: "pkg-4",
-    title: "Goa Sunkissed Coastal Retreat",
-    location: "Goa, India",
-    duration: "4 Days / 3 Nights",
-    price: "₹12,999",
-    image:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-    description:
-      "Unwind on golden sands, enjoy exciting water sports, explore historic Portuguese churches, and sample mouthwatering Konkani culinary delights.",
-    highlights: ["North Goa Beach Hopping", "Dudhsagar Waterfalls Tour", "Mandovi River Cruise"],
-    category: "girls-tours",
-    itinerary: [
-      {
-        title: "Arrival in Goa & Beachside Sunset",
-        details:
-          "Arrive at Manohar International Airport (MOPA) and transfer to your beachfront resort. Spend the evening relaxing on Calangute Beach or enjoying a beach shack dinner.",
-      },
-      {
-        title: "North Goa Sightseeing & Water Sports",
-        details:
-          "Explore historic Fort Aguada, Chapora Fort, and participate in exciting water sports like parasailing and jet-skiing at Baga Beach.",
-      },
-      {
-        title: "Dudhsagar Waterfalls & Spice Plantation Tour",
-        details:
-          "Embark on an early morning jeep safari to the majestic Dudhsagar Waterfalls, followed by a traditional buffet lunch at a spice plantation.",
-      },
-      {
-        title: "Goa Departure",
-        details:
-          "Transfer back to the airport for your flight home, bringing back beautiful coastal memories.",
-      },
-    ],
-    inclusions: [
-      "Luxury Stays & Resorts",
-      "Airport Pick-up & Transfers",
-      "Daily Buffet Breakfasts",
-      "Private Guided Excursions",
-    ],
-    exclusions: [
-      "International / Domestic Flights",
-      "Visas & Processing Fees",
-      "Personal Laundry & Extras",
-      "Tips and Driver Gratuities",
+      "Lunch",
+      "Any meals during transit/road journey",
+      "Additional transport expenses in case of road blocked due to snow",
+      "Any other personal expenses, tips, taxes",
+      "Anything not mentioned above inclusions",
     ],
   },
 ];

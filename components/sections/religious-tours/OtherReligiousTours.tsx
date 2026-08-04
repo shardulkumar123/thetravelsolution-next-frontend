@@ -17,11 +17,11 @@ export const OtherReligiousTours: React.FC<OtherReligiousToursProps> = ({ onBook
             variant="h2"
             className="text-text-primary font-extrabold tracking-tight text-3xl md:text-4xl"
           >
-            Other Sacred Journeys
+            Our Sacred Pilgrimage Packages
           </Heading>
           <Text variant="body-md" color="text-secondary" className="leading-relaxed mt-3">
-            Explore historical temples, pristine rivers, and architectural heritage across
-            India&apos;s holiest destinations.
+            Choose from our meticulously curated Char Dham and Do Dham tour itineraries, complete
+            with comfortable lodging, experienced drivers, and transit assistance.
           </Text>
         </div>
 

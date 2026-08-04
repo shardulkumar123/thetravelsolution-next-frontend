@@ -17,6 +17,8 @@ import { Compass, Heart, ShieldCheck } from "lucide-react";
 import { sendWhatsAppMessage } from "@/utils/whatsapp";
 
 import { DOMESTIC_PACKAGES, TRIP_INTEL } from "@/constants/packages/domestic";
+import { HONEYMOON_PACKAGES } from "@/constants/packages/honeymoon";
+import { OTHER_RELIGIOUS_TOURS } from "@/constants/packages/religious";
 
 export default function DomesticToursPage() {
   const [bookingPackageName, setBookingPackageName] = useState<string | null>(null);
@@ -31,7 +33,13 @@ export default function DomesticToursPage() {
     notes: "",
   });
 
-  const filteredPackages = DOMESTIC_PACKAGES.filter(
+  const ALL_DOMESTIC_PACKAGES = [
+    ...DOMESTIC_PACKAGES,
+    ...OTHER_RELIGIOUS_TOURS.map((pkg) => ({ ...pkg, category: "religious" })),
+    ...HONEYMOON_PACKAGES.map((pkg) => ({ ...pkg, category: "honeymoon" })),
+  ];
+
+  const filteredPackages = ALL_DOMESTIC_PACKAGES.filter(
     (pkg) => activeCategory === "all" || (pkg as { category?: string }).category === activeCategory
   );
 
@@ -133,7 +141,7 @@ Notes: ${bookingForm.notes || "None"}`;
                 { id: "all", label: "All Tours" },
                 { id: "religious", label: "Religious Packages" },
                 { id: "honeymoon", label: "Honeymoon Packages" },
-                { id: "girls-tours", label: "Girls Tours" },
+                { id: "adventure", label: "Adventure Packages" },
               ].map((category) => (
                 <button
                   key={category.id}
